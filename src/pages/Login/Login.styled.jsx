@@ -2,20 +2,48 @@
 import styled from "styled-components";
 import pill from "../../assets/svg/pill.svg";
 import elements from "../../assets/svg/elements.svg";
+import logo from "../../assets/svg/logo.svg";
 
 export const MainContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
-  background: #1d1e21;
+  background: var(--background-dark);
 `;
 
 export const LoginContainer = styled.div`
   position: relative;
   width: 1440px;
   height: 800px;
-  background: #f7f8fa;
-  overflow: hidden; /* добавлено */
+  background: var(--background-light);
+  overflow: hidden; /* ensures the elements don't go outside the container */
+`;
+
+export const LogoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  width: 172px;
+  height: 44px;
+  left: 100px;
+  top: 28px;
+`;
+
+export const LogoImage = styled.div`
+  width: 44px;
+  height: 44px;
+  background: url(${logo}) no-repeat center center;
+  background-size: contain;
+`;
+
+export const LogoText = styled.div`
+  margin-left: 14px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--background-dark);
 `;
 
 export const PillImage = styled.div`
@@ -36,6 +64,7 @@ export const ElementsImage = styled.div`
   top: 543px;
   background: url(${elements}) no-repeat center center;
   background-size: contain;
+  overflow: hidden; /* ensures only the part within the container is visible */
 `;
 
 export const Title = styled.h1`
@@ -45,11 +74,10 @@ export const Title = styled.h1`
   left: 100px;
   top: 298px;
   font-family: "Inter", sans-serif;
-  font-style: normal;
   font-weight: 600;
   font-size: 54px;
   line-height: 60px;
-  color: #1d1e21;
+  color: var(--background-dark);
 `;
 
 export const LoginForm = styled.form`
@@ -67,24 +95,24 @@ export const Input = styled.input`
   height: 44px;
   margin-bottom: 20px;
   padding: 13px 18px;
-  background: #ffffff;
-  border: 1px solid rgba(29, 30, 33, 0.1);
+  background: var(--background-white);
+  border: 1px solid var(--label-color);
   border-radius: 60px;
   font-family: "Inter", sans-serif;
   font-size: 12px;
   line-height: 18px;
-  color: rgba(29, 30, 33, 0.4);
+  color: var(--label-color);
 `;
 
 export const Button = styled.button`
   width: 323px;
   height: 44px;
-  background: #59b17a;
+  background: var(--accent-green);
   border-radius: 60px;
   font-family: "Inter", sans-serif;
   font-size: 14px;
   line-height: 18px;
-  color: #ffffff;
+  color: var(--background-white);
   display: flex;
   justify-content: center;
   align-items: center;

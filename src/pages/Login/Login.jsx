@@ -14,6 +14,9 @@ import {
   Title,
   PillImage,
   ElementsImage,
+  LogoContainer,
+  LogoImage,
+  LogoText,
 } from "./Login.styled";
 
 const Login = () => {
@@ -40,6 +43,10 @@ const Login = () => {
   return (
     <MainContainer>
       <LoginContainer>
+        <LogoContainer>
+          <LogoImage />
+          <LogoText>E-Pharmacy</LogoText>
+        </LogoContainer>
         <Title>
           Your medication, delivered Say goodbye to all your healthcare worries
           with us
