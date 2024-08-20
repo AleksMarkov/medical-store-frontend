@@ -5,6 +5,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { loginSchema } from "../../schemas/loginSchema";
+import {
+  MainContainer,
+  LoginContainer,
+  LoginForm,
+  Input,
+  Button,
+  Title,
+  PillImage,
+  ElementsImage,
+} from "./Login.styled";
 
 const Login = () => {
   const {
@@ -28,13 +38,31 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="email" placeholder="Email" {...register("email")} />
-      {errors.email && <p>{errors.email.message}</p>}
-      <input type="password" placeholder="Пароль" {...register("password")} />
-      {errors.password && <p>{errors.password.message}</p>}
-      <button type="submit">Log In Now</button>
-    </form>
+    <MainContainer>
+      <LoginContainer>
+        <Title>
+          Your medication, delivered Say goodbye to all your healthcare worries
+          with us
+        </Title>
+        <LoginForm onSubmit={handleSubmit(onSubmit)}>
+          <Input
+            type="email"
+            placeholder="Email address"
+            {...register("email")}
+          />
+          {errors.email && <p>{errors.email.message}</p>}
+          <Input
+            type="password"
+            placeholder="Password"
+            {...register("password")}
+          />
+          {errors.password && <p>{errors.password.message}</p>}
+          <Button type="submit">Log In</Button>
+        </LoginForm>
+        <PillImage />
+        <ElementsImage />
+      </LoginContainer>
+    </MainContainer>
   );
 };
 
