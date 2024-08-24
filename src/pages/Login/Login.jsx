@@ -1,10 +1,11 @@
 //Login.jsx
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { loginSchema } from "../../schemas/loginSchema";
+import { AuthContext } from "../../context/AuthContext";
 import {
   MainContainer,
   LoginContainer,
@@ -29,11 +30,14 @@ const Login = () => {
   });
 
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   const onSubmit = async (data) => {
     try {
       const response = await api.post("/user/login", data);
-      localStorage.setItem("token", response.data.token);
+      const token = response.data.accessToken;
+      localStorage.setItem("accessToken", token);
+      login(token);
       navigate("/dashboard");
     } catch (error) {
       console.error("Ошибка входа", error);
@@ -54,13 +58,17 @@ const Login = () => {
         <LoginForm onSubmit={handleSubmit(onSubmit)}>
           <Input
             type="email"
+            name="email"
             placeholder="Email address"
+            autoComplete="username"
             {...register("email")}
           />
           {errors.email && <p>{errors.email.message}</p>}
           <Input
             type="password"
+            name="password"
             placeholder="Password"
+            autoComplete="current-password"
             {...register("password")}
           />
           {errors.password && <p>{errors.password.message}</p>}

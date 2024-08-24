@@ -10,24 +10,23 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if the user is already logged in by checking the localStorage
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("accessToken");
     if (token) {
-      // Here you would usually verify the token by sending a request to the backend
-      setUser({ token }); // For simplicity, we're just setting the user with the token
+      setUser({ token });
     }
     setLoading(false);
   }, []);
 
-  const login = (token) => {
-    setUser({ token });
-    localStorage.setItem("token", token);
+  const login = (accessToken) => {
+    setUser({ accessToken });
+    localStorage.setItem("accessToken", accessToken);
+    // Navigate to the last known route or default to "/dashboard"
     navigate("/dashboard");
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("token");
+    localStorage.removeItem("accessToken");
     navigate("/login");
   };
 
