@@ -19,7 +19,7 @@ import suppliersIconOff from "../../assets/svg/suppliersOff.svg";
 import customersIconOn from "../../assets/svg/customersOn.svg";
 import customersIconOff from "../../assets/svg/customersOff.svg";
 
-const Sidebar = () => {
+const Sidebar = ({ setActivePage }) => {
   const location = useLocation();
 
   const menuItems = [
@@ -59,7 +59,11 @@ const Sidebar = () => {
     <SidebarContainer>
       <Menu>
         {menuItems.map((item) => (
-          <MenuItem key={item.label} isActive={location.pathname === item.path}>
+          <MenuItem
+            key={item.label}
+            isActive={location.pathname === item.path}
+            onClick={() => setActivePage(item.label)}
+          >
             <Link to={item.path}>
               <IconWrapper
                 src={
