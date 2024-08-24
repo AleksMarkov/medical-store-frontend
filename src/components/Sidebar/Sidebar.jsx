@@ -1,5 +1,6 @@
 //Sidebar.jsx
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   SidebarContainer,
   Menu,
@@ -18,30 +19,37 @@ import suppliersIconOff from "../../assets/svg/suppliersOff.svg";
 import customersIconOn from "../../assets/svg/customersOn.svg";
 import customersIconOff from "../../assets/svg/customersOff.svg";
 
-const Sidebar = ({ activePage, setActivePage }) => {
+const Sidebar = () => {
+  const location = useLocation();
+
   const menuItems = [
     {
+      path: "/dashboard",
       label: "Dashboard",
       iconOn: dashboardIconOn,
       iconOff: dashboardIconOff,
     },
     {
-      label: "All orders",
+      path: "/orders",
+      label: "Orders",
       iconOn: shoppingCartIconOn,
       iconOff: shoppingCartIconOff,
     },
     {
-      label: "All products",
+      path: "/products",
+      label: "Products",
       iconOn: productsIconOn,
       iconOff: productsIconOff,
     },
     {
-      label: "All suppliers",
+      path: "/suppliers",
+      label: "Suppliers",
       iconOn: suppliersIconOn,
       iconOff: suppliersIconOff,
     },
     {
-      label: "All customers",
+      path: "/customers",
+      label: "Customers",
       iconOn: customersIconOn,
       iconOff: customersIconOff,
     },
@@ -51,15 +59,15 @@ const Sidebar = ({ activePage, setActivePage }) => {
     <SidebarContainer>
       <Menu>
         {menuItems.map((item) => (
-          <MenuItem
-            key={item.label}
-            isActive={activePage === item.label}
-            onClick={() => setActivePage(item.label)}
-          >
-            <IconWrapper
-              src={activePage === item.label ? item.iconOn : item.iconOff}
-              alt={item.label}
-            />
+          <MenuItem key={item.label} isActive={location.pathname === item.path}>
+            <Link to={item.path}>
+              <IconWrapper
+                src={
+                  location.pathname === item.path ? item.iconOn : item.iconOff
+                }
+                alt={item.label}
+              />
+            </Link>
           </MenuItem>
         ))}
       </Menu>

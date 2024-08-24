@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const SidebarContainer = styled.div`
   width: 80px;
-  height: 680px;
+  height: 100%;
   padding-top: 40px;
   display: flex;
   flex-direction: column;
@@ -21,11 +21,8 @@ export const Menu = styled.div`
   align-items: flex-start;
   padding: 0px;
   gap: 14px;
-  position: absolute;
+  position: relative;
   width: 44px;
-  height: 276px;
-  left: 18px;
-  top: 119px;
 `;
 
 export const MenuItem = styled.div`
