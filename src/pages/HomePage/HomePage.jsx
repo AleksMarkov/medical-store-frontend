@@ -33,7 +33,7 @@ const HomePage = () => {
     <MainContainer>
       <Header activePage={activePage} />
       <BodyContainer>
-        <Sidebar setActivePage={setActivePage} />
+        <Sidebar activePage={activePage} setActivePage={setActivePage} />
         {renderContent()}
       </BodyContainer>
     </MainContainer>

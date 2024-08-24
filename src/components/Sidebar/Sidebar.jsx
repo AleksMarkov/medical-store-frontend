@@ -7,31 +7,61 @@ import {
   IconWrapper,
 } from "./Sidebar.styled";
 
-import dashboardIcon from "../../assets/svg/dashboard.svg";
-import shoppingCartIcon from "../../assets/svg/shopping-cart.svg";
-import productsIcon from "../../assets/svg/products.svg";
-import suppliersIcon from "../../assets/svg/suppliers.svg";
-import customersIcon from "../../assets/svg/customers.svg";
+import dashboardIconOn from "../../assets/svg/dashboardOn.svg";
+import dashboardIconOff from "../../assets/svg/dashboardOff.svg";
+import shoppingCartIconOn from "../../assets/svg/shopping-cartOn.svg";
+import shoppingCartIconOff from "../../assets/svg/shopping-cartOff.svg";
+import productsIconOn from "../../assets/svg/productsOn.svg";
+import productsIconOff from "../../assets/svg/productsOff.svg";
+import suppliersIconOn from "../../assets/svg/suppliersOn.svg";
+import suppliersIconOff from "../../assets/svg/suppliersOff.svg";
+import customersIconOn from "../../assets/svg/customersOn.svg";
+import customersIconOff from "../../assets/svg/customersOff.svg";
 
-const Sidebar = ({ setActivePage }) => {
+const Sidebar = ({ activePage, setActivePage }) => {
+  const menuItems = [
+    {
+      label: "Dashboard",
+      iconOn: dashboardIconOn,
+      iconOff: dashboardIconOff,
+    },
+    {
+      label: "All orders",
+      iconOn: shoppingCartIconOn,
+      iconOff: shoppingCartIconOff,
+    },
+    {
+      label: "All products",
+      iconOn: productsIconOn,
+      iconOff: productsIconOff,
+    },
+    {
+      label: "All suppliers",
+      iconOn: suppliersIconOn,
+      iconOff: suppliersIconOff,
+    },
+    {
+      label: "All customers",
+      iconOn: customersIconOn,
+      iconOff: customersIconOff,
+    },
+  ];
+
   return (
     <SidebarContainer>
       <Menu>
-        <MenuItem onClick={() => setActivePage("Dashboard")}>
-          <IconWrapper src={dashboardIcon} alt="Dashboard" />
-        </MenuItem>
-        <MenuItem onClick={() => setActivePage("All orders")}>
-          <IconWrapper src={shoppingCartIcon} alt="All orders" />
-        </MenuItem>
-        <MenuItem onClick={() => setActivePage("All products")}>
-          <IconWrapper src={productsIcon} alt="All products" />
-        </MenuItem>
-        <MenuItem onClick={() => setActivePage("All suppliers")}>
-          <IconWrapper src={suppliersIcon} alt="All suppliers" />
-        </MenuItem>
-        <MenuItem onClick={() => setActivePage("All customers")}>
-          <IconWrapper src={customersIcon} alt="All customers" />
-        </MenuItem>
+        {menuItems.map((item) => (
+          <MenuItem
+            key={item.label}
+            isActive={activePage === item.label}
+            onClick={() => setActivePage(item.label)}
+          >
+            <IconWrapper
+              src={activePage === item.label ? item.iconOn : item.iconOff}
+              alt={item.label}
+            />
+          </MenuItem>
+        ))}
       </Menu>
     </SidebarContainer>
   );

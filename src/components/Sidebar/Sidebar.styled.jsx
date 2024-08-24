@@ -31,10 +31,7 @@ export const Menu = styled.div`
 export const MenuItem = styled.div`
   width: 44px;
   height: 44px;
-  background-color: ${({ isActive }) =>
-    isActive ? "var(--accent-btn)" : "var(--background-white)"};
-  color: ${({ isActive }) =>
-    isActive ? "var(--accent-green)" : "var(--background-gray)"};
+  background-color: var(--background-white);
   border-radius: 22px;
   display: flex;
   justify-content: center;
@@ -44,36 +41,9 @@ export const MenuItem = styled.div`
   box-shadow: 0px -1px 7px rgba(71, 71, 71, 0.05);
 
   &:hover {
-    color: var(--accent-green);
-  }
-
-  &:active {
-    color: var(--accent-green);
+    background-color: var(--background-accent-light);
   }
 `;
-
-// export const MenuItem = styled.div`
-//   width: 44px;
-//   height: 44px;
-//   background-color: var(--background-white);
-//   color: var(--background-gray);
-//   border-radius: 22px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   cursor: pointer;
-//   border: none;
-//   box-shadow: 0px -1px 7px rgba(71, 71, 71, 0.05);
-
-//   &:hover {
-//     // background-color: var(--background-white);
-//     color: var(--accent-green);
-//   }
-
-//   &:active {
-//     color: var(--accent-green);
-//   }
-// `;
 
 export const IconWrapper = styled.img`
   width: 16px;
