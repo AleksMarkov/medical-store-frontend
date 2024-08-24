@@ -1,12 +1,13 @@
 //Suppliers.jsx
 import React from "react";
+import { DashContainer } from "./Suppliers.styled";
 
 const Suppliers = () => {
   return (
-    <div>
-      <h1>Welcome to the Suppliers</h1>
+    <DashContainer>
+      Welcome to the Suppliers
       {/* Add your Suppliers content here */}
-    </div>
+    </DashContainer>
   );
 };
 

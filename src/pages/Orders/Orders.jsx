@@ -1,12 +1,13 @@
 // Orders.jsx
 import React from "react";
+import { DashContainer } from "./Orders.styled";
 
 const Orders = () => {
   return (
-    <div>
-      <h1>Welcome to the Orders</h1>
+    <DashContainer>
+      Welcome to the Orders
       {/* Add your Orders content here */}
-    </div>
+    </DashContainer>
   );
 };
 

@@ -13,23 +13,23 @@ import productsIcon from "../../assets/svg/products.svg";
 import suppliersIcon from "../../assets/svg/suppliers.svg";
 import customersIcon from "../../assets/svg/customers.svg";
 
-const Sidebar = () => {
+const Sidebar = ({ setActivePage }) => {
   return (
     <SidebarContainer>
       <Menu>
-        <MenuItem>
+        <MenuItem onClick={() => setActivePage("Dashboard")}>
           <IconWrapper src={dashboardIcon} alt="Dashboard" />
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={() => setActivePage("All orders")}>
           <IconWrapper src={shoppingCartIcon} alt="All orders" />
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={() => setActivePage("All products")}>
           <IconWrapper src={productsIcon} alt="All products" />
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={() => setActivePage("All suppliers")}>
           <IconWrapper src={suppliersIcon} alt="All suppliers" />
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={() => setActivePage("All customers")}>
           <IconWrapper src={customersIcon} alt="All customers" />
         </MenuItem>
       </Menu>

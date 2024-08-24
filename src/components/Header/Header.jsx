@@ -14,7 +14,7 @@ import {
 import logo from "../../assets/svg/logo.svg";
 import logoutIcon from "../../assets/svg/logout.svg";
 
-const Header = () => {
+const Header = ({ activePage }) => {
   return (
     <HeaderContainer>
       <LogoWrapper>
@@ -23,7 +23,7 @@ const Header = () => {
       <HeaderBlock>
         <SubHeader>
           <HeaderTitle>Medicine Store</HeaderTitle>
-          <Divider>Dashboard | vendor@gmail.com</Divider>
+          <Divider>{activePage} | vendor@gmail.com</Divider>
         </SubHeader>
         <LogoutButton>
           <LogoutIcon src={logoutIcon} alt="Logout" />
