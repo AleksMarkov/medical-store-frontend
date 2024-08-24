@@ -2,16 +2,17 @@
 import styled from "styled-components";
 
 export const SidebarContainer = styled.div`
-  box-sizing: border-box;
-  position: absolute;
   width: 80px;
-  height: 721px;
-  left: 0px;
-  top: 79px;
-  background: #f7f8fa;
+  height: 680px;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--background-light);
   border-width: 1px 1px 0px 0px;
   border-style: solid;
-  border-color: rgba(29, 30, 33, 0.1);
+  border-color: var(--border-color);
 `;
 
 export const Menu = styled.div`
@@ -30,23 +31,27 @@ export const Menu = styled.div`
 export const MenuItem = styled.div`
   width: 44px;
   height: 44px;
-  background: #ffffff;
-  box-shadow: 0px -1px 7px rgba(71, 71, 71, 0.05);
-  position: relative;
-  cursor: pointer;
-
-  &:hover {
-    background: #e0e0e0;
-  }
-`;
-
-export const IconWrapper = styled.div`
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  left: 14px;
-  top: 14px;
+  background-color: var(--background-white);
+  color: var(--background-gray);
+  border-radius: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px -1px 7px rgba(71, 71, 71, 0.05);
+
+  &:hover {
+    // background-color: var(--background-white);
+    color: var(--accent-green);
+  }
+
+  &:active {
+    color: var(--accent-green);
+  }
+`;
+
+export const IconWrapper = styled.img`
+  width: 16px;
+  height: 16px;
 `;

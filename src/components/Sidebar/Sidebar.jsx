@@ -18,29 +18,19 @@ const Sidebar = () => {
     <SidebarContainer>
       <Menu>
         <MenuItem>
-          <IconWrapper>
-            <img src={dashboardIcon} alt="Dashboard" />
-          </IconWrapper>
+          <IconWrapper src={dashboardIcon} alt="Dashboard" />
         </MenuItem>
         <MenuItem>
-          <IconWrapper>
-            <img src={shoppingCartIcon} alt="Orders" />
-          </IconWrapper>
+          <IconWrapper src={shoppingCartIcon} alt="All orders" />
         </MenuItem>
         <MenuItem>
-          <IconWrapper>
-            <img src={productsIcon} alt="Products" />
-          </IconWrapper>
+          <IconWrapper src={productsIcon} alt="All products" />
         </MenuItem>
         <MenuItem>
-          <IconWrapper>
-            <img src={suppliersIcon} alt="Suppliers" />
-          </IconWrapper>
+          <IconWrapper src={suppliersIcon} alt="All suppliers" />
         </MenuItem>
         <MenuItem>
-          <IconWrapper>
-            <img src={customersIcon} alt="Customers" />
-          </IconWrapper>
+          <IconWrapper src={customersIcon} alt="All customers" />
         </MenuItem>
       </Menu>
     </SidebarContainer>

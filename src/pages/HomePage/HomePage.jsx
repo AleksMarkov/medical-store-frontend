@@ -3,30 +3,22 @@ import React from "react";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Dashboard from "../Dashboard/Dashboard";
+import Orders from "../Orders/Orders";
+import Products from "../Products/Products";
+import Suppliers from "../Suppliers/Suppliers";
+import Customers from "../Customers/Customers";
+import { MainContainer, BodyContainer } from "./HomePage.styled";
 
 const HomePage = () => {
   return (
-    <div>
+    <MainContainer>
       <Header />
-      <Sidebar />
-      <Dashboard />
-    </div>
+      <BodyContainer>
+        <Sidebar />
+        <Dashboard />
+      </BodyContainer>
+    </MainContainer>
   );
 };
 
 export default HomePage;
-// return isLoading ? (
-//   <Loader />
-// ) : (
-//   <Container>
-//     <Sidebar showSidebar={showSidebar} />
-//     <MainContainer>
-//       <Header openSidebar={openSidebar} showSidebar={showSidebar} />
-//       {boards.length > 0 && !currentBoard._id && (
-//         <Navigate to={`/home/${boards[0]._id}`} />
-//       )}
-//       {boards.length > 0 && <Outlet />}
-//       {!boards.length && <HomePageText />}
-//     </MainContainer>
-//   </Container>
-// );

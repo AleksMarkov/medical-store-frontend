@@ -74,6 +74,10 @@ export const LogoutButton = styled.button`
   cursor: pointer;
   border: none;
   box-shadow: 0px -1px 7px rgba(71, 71, 71, 0.05);
+
+  &:hover {
+    background-color: var(--accent-btn);
+  }
 `;
 
 export const LogoutIcon = styled.img`

@@ -1,12 +1,13 @@
 // Dashboard.jsx
 import React from "react";
+import { DashContainer } from "./Dashboard.styled";
 
 const Dashboard = () => {
   return (
-    <div>
-      <h1>Welcome to the Dashboard</h1>
+    <DashContainer>
+      Welcome to the Dashboard
       {/* Add your dashboard content here */}
-    </div>
+    </DashContainer>
   );
 };
 

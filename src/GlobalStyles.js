@@ -3,9 +3,11 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 :root {
-  --label-color: rgba(29, 30, 33, 0.4); // Based on Figma labels
+  --label-color: rgba(29, 30, 33, 0.4); 
+  --border-color: rgba(29, 30, 33, 0.1); 
   --background-dark: #1D1E21; // Dark background color
   --accent-green: #59B17A; // Green accent color
+  --accent-btn: #3F945F; //Green button accent
   --background-light: #F7F8FA; // Light background
   --background-white: #FFFFFF; // White background
   --background-gray: #DCDDDF; // Gray background
