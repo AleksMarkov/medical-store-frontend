@@ -6,7 +6,7 @@ import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 
 const Login = lazy(() => import("./pages/Login/Login"));
-const Dashboard = lazy(() => import("./pages/Dashboard/Dashboard"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/login" element={<PublicRoute element={Login} />} />
         <Route
           path="/dashboard/*"
-          element={<PrivateRoute element={Dashboard} />}
+          element={<PrivateRoute element={HomePage} />}
         />
         {/* other routes */}
         <Route path="*" element={<Navigate to="/login" />} />
