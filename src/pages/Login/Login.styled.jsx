@@ -22,6 +22,20 @@ export const LoginContainer = styled.div`
   padding-top: 28px;
   padding-left: 100px;
   gap: 226px;
+
+  @media (max-width: 1440px) {
+    width: 736px;
+    height: 1000px;
+    padding-top: 24px;
+    padding-left: 32px;
+    gap: 204px;
+  }
+
+  @media (max-width: 768px) {
+    // width: 335px;
+    // height: 382px;
+    // padding: 40px 20px;
+  }
 `;
 
 export const LogoContainer = styled.div`
@@ -60,6 +74,17 @@ export const PillImage = styled.div`
   top: 190px;
   background: url(${pill}) no-repeat center center;
   background-size: contain;
+
+  @media (max-width: 1440px) {
+    left: 448px;
+    top: 164px;
+  }
+
+  @media (max-width: 768px) {
+    // width: 335px;
+    // height: 382px;
+    // padding: 40px 20px;
+  }
 `;
 
 export const ElementsImage = styled.div`
@@ -71,7 +96,19 @@ export const ElementsImage = styled.div`
   background: url(${elements}) no-repeat center center;
   background-size: contain;
   overflow: hidden;
+
+  @media (max-width: 1440px) {
+    left: 467px;
+    top: 780px;
+  }
+
+  @media (max-width: 768px) {
+    // width: 335px;
+    // height: 382px;
+    // padding: 40px 20px;
+  }
 `;
+
 export const BodyContainer = styled.div`
   width: 1087px;
   height: 240px;
@@ -80,6 +117,17 @@ export const BodyContainer = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   gap: 150px;
+
+  @media (max-width: 1440px) {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  @media (max-width: 768px) {
+    // width: 335px;
+    // height: 382px;
+    // padding: 40px 20px;
+  }
 `;
 
 export const Title = styled.h1`
