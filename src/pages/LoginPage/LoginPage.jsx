@@ -37,8 +37,9 @@ const LoginPage = () => {
     try {
       const response = await api.post("/user/login", data);
       const token = response.data.accessToken;
+      const user = response.data.user;
       localStorage.setItem("accessToken", token);
-      login(token);
+      login(token, user);
       navigate("/dashboard");
     } catch (error) {
       console.error("Ошибка входа", error);

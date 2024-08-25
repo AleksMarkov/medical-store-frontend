@@ -11,22 +11,24 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
-    if (token) {
-      setUser({ token });
+    const storedUser = localStorage.getItem("user");
+    if (token && storedUser) {
+      setUser(JSON.parse(storedUser)); // Parse stored user data
     }
     setLoading(false);
   }, []);
 
-  const login = (accessToken) => {
-    setUser({ accessToken });
+  const login = (accessToken, userDetails) => {
+    setUser(userDetails);
     localStorage.setItem("accessToken", accessToken);
-    // Navigate to the last known route or default to "/dashboard"
+    localStorage.setItem("user", JSON.stringify(userDetails)); // Store user details
     navigate("/dashboard");
   };
 
   const logout = () => {
     setUser(null);
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("user");
     navigate("/login");
   };
 
