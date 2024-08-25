@@ -22,13 +22,14 @@ export const SidebarContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     background-color: var(--background-light);
   }
 
   @media (max-width: 768px) {
     width: 78px;
     height: 812px;
+    justify-content: space-between;
   }
 `;
 
@@ -96,5 +97,52 @@ export const CloseButton = styled.div`
     left: 32px;
     gap: 0px;
     opacity: 0px;
+  }
+`;
+
+export const LogoutButton = styled.button`
+  @media (min-width: 1441px) {
+    display: none;
+  }
+
+  width: 44px;
+  height: 44px;
+  background-color: var(--accent-green);
+  border-radius: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px -1px 7px rgba(71, 71, 71, 0.05);
+
+  &:hover {
+    background-color: var(--accent-btn);
+  }
+
+  @media (max-width: 1440px) {
+  }
+
+  @media (max-width: 768px) {
+    width: 38px;
+    height: 38px;
+    border-radius: 19px;
+  }
+`;
+
+export const LogoutIcon = styled.img`
+  @media (min-width: 1441px) {
+    display: none;
+  }
+
+  @media (max-width: 1440px) {
+    width: 16px;
+    height: 16px;
+  }
+
+  @media (max-width: 768px) {
+    width: 16px;
+    height: 16px;
   }
 `;
