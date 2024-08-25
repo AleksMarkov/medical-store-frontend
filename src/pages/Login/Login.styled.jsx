@@ -2,6 +2,7 @@
 import styled from "styled-components";
 import pill from "../../assets/svg/pill.svg";
 import elements from "../../assets/svg/elements.svg";
+import elementsMob from "../../assets/svg/elementsMob.svg";
 import logo from "../../assets/svg/logo.svg";
 
 export const MainContainer = styled.div`
@@ -32,9 +33,11 @@ export const LoginContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    // width: 335px;
-    // height: 382px;
-    // padding: 40px 20px;
+    width: 355px;
+    height: 788px;
+    padding-top: 24px;
+    padding-left: 20px;
+    gap: 148px;
   }
 `;
 
@@ -81,9 +84,10 @@ export const PillImage = styled.div`
   }
 
   @media (max-width: 768px) {
-    // width: 335px;
-    // height: 382px;
-    // padding: 40px 20px;
+    width: 95px;
+    height: 93px;
+    left: 248px;
+    top: 164px;
   }
 `;
 
@@ -103,9 +107,11 @@ export const ElementsImage = styled.div`
   }
 
   @media (max-width: 768px) {
-    // width: 335px;
-    // height: 382px;
-    // padding: 40px 20px;
+    width: 235px;
+    height: 170px;
+    left: 140px;
+    top: 640px;
+    background: url(${elementsMob}) no-repeat left top;
   }
 `;
 
@@ -124,9 +130,12 @@ export const BodyContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    // width: 335px;
-    // height: 382px;
-    // padding: 40px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 40px;
+    width: 335px;
+    height: 362px;
   }
 `;
 
@@ -141,6 +150,14 @@ export const Title = styled.h1`
   span {
     color: var(--accent-green);
   }
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+    line-height: 34px;
+    text-align: left;
+    width: 335px;
+    height: 136px;
+  }
 `;
 
 export const LoginForm = styled.form`
@@ -151,6 +168,11 @@ export const LoginForm = styled.form`
   align-items: flex-start;
   justify-content: flex-start;
   gap: 14px;
+
+  @media (max-width: 768px) {
+    width: 335px;
+    height: 186px;
+  }
 `;
 
 export const Input = styled.input`
@@ -163,6 +185,11 @@ export const Input = styled.input`
   font-size: 12px;
   line-height: 18px;
   color: var(--label-color);
+
+  @media (max-width: 768px) {
+    width: 299px;
+    height: 18px;
+  }
 `;
 
 export const Button = styled.button`
@@ -180,4 +207,8 @@ export const Button = styled.button`
   align-items: center;
   cursor: pointer;
   border: none;
+
+  @media (max-width: 768px) {
+    width: 335px;
+  }
 `;
