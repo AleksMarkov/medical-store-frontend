@@ -54,7 +54,7 @@ const SharedLayout = () => {
 
   return (
     <MainContainer>
-      <Header activePage={activePage} />
+      <Header activePage={activePage} setActivePage={setActivePage} />
       <BodyContainer>
         {showSidebar && <Sidebar setActivePage={setActivePage} />}
         <Outlet />

@@ -1,12 +1,14 @@
 //BurgerMenu.jsx
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   SidebarContainer,
   Menu,
   MenuItem,
   IconWrapper,
+  CloseButton,
 } from "./BurgerMenu.styled";
+import closeIcon from "../../assets/svg/close.svg";
 
 import dashboardIconOn from "../../assets/svg/dashboardOn.svg";
 import dashboardIconOff from "../../assets/svg/dashboardOff.svg";
@@ -19,8 +21,31 @@ import suppliersIconOff from "../../assets/svg/suppliersOff.svg";
 import customersIconOn from "../../assets/svg/customersOn.svg";
 import customersIconOff from "../../assets/svg/customersOff.svg";
 
-const BurgerMenu = ({ setActivePage }) => {
+const BurgerMenu = ({ setActivePage, onClose }) => {
   const location = useLocation();
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+
+    const handleEscKey = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscKey);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, [onClose]);
 
   const menuItems = [
     {
@@ -56,13 +81,19 @@ const BurgerMenu = ({ setActivePage }) => {
   ];
 
   return (
-    <SidebarContainer>
+    <SidebarContainer ref={menuRef}>
+      <CloseButton onClick={onClose}>
+        <img src={closeIcon} alt="Close" />
+      </CloseButton>
       <Menu>
         {menuItems.map((item) => (
           <MenuItem
             key={item.label}
             isActive={location.pathname === item.path}
-            onClick={() => setActivePage(item.label)}
+            onClick={() => {
+              setActivePage(item.label);
+              onClose();
+            }}
           >
             <Link to={item.path}>
               <IconWrapper

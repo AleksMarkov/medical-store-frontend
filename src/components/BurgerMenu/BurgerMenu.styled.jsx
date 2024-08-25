@@ -2,13 +2,18 @@
 import styled from "styled-components";
 
 export const SidebarContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
   @media (min-width: 1441px) {
-    display: none; /* Hide Sidebar */
+    display: none;
   }
 
   @media (max-width: 1440px) {
     width: 84px;
-    height: 1024px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,12 +23,7 @@ export const SidebarContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 78px;
-    height: 812px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: var(--background-light);
+    height: 100vh;
   }
 `;
 
@@ -31,7 +31,7 @@ export const Menu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px;
+  padding: 20px 0;
   gap: 14px;
   width: 44px;
 
@@ -70,4 +70,15 @@ export const IconWrapper = styled.img`
   @media (max-width: 768px) {
     width: 14px;
     height: 14px;
+  }
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
 `;

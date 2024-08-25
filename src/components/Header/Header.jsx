@@ -1,5 +1,5 @@
 //Header.jsx
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import {
   HeaderContainer,
   LogoWrapper,
@@ -13,6 +13,7 @@ import {
   BurgerImage,
 } from "./Header.styled";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import Modal from "../Modal/Modal";
 import burger from "../../assets/svg/burger.svg";
 import logo from "../../assets/svg/logo.svg";
 import logoutIcon from "../../assets/svg/logout.svg";
@@ -20,7 +21,8 @@ import api from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
-const Header = ({ activePage }) => {
+const Header = ({ activePage, setActivePage }) => {
+  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
@@ -43,9 +45,13 @@ const Header = ({ activePage }) => {
     }
   };
 
+  const toggleBurgerMenu = () => {
+    setIsBurgerMenuOpen(!isBurgerMenuOpen);
+  };
+
   return (
     <HeaderContainer>
-      <BurgerImage src={burger} alt="burger" />
+      <BurgerImage src={burger} alt="burger" onClick={toggleBurgerMenu} />
       <LogoWrapper onClick={handleLogoClick}>
         <LogoImage src={logo} alt="Logo" />
       </LogoWrapper>
@@ -60,6 +66,14 @@ const Header = ({ activePage }) => {
           <LogoutIcon src={logoutIcon} alt="Logout" />
         </LogoutButton>
       </HeaderBlock>
+      {isBurgerMenuOpen && (
+        <Modal>
+          <BurgerMenu
+            onClose={toggleBurgerMenu}
+            setActivePage={setActivePage}
+          />
+        </Modal>
+      )}
     </HeaderContainer>
   );
 };
