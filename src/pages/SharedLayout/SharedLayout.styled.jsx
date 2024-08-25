@@ -2,8 +2,8 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
-  width: 100%;
-  height: 100vh;
+  width: 1440px;
+  height: 800px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -14,7 +14,7 @@ export const MainContainer = styled.div`
 
 export const BodyContainer = styled.div`
   width: 100%;
-  height: calc(100vh - 80px); /* 80px - высота заголовка */
+  height: 721px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;

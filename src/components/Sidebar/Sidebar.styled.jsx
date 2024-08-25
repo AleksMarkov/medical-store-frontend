@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const SidebarContainer = styled.div`
   width: 80px;
-  height: 100%;
+  height: 681;
   padding-top: 40px;
   display: flex;
   flex-direction: column;

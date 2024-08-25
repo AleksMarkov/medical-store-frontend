@@ -64,10 +64,10 @@ export const PillImage = styled.div`
 
 export const ElementsImage = styled.div`
   position: absolute;
-  width: 464px;
-  height: 345px;
-  left: 1161px;
-  top: 543px;
+  width: 300px;
+  height: 270px;
+  left: 1140px;
+  top: 548px;
   background: url(${elements}) no-repeat center center;
   background-size: contain;
   overflow: hidden;
