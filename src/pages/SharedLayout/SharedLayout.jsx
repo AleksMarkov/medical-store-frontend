@@ -1,4 +1,4 @@
-//SharedLayout.jsx
+// SharedLayout.jsx
 import React, { useState, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "../../components/Header/Header";
@@ -8,9 +8,28 @@ import { MainContainer, BodyContainer } from "./SharedLayout.styled";
 const SharedLayout = () => {
   const location = useLocation();
   const [activePage, setActivePage] = useState("");
+  const [showSidebar, setShowSidebar] = useState(true);
 
   useEffect(() => {
-    // Обновляем состояние activePage в зависимости от текущего пути
+    const handleResize = () => {
+      if (window.innerWidth <= 1440 || window.innerWidth <= 768) {
+        setShowSidebar(false);
+      } else {
+        setShowSidebar(true);
+      }
+    };
+
+    // Check initial width
+    handleResize();
+
+    // Add event listener to handle resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     switch (location.pathname) {
       case "/dashboard":
         setActivePage("Dashboard");
@@ -37,7 +56,7 @@ const SharedLayout = () => {
     <MainContainer>
       <Header activePage={activePage} />
       <BodyContainer>
-        <Sidebar setActivePage={setActivePage} />
+        {showSidebar && <Sidebar setActivePage={setActivePage} />}
         <Outlet />
       </BodyContainer>
     </MainContainer>

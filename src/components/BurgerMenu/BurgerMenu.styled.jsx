@@ -1,25 +1,29 @@
-// Sidebar.styled.jsx
+//BurgerMenu.styled.jsx
 import styled from "styled-components";
 
 export const SidebarContainer = styled.div`
-  width: 80px;
-  height: 681px;
-  padding-top: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: var(--background-light);
-  border-width: 1px 1px 0px 0px;
-  border-style: solid;
-  border-color: var(--border-color);
-
-  @media (max-width: 1440px) {
+  @media (min-width: 1441px) {
     display: none; /* Hide Sidebar */
   }
 
+  @media (max-width: 1440px) {
+    width: 84px;
+    height: 1024px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--background-light);
+  }
+
   @media (max-width: 768px) {
-    display: none; /* Hide Sidebar */
+    width: 78px;
+    height: 812px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--background-light);
   }
 `;
 
@@ -29,8 +33,11 @@ export const Menu = styled.div`
   align-items: flex-start;
   padding: 0px;
   gap: 14px;
-  position: relative;
   width: 44px;
+
+  @media (max-width: 768px) {
+    width: 38px;
+  }
 `;
 
 export const MenuItem = styled.div`
@@ -48,9 +55,19 @@ export const MenuItem = styled.div`
   &:hover {
     background-color: var(--background-accent-light);
   }
+
+  @media (max-width: 768px) {
+    width: 38px;
+    height: 38px;
+    border-radius: 19px;
+  }
 `;
 
 export const IconWrapper = styled.img`
   width: 16px;
   height: 16px;
+
+  @media (max-width: 768px) {
+    width: 14px;
+    height: 14px;
 `;

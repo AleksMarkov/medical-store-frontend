@@ -2,7 +2,6 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
-  // position: relative;
   width: 1440px;
   height: 80px;
   background-color: var(--background-light);
@@ -10,6 +9,33 @@ export const HeaderContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+
+  @media (max-width: 1440px) {
+    width: 768px;
+  }
+
+  @media (max-width: 768px) {
+    width: 375px;
+  }
+`;
+export const BurgerImage = styled.img`
+  @media (min-width: 1441px) {
+    display: none;
+  }
+
+  @media (max-width: 1440px) {
+    width: 32px;
+    height: 32px;
+    padding-left: 32px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+    padding-left: 20px;
+    cursor: pointer;
+  }
 `;
 
 export const LogoWrapper = styled.div`
@@ -19,13 +45,27 @@ export const LogoWrapper = styled.div`
   width: 40px;
   height: 40px;
   padding: 20px;
-  cursor: pointer;
+
+  @media (max-width: 1440px) {
+    padding-left: 16px;
+  }
+
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+    padding: 24px 20px;
+  }
 `;
 
 export const LogoImage = styled.img`
   width: 40px;
   height: 40px;
-  // cursor: pointer;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
 `;
 
 export const HeaderBlock = styled.div`
@@ -36,6 +76,16 @@ export const HeaderBlock = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 0 40px;
+
+  @media (max-width: 1440px) {
+    width: 576px;
+    padding-left: 12px;
+  }
+
+  @media (max-width: 768px) {
+    width: 251px;
+    padding-left: 0px;
+  }
 `;
 
 export const SubHeader = styled.div`
@@ -54,6 +104,12 @@ export const HeaderTitle = styled.div`
   font-weight: 600;
   line-height: 28px;
   text-align: left;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    line-height: 24px;
+    text-align: left;
+  }
 `;
 
 export const Divider = styled.div`
@@ -61,6 +117,10 @@ export const Divider = styled.div`
   font-weight: 400;
   line-height: 18px;
   text-align: left;
+  color: var(--label-color);
+
+  @media (max-width: 768px) {
+  }
 `;
 
 export const LogoutButton = styled.button`
@@ -78,9 +138,25 @@ export const LogoutButton = styled.button`
   &:hover {
     background-color: var(--accent-btn);
   }
+
+  @media (max-width: 1440px) {
+    display: none; /* Hide Sidebar */
+  }
+
+  @media (max-width: 768px) {
+    display: none; /* Hide Sidebar */
+  }
 `;
 
 export const LogoutIcon = styled.img`
   width: 16px;
   height: 16px;
+
+  @media (max-width: 1440px) {
+    display: none; /* Hide Sidebar */
+  }
+
+  @media (max-width: 768px) {
+    display: none; /* Hide Sidebar */
+  }
 `;

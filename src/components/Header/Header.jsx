@@ -10,7 +10,10 @@ import {
   SubHeader,
   Divider,
   HeaderBlock,
+  BurgerImage,
 } from "./Header.styled";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import burger from "../../assets/svg/burger.svg";
 import logo from "../../assets/svg/logo.svg";
 import logoutIcon from "../../assets/svg/logout.svg";
 import api from "../../services/api";
@@ -42,6 +45,7 @@ const Header = ({ activePage }) => {
 
   return (
     <HeaderContainer>
+      <BurgerImage src={burger} alt="burger" />
       <LogoWrapper onClick={handleLogoClick}>
         <LogoImage src={logo} alt="Logo" />
       </LogoWrapper>
@@ -51,7 +55,6 @@ const Header = ({ activePage }) => {
           <Divider>
             {activePage} | {user ? user.email : "Loading..."}
           </Divider>{" "}
-          {/* Show user email */}
         </SubHeader>
         <LogoutButton onClick={handleLogout}>
           <LogoutIcon src={logoutIcon} alt="Logout" />
