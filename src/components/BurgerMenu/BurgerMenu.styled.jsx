@@ -1,19 +1,24 @@
 //BurgerMenu.styled.jsx
 import styled from "styled-components";
 
-export const SidebarContainer = styled.div`
+export const ModalOverlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-menu);
   z-index: 1000;
+`;
 
+export const SidebarContainer = styled.div`
   @media (min-width: 1441px) {
     display: none;
   }
 
   @media (max-width: 1440px) {
     width: 84px;
-    height: 100vh;
+    height: 1024px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +28,7 @@ export const SidebarContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 78px;
-    height: 100vh;
+    height: 812px;
   }
 `;
 
@@ -31,11 +36,12 @@ export const Menu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 20px 0;
+  padding: 100px 0;
   gap: 14px;
   width: 44px;
 
   @media (max-width: 768px) {
+    padding: 92px 0;
     width: 38px;
   }
 `;
@@ -73,12 +79,22 @@ export const IconWrapper = styled.img`
   }
 `;
 
-export const CloseButton = styled.button`
+export const CloseButton = styled.div`
   position: absolute;
-  top: 10px;
-  right: 10px;
+  width: 32px;
+  height: 32px;
+  top: 20px;
+  left: 38px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 5px;
+
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+    top: 20px;
+    left: 32px;
+    gap: 0px;
+    opacity: 0px;
+  }
 `;

@@ -7,6 +7,7 @@ import {
   MenuItem,
   IconWrapper,
   CloseButton,
+  ModalOverlay,
 } from "./BurgerMenu.styled";
 import closeIcon from "../../assets/svg/close.svg";
 
@@ -81,32 +82,34 @@ const BurgerMenu = ({ setActivePage, onClose }) => {
   ];
 
   return (
-    <SidebarContainer ref={menuRef}>
-      <CloseButton onClick={onClose}>
-        <img src={closeIcon} alt="Close" />
-      </CloseButton>
-      <Menu>
-        {menuItems.map((item) => (
-          <MenuItem
-            key={item.label}
-            isActive={location.pathname === item.path}
-            onClick={() => {
-              setActivePage(item.label);
-              onClose();
-            }}
-          >
-            <Link to={item.path}>
-              <IconWrapper
-                src={
-                  location.pathname === item.path ? item.iconOn : item.iconOff
-                }
-                alt={item.label}
-              />
-            </Link>
-          </MenuItem>
-        ))}
-      </Menu>
-    </SidebarContainer>
+    <ModalOverlay>
+      <SidebarContainer ref={menuRef}>
+        <CloseButton onClick={onClose}>
+          <img src={closeIcon} width={32} height={32} alt="Close" />
+        </CloseButton>
+        <Menu>
+          {menuItems.map((item) => (
+            <MenuItem
+              key={item.label}
+              isActive={location.pathname === item.path}
+              onClick={() => {
+                setActivePage(item.label);
+                onClose();
+              }}
+            >
+              <Link to={item.path}>
+                <IconWrapper
+                  src={
+                    location.pathname === item.path ? item.iconOn : item.iconOff
+                  }
+                  alt={item.label}
+                />
+              </Link>
+            </MenuItem>
+          ))}
+        </Menu>
+      </SidebarContainer>
+    </ModalOverlay>
   );
 };
 
