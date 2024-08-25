@@ -18,6 +18,7 @@ import {
   LogoContainer,
   LogoImage,
   LogoText,
+  BodyContainer,
 } from "./Login.styled";
 
 const Login = () => {
@@ -51,30 +52,33 @@ const Login = () => {
           <LogoImage />
           <LogoText>E-Pharmacy</LogoText>
         </LogoContainer>
-        <Title>
-          Your medication, delivered Say goodbye to all your healthcare worries
-          with us
-        </Title>
-        <LoginForm onSubmit={handleSubmit(onSubmit)}>
-          <Input
-            type="email"
-            name="email"
-            placeholder="Email address"
-            autoComplete="username"
-            {...register("email")}
-          />
-          {errors.email && <p>{errors.email.message}</p>}
-          <Input
-            type="password"
-            name="password"
-            placeholder="Password"
-            autoComplete="current-password"
-            {...register("password")}
-          />
-          {errors.password && <p>{errors.password.message}</p>}
-          <Button type="submit">Log In</Button>
-        </LoginForm>
-        <PillImage />
+        <BodyContainer>
+          <Title>
+            Your medication, delivered Say goodbye to all{" "}
+            <span>your healthcare </span>
+            worries with us
+          </Title>
+          <LoginForm onSubmit={handleSubmit(onSubmit)}>
+            <Input
+              type="email"
+              name="email"
+              placeholder="Email address"
+              autoComplete="username"
+              {...register("email")}
+            />
+            {errors.email && <p>{errors.email.message}</p>}
+            <Input
+              type="password"
+              name="password"
+              placeholder="Password"
+              autoComplete="current-password"
+              {...register("password")}
+            />
+            {errors.password && <p>{errors.password.message}</p>}
+            <Button type="submit">Log In</Button>
+          </LoginForm>
+          <PillImage />
+        </BodyContainer>
         <ElementsImage />
       </LoginContainer>
     </MainContainer>
