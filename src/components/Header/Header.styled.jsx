@@ -1,7 +1,5 @@
 //Header.styled.jsx
 import styled from "styled-components";
-// import logo from "../../assets/svg/logo.svg";
-// import logout from "../../assets/svg/logout.svg";
 
 export const HeaderContainer = styled.div`
   // position: relative;
@@ -21,11 +19,13 @@ export const LogoWrapper = styled.div`
   width: 40px;
   height: 40px;
   padding: 20px;
+  cursor: pointer;
 `;
 
 export const LogoImage = styled.img`
   width: 40px;
   height: 40px;
+  // cursor: pointer;
 `;
 
 export const HeaderBlock = styled.div`

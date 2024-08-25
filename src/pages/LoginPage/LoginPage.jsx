@@ -19,9 +19,9 @@ import {
   LogoImage,
   LogoText,
   BodyContainer,
-} from "./Login.styled";
+} from "./LoginPage.styled";
 
-const Login = () => {
+const LoginPage = () => {
   const {
     register,
     handleSubmit,
@@ -85,4 +85,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

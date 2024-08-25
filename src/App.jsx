@@ -5,7 +5,7 @@ import Loader from "./components/Loader/Loader";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 
-const Login = lazy(() => import("./pages/Login/Login"));
+const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const SharedLayout = lazy(() => import("./pages/SharedLayout/SharedLayout")); // Новый SharedLayout компонент
 const Dashboard = lazy(() => import("./pages/Dashboard/Dashboard"));
 const Orders = lazy(() => import("./pages/Orders/Orders"));
@@ -17,7 +17,7 @@ function App() {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route path="/login" element={<PublicRoute element={Login} />} />
+        <Route path="/login" element={<PublicRoute element={LoginPage} />} />
         <Route path="/" element={<PrivateRoute element={SharedLayout} />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="orders" element={<Orders />} />
