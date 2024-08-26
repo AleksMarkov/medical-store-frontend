@@ -14,7 +14,7 @@ import {
 } from "./Header.styled";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import Modal from "../Modal/Modal";
-import burger from "../../assets/svg/burger.svg";
+import burger from "../../assets/svg/coins.svg";
 import logo from "../../assets/svg/logo.svg";
 import logoutIcon from "../../assets/svg/logout.svg";
 import api from "../../services/api";
