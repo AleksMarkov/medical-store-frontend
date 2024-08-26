@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDashboardData } from "../../actions/dashboardActions";
+import placeholderImage from "../../assets/images/placeholderImage.png"; // Импорт изображения-заполнителя
 import {
   DashContainer,
   StatsContainer,
@@ -11,18 +12,26 @@ import {
   StatValue,
   TableContainer,
   TableTitle,
-  Table,
-  TableHeader,
-  TableRow,
-  TableCell,
+  TableCell01,
+  TableCell02,
+  TableCell03,
   UserAvatar,
   TransactionType,
   TransactionAmount,
   StatBlock,
   TableBox,
-  TableHeaderCell,
+  TableHeaderCell01,
+  TableHeaderCell02,
+  TableHeaderCell03,
   TableHeaderCell2,
   TableCell2,
+  TableWrapper,
+  TableHeaderWrapper,
+  TableBodyWrapper,
+  StyledTable,
+  TableHeaderRow,
+  TableBodyRow,
+  CellBox,
 } from "./Dashboard.styled";
 import coins from "../../assets/svg/coins.svg";
 import usersIcon from "../../assets/svg/users.svg";
@@ -38,6 +47,13 @@ const Dashboard = () => {
 
   if (error) return <div>Error: {error}</div>;
   if (!dashboardData) return <div>Loading...</div>;
+
+  // Преобразуем строки дат в объекты Date и сортируем массив recentCustomers по дате в порядке убывания
+  const sortedCustomers = [...dashboardData.recentCustomers].sort((a, b) => {
+    const dateA = new Date(a.register_date);
+    const dateB = new Date(b.register_date);
+    return dateB - dateA; // Сортировка по убыванию даты
+  });
 
   return (
     <DashContainer>
@@ -68,49 +84,80 @@ const Dashboard = () => {
       <TableBox>
         <TableContainer>
           <TableTitle>Recent Customers</TableTitle>
-          <Table>
-            <TableHeader>
-              <TableHeaderCell>Name</TableHeaderCell>
-              <TableHeaderCell>Email</TableHeaderCell>
-              <TableHeaderCell>Spent</TableHeaderCell>
-            </TableHeader>
-            {dashboardData.recentCustomers.map((customer) => (
-              <TableRow key={customer._id}>
-                <TableCell>
-                  <UserAvatar src={customer.photo} alt={customer.name} />
-                  {customer.name}
-                </TableCell>
-                <TableCell>{customer.email}</TableCell>
-                <TableCell>{customer.spent}</TableCell>
-              </TableRow>
-            ))}
-          </Table>
+          <TableWrapper>
+            <TableHeaderWrapper>
+              <StyledTable>
+                <thead>
+                  <TableHeaderRow>
+                    <TableHeaderCell01>Name</TableHeaderCell01>
+                    <TableHeaderCell02>Email</TableHeaderCell02>
+                    <TableHeaderCell03>Spent</TableHeaderCell03>
+                  </TableHeaderRow>
+                </thead>
+              </StyledTable>
+            </TableHeaderWrapper>
+            <TableBodyWrapper>
+              <StyledTable>
+                <tbody>
+                  {sortedCustomers.map((customer) => (
+                    <TableBodyRow key={customer._id}>
+                      <TableCell01>
+                        <CellBox>
+                          <UserAvatar
+                            src={
+                              customer.image ? customer.image : placeholderImage
+                            }
+                            alt={customer.name}
+                          />
+                          {customer.name}
+                        </CellBox>
+                      </TableCell01>
+                      <TableCell02>{customer.email}</TableCell02>
+                      <TableCell03>{customer.spent}</TableCell03>
+                    </TableBodyRow>
+                  ))}
+                </tbody>
+              </StyledTable>
+            </TableBodyWrapper>
+          </TableWrapper>
         </TableContainer>
 
         <TableContainer>
           <TableTitle>Income/Expenses</TableTitle>
-          <Table>
-            <TableHeader>
-              <TableHeaderCell2>Type</TableHeaderCell2>
-              <TableHeaderCell2>Name</TableHeaderCell2>
-              <TableHeaderCell2>Amount</TableHeaderCell2>
-            </TableHeader>
-            {dashboardData.incomeExpenseList.map((transaction) => (
-              <TableRow key={transaction._id}>
-                <TableCell2>
-                  <TransactionType type={transaction.type}>
-                    {transaction.type}
-                  </TransactionType>
-                </TableCell2>
-                <TableCell2>{transaction.name}</TableCell2>
-                <TableCell2>
-                  <TransactionAmount type={transaction.type}>
-                    {transaction.amount}
-                  </TransactionAmount>
-                </TableCell2>
-              </TableRow>
-            ))}
-          </Table>
+          <TableWrapper>
+            <TableHeaderWrapper>
+              <StyledTable>
+                <thead>
+                  <TableHeaderRow>
+                    <TableHeaderCell2>Type</TableHeaderCell2>
+                    <TableHeaderCell2></TableHeaderCell2>
+                    <TableHeaderCell2></TableHeaderCell2>
+                  </TableHeaderRow>
+                </thead>
+              </StyledTable>
+            </TableHeaderWrapper>
+            <TableBodyWrapper>
+              <StyledTable>
+                <tbody>
+                  {dashboardData.incomeExpenseList.map((transaction) => (
+                    <TableBodyRow key={transaction._id}>
+                      <TableCell2>
+                        <TransactionType type={transaction.type}>
+                          {transaction.type}
+                        </TransactionType>
+                      </TableCell2>
+                      <TableCell2>{transaction.name}</TableCell2>
+                      <TableCell2>
+                        <TransactionAmount type={transaction.type}>
+                          {transaction.amount}
+                        </TransactionAmount>
+                      </TableCell2>
+                    </TableBodyRow>
+                  ))}
+                </tbody>
+              </StyledTable>
+            </TableBodyWrapper>
+          </TableWrapper>
         </TableContainer>
       </TableBox>
     </DashContainer>

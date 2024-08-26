@@ -1,12 +1,16 @@
 // src/store.js
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import { thunk } from "redux-thunk"; // Corrected import for thunk
-import { dashboardReducer } from "./reducers/dashboardReducer"; // Import your dashboard reducer
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import { thunk } from "redux-thunk";
+import { dashboardReducer } from "./reducers/dashboardReducer";
 
 const rootReducer = combineReducers({
-  dashboard: dashboardReducer, // Add other reducers here if needed
+  dashboard: dashboardReducer,
 });
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+);
 
 export default store;

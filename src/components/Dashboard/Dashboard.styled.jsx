@@ -1,6 +1,11 @@
 //Dashboard.styled.jsx
 import styled from "styled-components";
 
+export const ScrollableTableContainer = styled.div`
+  height: 428px; // 512px (высота TableContainer) - 84px (высота заголовка и отступы)
+  overflow-y: auto;
+`;
+
 export const DashContainer = styled.div`
   width: 1360px;
   height: 681px;
@@ -80,11 +85,10 @@ export const TableContainer = styled.div`
   height: 512px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   background: var(--background-white);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  overflow: hidden; /* This hides overflow by default */
+  overflow: hidden;
 `;
 
 export const TableTitle = styled.div`
@@ -101,9 +105,8 @@ export const TableTitle = styled.div`
 
 export const Table = styled.div`
   display: table;
+  height: 58px;
   width: 100%;
-  height: calc(512px - 64px); /* 512px container height minus title height */
-  overflow-y: auto; /* Add vertical scrolling */
 `;
 
 export const TableHeader = styled.div`
@@ -114,7 +117,33 @@ export const TableRow = styled.div`
   display: table-row;
 `;
 
-export const TableHeaderCell = styled.div`
+export const TableHeaderCell01 = styled.div`
+  display: table-cell;
+  padding: 20px 10px 20px 20px;
+  width: 198px;
+  border-bottom: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  color: var(--label-color);
+`;
+
+export const TableHeaderCell02 = styled.div`
+  display: table-cell;
+  padding: 20px 10px 20px 20px;
+  width: 267px;
+  border-bottom: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  color: var(--label-color);
+`;
+
+export const TableHeaderCell03 = styled.div`
   display: table-cell;
   padding: 20px;
   border-bottom: 1px solid var(--border-color);
@@ -130,6 +159,7 @@ export const TableHeaderCell2 = styled.div`
   display: table-cell;
   padding: 20px;
   border-bottom: 1px solid var(--border-color);
+  // border-left: 1px solid var(--border-color);
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
@@ -137,9 +167,34 @@ export const TableHeaderCell2 = styled.div`
   color: var(--label-color);
 `;
 
-export const TableCell = styled.div`
+export const TableCell01 = styled.div`
   display: table-cell;
-  padding: 20px;
+  vertical-align: middle;
+  text-align: left;
+  width: 200px;
+  padding: 20px 10px 20px 20px;
+  border-bottom: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+`;
+export const CellBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  width: 100%;
+`;
+
+export const TableCell02 = styled.div`
+  display: table-cell;
+  vertical-align: middle;
+  width: 267px;
+  text-align: left;
+  padding: 20px 10px 20px 20px;
   border-bottom: 1px solid var(--border-color);
   border-left: 1px solid var(--border-color);
   font-size: 16px;
@@ -148,10 +203,23 @@ export const TableCell = styled.div`
   text-align: left;
 `;
 
+export const TableCell03 = styled.div`
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+  padding: 20px 10px 20px 20px;
+  border-bottom: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+`;
 export const TableCell2 = styled.div`
   display: table-cell;
   padding: 20px;
   border-bottom: 1px solid var(--border-color);
+  // border-left: 1px solid var(--border-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 18px;
@@ -163,7 +231,6 @@ export const UserAvatar = styled.img`
   height: 36px;
   border-radius: 18px;
   border: none;
-  margin-right: 8px;
 `;
 
 export const TransactionType = styled.span`
@@ -192,4 +259,34 @@ export const TransactionAmount = styled.span`
       : props.type === "income"
       ? "var(--accent-green)"
       : "var(--background-dark)"};
+`;
+
+export const TableWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 428px; // 512px (высота TableContainer) - 84px (высота заголовка таблицы и отступы)
+`;
+
+export const TableHeaderWrapper = styled.div`
+  // Оставляем заголовок фиксированным
+`;
+
+export const TableBodyWrapper = styled.div`
+  overflow-y: auto;
+  flex-grow: 1;
+`;
+
+export const StyledTable = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+`;
+
+export const TableHeaderRow = styled.tr`
+  background: var(--background-white);
+`;
+
+export const TableBodyRow = styled.tr`
+  &:nth-child(even) {
+    background-color: var(--background-accent-light);
+  }
 `;
