@@ -120,7 +120,7 @@ export const TableRow = styled.div`
 export const TableHeaderCell01 = styled.div`
   display: table-cell;
   padding: 20px 10px 20px 20px;
-  width: 198px;
+  width: 183px;
   border-bottom: 1px solid var(--border-color);
   border-left: 1px solid var(--border-color);
   font-size: 14px;
@@ -234,31 +234,44 @@ export const UserAvatar = styled.img`
 `;
 
 export const TransactionType = styled.span`
-  padding: 4px;
+  width: 80px;
+  height: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  // padding: 4px;
   border-radius: 40px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  text-align: center;
   font-size: 14px;
   line-height: 17px;
   background-color: ${(props) =>
-    props.type === "expense"
+    props.type === "Expense"
       ? "var(--background-accent-red)"
-      : props.type === "income"
+      : props.type === "Income"
       ? "var(--background-accent-light)"
       : "var(--background-gray)"};
   color: ${(props) =>
-    props.type === "expense"
+    props.type === "Expense"
       ? "var(--accent-red)"
-      : props.type === "income"
+      : props.type === "Income"
       ? "var(--accent-green)"
       : "var(--background-dark)"};
 `;
 
 export const TransactionAmount = styled.span`
   color: ${(props) =>
-    props.type === "expense"
+    props.type === "Expense"
       ? "var(--accent-red)"
-      : props.type === "income"
+      : props.type === "Income"
       ? "var(--accent-green)"
       : "var(--background-dark)"};
+  text-decoration: ${(props) =>
+    props.type === "Expense" || props.type === "Income"
+      ? "none"
+      : "line-through"};
 `;
 
 export const TableWrapper = styled.div`
