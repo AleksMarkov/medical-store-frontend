@@ -1,0 +1,3 @@
+//src/actions/types.js
+export const FETCH_DASHBOARD_SUCCESS = "FETCH_DASHBOARD_SUCCESS";
+export const FETCH_DASHBOARD_ERROR = "FETCH_DASHBOARD_ERROR";

@@ -84,7 +84,7 @@ export const TableContainer = styled.div`
   background: var(--background-white);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  overflow: hidden;
+  overflow: hidden; /* This hides overflow by default */
 `;
 
 export const TableTitle = styled.div`
@@ -101,8 +101,9 @@ export const TableTitle = styled.div`
 
 export const Table = styled.div`
   display: table;
-  height: 58px;
   width: 100%;
+  height: calc(512px - 64px); /* 512px container height minus title height */
+  overflow-y: auto; /* Add vertical scrolling */
 `;
 
 export const TableHeader = styled.div`
@@ -129,7 +130,6 @@ export const TableHeaderCell2 = styled.div`
   display: table-cell;
   padding: 20px;
   border-bottom: 1px solid var(--border-color);
-  // border-left: 1px solid var(--border-color);
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
@@ -152,7 +152,6 @@ export const TableCell2 = styled.div`
   display: table-cell;
   padding: 20px;
   border-bottom: 1px solid var(--border-color);
-  // border-left: 1px solid var(--border-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 18px;
