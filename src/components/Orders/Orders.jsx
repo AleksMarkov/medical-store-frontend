@@ -1,4 +1,7 @@
-// Orders.jsximport React from "react";
+// Orders.jsx
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchOrders } from "../../actions/ordersActions";
 import {
   OrdersContainer,
   FilterContainer,
@@ -20,20 +23,15 @@ import filterIcon from "../../assets/svg/filter.svg";
 import sliderIcon from "../../assets/svg/Slider.svg";
 
 const Orders = () => {
-  const orders = [
-    // Пример данных, их можно заменить на данные из API
-    {
-      id: 1,
-      photo: "https://i.imgur.com/1As0akH.png1",
-      name: "Taras Shevchenko",
-      address: "Khreshchatyk, Bldg. 51, Apt. 137",
-      products: "12",
-      price: "890.66",
-      status: "Completed",
-      order_date: "July 31, 2023",
-    },
-    // Добавить другие заказы
-  ];
+  const dispatch = useDispatch();
+  const { orders, error } = useSelector((state) => state.orders);
+
+  useEffect(() => {
+    dispatch(fetchOrders());
+  }, [dispatch]);
+
+  if (error) return <div>Error: {error}</div>;
+  if (!orders) return <div>Loading...</div>;
 
   return (
     <OrdersContainer>
@@ -59,7 +57,7 @@ const Orders = () => {
           </thead>
           <tbody>
             {orders.map((order) => (
-              <TableBodyRow key={order.id}>
+              <TableBodyRow key={order._id}>
                 <TableCell>
                   <UserInfo>
                     <UserAvatar src={order.photo} alt={order.name} />
@@ -80,7 +78,7 @@ const Orders = () => {
           </tbody>
         </table>
       </TableContainer>
-      <SliderIcon src={sliderIcon} alt="fslider" />
+      <SliderIcon src={sliderIcon} alt="slider" />
     </OrdersContainer>
   );
 };
