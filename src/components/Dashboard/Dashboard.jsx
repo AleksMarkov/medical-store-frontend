@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDashboardData } from "../../actions/dashboardActions";
-import placeholderImage from "../../assets/images/placeholderImage.png"; // Импорт изображения-заполнителя
+import placeholderImage from "../../assets/images/placeholderImage.png";
 import {
   DashContainer,
   StatsContainer,

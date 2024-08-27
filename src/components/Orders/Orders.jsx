@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchOrders } from "../../actions/ordersActions";
+import placeholderImage from "../../assets/images/placeholderImage.png";
 import {
   OrdersContainer,
   FilterContainer,
@@ -18,6 +19,9 @@ import {
   FilterIcon,
   TableHeaderCell,
   SliderIcon,
+  TableWrapper,
+  TableHeader,
+  TableBody,
 } from "./Orders.styled";
 import filterIcon from "../../assets/svg/filter.svg";
 import sliderIcon from "../../assets/svg/Slider.svg";
@@ -44,8 +48,8 @@ const Orders = () => {
       </FilterContainer>
       <TableContainer>
         <TableTitle>All orders</TableTitle>
-        <table>
-          <thead>
+        <TableWrapper>
+          <TableHeader>
             <TableHeaderRow>
               <TableHeaderCell>User Info</TableHeaderCell>
               <TableHeaderCell>Address</TableHeaderCell>
@@ -54,13 +58,16 @@ const Orders = () => {
               <TableHeaderCell>Price</TableHeaderCell>
               <TableHeaderCell>Status</TableHeaderCell>
             </TableHeaderRow>
-          </thead>
-          <tbody>
+          </TableHeader>
+          <TableBody>
             {orders.map((order) => (
               <TableBodyRow key={order._id}>
                 <TableCell>
                   <UserInfo>
-                    <UserAvatar src={order.photo} alt={order.name} />
+                    <UserAvatar
+                      src={order.photo ? order.photo : placeholderImage}
+                      alt={order.name}
+                    />
                     {order.name}
                   </UserInfo>
                 </TableCell>
@@ -75,8 +82,8 @@ const Orders = () => {
                 </TableCell>
               </TableBodyRow>
             ))}
-          </tbody>
-        </table>
+          </TableBody>
+        </TableWrapper>
       </TableContainer>
       <SliderIcon src={sliderIcon} alt="slider" />
     </OrdersContainer>

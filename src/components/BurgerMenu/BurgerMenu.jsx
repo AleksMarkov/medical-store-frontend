@@ -1,4 +1,5 @@
 //BurgerMenu.jsx
+// BurgerMenu.jsx
 import React, { useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
@@ -11,7 +12,7 @@ import {
   LogoutButton,
   LogoutIcon,
 } from "./BurgerMenu.styled";
-import api from "../../services/api";
+import useLogout from "../../helpers/logoutHelper"; // Импорт новой функции
 import closeIcon from "../../assets/svg/close.svg";
 import logoutIcon from "../../assets/svg/logout.svg";
 import dashboardIconOn from "../../assets/svg/dashboardOn.svg";
@@ -28,18 +29,8 @@ import customersIconOff from "../../assets/svg/customersOff.svg";
 const BurgerMenu = ({ setActivePage, onClose }) => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { logout } = useLogout(); // Использование функции
   const menuRef = useRef(null);
-
-  const handleLogout = async () => {
-    try {
-      await api.post("/user/logout");
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("user");
-      navigate("/login");
-    } catch (error) {
-      console.error("Logout error:", error);
-    }
-  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -123,7 +114,7 @@ const BurgerMenu = ({ setActivePage, onClose }) => {
             </MenuItem>
           ))}
         </Menu>
-        <LogoutButton onClick={handleLogout}>
+        <LogoutButton onClick={() => logout(navigate)}>
           <LogoutIcon src={logoutIcon} alt="Logout" />
         </LogoutButton>
       </SidebarContainer>

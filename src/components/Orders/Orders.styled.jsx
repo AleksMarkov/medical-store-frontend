@@ -13,6 +13,7 @@ export const OrdersContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin: 0 auto; /* Центрирование контейнера */
 
   @media (max-width: 1440px) {
     width: 704px;
@@ -51,7 +52,6 @@ export const FilterInput = styled.input`
 export const FilterButton = styled.div`
   width: 116px;
   height: 44px;
-  // padding: 13px 30px 13px 30px;
   gap: 8px;
   border-radius: 60px;
   display: flex;
@@ -76,29 +76,8 @@ export const FilterIcon = styled.img`
   }
 `;
 
-export const TableContainer = styled.div`
-  width: 1280px;
-  height: 502px;
-  display: flex;
-  flex-direction: column;
-  background: var(--background-white);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  overflow: hidden;
-
-  @media (max-width: 1440px) {
-    width: 704px;
-    height: 512px;
-  }
-
-  @media (max-width: 768px) {
-    width: 335px;
-    height: 511px;
-  }
-`;
-
 export const TableTitle = styled.div`
-  width: 1240px;
+  width: 100%;
   height: 24px;
   padding: 20px;
   font-size: 18px;
@@ -109,70 +88,15 @@ export const TableTitle = styled.div`
   color: var(--background-dark);
 
   @media (max-width: 1440px) {
-    width: 704px;
+    width: 100%;
   }
 
   @media (max-width: 768px) {
-    width: 307px;
+    width: 100%;
     height: 20px;
     padding: 14px;
     font-size: 16px;
     line-height: 20px;
-  }
-`;
-
-export const TableHeaderRow = styled.tr`
-  background: var(--background-white);
-`;
-
-export const TableHeaderCell = styled.div`
-  display: table-cell;
-  padding: 20px 10px 20px 20px;
-  // width: 198px;
-  border-bottom: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 18px;
-  text-align: left;
-  color: var(--label-color);
-
-  @media (max-width: 1440px) {
-    width: 200px;
-  }
-
-  @media (max-width: 768px) {
-    width: 83px;
-    font-size: 12px;
-    line-height: 14px;
-    padding: 14px 10px 14px 14px;
-  }
-`;
-
-export const TableBodyRow = styled.tr`
-  &:nth-child(even) {
-    background-color: #f7f8fa;
-  }
-`;
-
-export const TableCell = styled.td`
-  display: table-cell;
-  vertical-align: middle;
-  text-align: left;
-  // width: 200px;
-  padding: 20px 10px 20px 20px;
-  border-bottom: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 18px;
-  text-align: left;
-
-  @media (max-width: 768px) {
-    width: 106px;
-    padding: 14px 7px 14px 14px;
-    font-size: 12px;
-    line-height: 14px;
   }
 `;
 
@@ -191,6 +115,7 @@ export const UserInfo = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
 `;
 
 export const UserAvatar = styled.img`
@@ -265,5 +190,95 @@ export const SliderIcon = styled.img`
   @media (max-width: 768px) {
     width: 18px;
     height: 18px;
+  }
+`;
+
+export const TableContainer = styled.div`
+  width: 1280px;
+  height: 502px;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+
+  @media (max-width: 1440px) {
+    width: 704px;
+    height: 512px;
+  }
+
+  @media (max-width: 768px) {
+    width: 335px;
+    height: 511px;
+  }
+`;
+
+export const TableWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 64px); // Вычитаем высоту заголовка таблицы
+`;
+
+export const TableHeader = styled.div`
+  width: 100%;
+`;
+
+export const TableBody = styled.div`
+  overflow-y: auto;
+  flex-grow: 1;
+`;
+
+export const TableHeaderRow = styled.div`
+  display: flex;
+  background: var(--background-white);
+`;
+
+export const TableHeaderCell = styled.div`
+  flex: 1;
+  padding: 20px 10px 20px 20px;
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  color: var(--label-color);
+
+  @media (max-width: 1440px) {
+    width: 200px;
+  }
+
+  @media (max-width: 768px) {
+    width: 83px;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 14px 10px 14px 14px;
+  }
+`;
+
+export const TableBodyRow = styled.div`
+  display: flex;
+  &:nth-child(even) {
+    background-color: #f7f8fa;
+  }
+`;
+
+export const TableCell = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 20px 10px 20px 20px;
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+
+  @media (max-width: 768px) {
+    width: 106px;
+    padding: 14px 7px 14px 14px;
+    font-size: 12px;
+    line-height: 14px;
   }
 `;

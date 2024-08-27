@@ -1,4 +1,5 @@
 //Header.jsx
+// Header.jsx
 import React, { useState, useContext } from "react";
 import {
   HeaderContainer,
@@ -17,7 +18,7 @@ import Modal from "../Modal/Modal";
 import burger from "../../assets/svg/coins.svg";
 import logo from "../../assets/svg/logo.svg";
 import logoutIcon from "../../assets/svg/logout.svg";
-import api from "../../services/api";
+import useLogout from "../../helpers/logoutHelper"; // Импорт новой функции
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -25,17 +26,7 @@ const Header = ({ activePage, setActivePage }) => {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-
-  const handleLogout = async () => {
-    try {
-      await api.post("/user/logout");
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("user");
-      navigate("/login");
-    } catch (error) {
-      console.error("Logout error:", error);
-    }
-  };
+  const { logout } = useLogout(); // Использование функции
 
   const handleLogoClick = () => {
     if (user) {
@@ -60,9 +51,9 @@ const Header = ({ activePage, setActivePage }) => {
           <HeaderTitle>Medicine Store</HeaderTitle>
           <Divider>
             {activePage} | {user ? user.email : "Loading..."}
-          </Divider>{" "}
+          </Divider>
         </SubHeader>
-        <LogoutButton onClick={handleLogout}>
+        <LogoutButton onClick={() => logout(navigate)}>
           <LogoutIcon src={logoutIcon} alt="Logout" />
         </LogoutButton>
       </HeaderBlock>
