@@ -32,6 +32,7 @@ import {
   TableHeaderRow,
   TableBodyRow,
   CellBox,
+  CellBox02,
 } from "./Dashboard.styled";
 import coins from "../../assets/svg/coins.svg";
 import usersIcon from "../../assets/svg/users.svg";
@@ -112,7 +113,9 @@ const Dashboard = () => {
                           {customer.name}
                         </CellBox>
                       </TableCell01>
-                      <TableCell02>{customer.email}</TableCell02>
+                      <TableCell02>
+                        <CellBox02>{customer.email}</CellBox02>
+                      </TableCell02>
                       <TableCell03>{customer.spent}</TableCell03>
                     </TableBodyRow>
                   ))}
