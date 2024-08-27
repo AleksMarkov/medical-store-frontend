@@ -1,5 +1,4 @@
 //BurgerMenu.jsx
-// BurgerMenu.jsx
 import React, { useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
@@ -12,7 +11,7 @@ import {
   LogoutButton,
   LogoutIcon,
 } from "./BurgerMenu.styled";
-import useLogout from "../../helpers/logoutHelper"; // Импорт новой функции
+import useLogout from "../../helpers/logoutHelper";
 import closeIcon from "../../assets/svg/close.svg";
 import logoutIcon from "../../assets/svg/logout.svg";
 import dashboardIconOn from "../../assets/svg/dashboardOn.svg";
@@ -29,7 +28,7 @@ import customersIconOff from "../../assets/svg/customersOff.svg";
 const BurgerMenu = ({ setActivePage, onClose }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { logout } = useLogout(); // Использование функции
+  const { logout } = useLogout();
   const menuRef = useRef(null);
 
   useEffect(() => {

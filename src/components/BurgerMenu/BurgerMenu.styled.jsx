@@ -18,6 +18,16 @@ export const SidebarContainer = styled.div`
 
   @media (max-width: 1440px) {
     width: 84px;
+    height: 768px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--background-light);
+  }
+
+  @media (max-width: 1024px) {
+    width: 84px;
     height: 1024px;
     display: flex;
     flex-direction: column;

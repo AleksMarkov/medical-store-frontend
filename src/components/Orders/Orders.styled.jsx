@@ -13,12 +13,18 @@ export const OrdersContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin: 0 auto; /* Центрирование контейнера */
+  margin: 0 auto;
 
   @media (max-width: 1440px) {
+    width: 960px;
+    height: 604px;
+    padding: 50px 32px 32px 32px;
+  }
+
+  @media (max-width: 1024px) {
     width: 704px;
-    height: 1212px;
-    padding: 20px 32px;
+    height: 862px;
+    padding: 50px 32px 32px 32px;
   }
 
   @media (max-width: 768px) {
@@ -187,6 +193,14 @@ export const SliderIcon = styled.img`
   height: 19px;
   margin-left: 576px;
 
+  @media (max-width: 1440px) {
+    margin-left: 448px;
+  }
+
+  @media (max-width: 1024px) {
+    margin-left: 320px;
+  }
+
   @media (max-width: 768px) {
     width: 18px;
     height: 18px;
@@ -204,8 +218,15 @@ export const TableContainer = styled.div`
   overflow: hidden;
 
   @media (max-width: 1440px) {
-    width: 704px;
-    height: 512px;
+    width: 960px;
+    height: 502px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 960px;
+    height: 502px;
+    // width: 100%;
+    // overflow-x: auto;
   }
 
   @media (max-width: 768px) {
@@ -217,7 +238,11 @@ export const TableContainer = styled.div`
 export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: calc(100% - 64px); // Вычитаем высоту заголовка таблицы
+  height: calc(100% - 64px);
+
+  @media (max-width: 1024px) {
+    // min-width: 768px;
+  }
 `;
 
 export const TableHeader = styled.div`
@@ -274,6 +299,20 @@ export const TableCell = styled.div`
   font-size: 16px;
   font-weight: 500;
   line-height: 18px;
+
+  @media (max-width: 1440px) {
+    width: 106px;
+    padding: 14px 7px 14px 14px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 106px;
+    padding: 14px 7px 14px 14px;
+    font-size: 12px;
+    line-height: 14px;
+  }
 
   @media (max-width: 768px) {
     width: 106px;

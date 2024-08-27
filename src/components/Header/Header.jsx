@@ -1,5 +1,4 @@
 //Header.jsx
-// Header.jsx
 import React, { useState, useContext } from "react";
 import {
   HeaderContainer,
@@ -15,7 +14,7 @@ import {
 } from "./Header.styled";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import Modal from "../Modal/Modal";
-import burger from "../../assets/svg/coins.svg";
+import burger from "../../assets/svg/burger.svg";
 import logo from "../../assets/svg/logo.svg";
 import logoutIcon from "../../assets/svg/logout.svg";
 import useLogout from "../../helpers/logoutHelper"; // Импорт новой функции

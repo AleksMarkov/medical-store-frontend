@@ -1,5 +1,5 @@
 // Orders.jsx
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchOrders } from "../../actions/ordersActions";
 import placeholderImage from "../../assets/images/placeholderImage.png";
@@ -29,10 +29,27 @@ import sliderIcon from "../../assets/svg/Slider.svg";
 const Orders = () => {
   const dispatch = useDispatch();
   const { orders, error } = useSelector((state) => state.orders);
+  const [filterText, setFilterText] = useState("");
+  const [filteredOrders, setFilteredOrders] = useState([]);
 
   useEffect(() => {
     dispatch(fetchOrders());
   }, [dispatch]);
+
+  useEffect(() => {
+    setFilteredOrders(orders); // Сначала устанавливаем все заказы
+  }, [orders]);
+
+  const handleFilter = () => {
+    if (filterText.trim() === "") {
+      setFilteredOrders(orders); // Если поле фильтра пустое, показываем все заказы
+    } else {
+      const filtered = orders.filter((order) =>
+        order.name.toLowerCase().includes(filterText.toLowerCase())
+      );
+      setFilteredOrders(filtered);
+    }
+  };
 
   if (error) return <div>Error: {error}</div>;
   if (!orders) return <div>Loading...</div>;
@@ -40,8 +57,12 @@ const Orders = () => {
   return (
     <OrdersContainer>
       <FilterContainer>
-        <FilterInput placeholder="User Name" />
-        <FilterButton>
+        <FilterInput
+          placeholder="User Name"
+          value={filterText}
+          onChange={(e) => setFilterText(e.target.value)}
+        />
+        <FilterButton onClick={handleFilter}>
           <FilterIcon src={filterIcon} alt="filter" />
           Filter
         </FilterButton>
@@ -60,7 +81,7 @@ const Orders = () => {
             </TableHeaderRow>
           </TableHeader>
           <TableBody>
-            {orders.map((order) => (
+            {filteredOrders.map((order) => (
               <TableBodyRow key={order._id}>
                 <TableCell>
                   <UserInfo>
@@ -85,7 +106,9 @@ const Orders = () => {
           </TableBody>
         </TableWrapper>
       </TableContainer>
-      <SliderIcon src={sliderIcon} alt="slider" />
+      {filteredOrders.length >= 6 && (
+        <SliderIcon src={sliderIcon} alt="slider" />
+      )}
     </OrdersContainer>
   );
 };

@@ -11,6 +11,10 @@ export const HeaderContainer = styled.div`
   justify-content: flex-start;
 
   @media (max-width: 1440px) {
+    width: 1024px;
+  }
+
+  @media (max-width: 1024px) {
     width: 768px;
   }
 
