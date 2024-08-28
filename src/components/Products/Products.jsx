@@ -17,8 +17,13 @@ import {
   TableCell,
   ActionCell,
   ActionIcon,
-  PaginationContainer,
-  PaginationDot,
+  FilterIcon,
+  AddIcon,
+  AddBlock,
+  FilterBlock,
+  SliderIcon,
+  EditButton,
+  DeleteButton,
 } from "./Products.styled";
 import addIcon from "../../assets/svg/add.svg";
 import filterIcon from "../../assets/svg/filter.svg";
@@ -29,7 +34,6 @@ import sliderIcon from "../../assets/svg/Slider.svg";
 const Products = () => {
   const [filterText, setFilterText] = useState("");
 
-  // Dummy data for demonstration
   const products = [
     {
       name: "Moringa",
@@ -71,19 +75,23 @@ const Products = () => {
   return (
     <ProductsContainer>
       <FilterContainer>
-        <FilterInput
-          placeholder="Product Name"
-          value={filterText}
-          onChange={(e) => setFilterText(e.target.value)}
-        />
-        <FilterButton>
-          <img src={filterIcon} alt="filter" />
-          Filter
-        </FilterButton>
-        <AddButton>
-          <img src={addIcon} alt="add" />
+        <FilterBlock>
+          <FilterInput
+            placeholder="Product Name"
+            value={filterText}
+            onChange={(e) => setFilterText(e.target.value)}
+          />
+          <FilterButton>
+            <FilterIcon src={filterIcon} alt="filter" />
+            Filter
+          </FilterButton>
+        </FilterBlock>
+        <AddBlock>
+          <AddButton>
+            <AddIcon src={addIcon} alt="add" />
+          </AddButton>
           Add a new product
-        </AddButton>
+        </AddBlock>
       </FilterContainer>
       <TableContainer>
         <TableTitle>All products</TableTitle>
@@ -107,21 +115,19 @@ const Products = () => {
                 <TableCell>{product.suppliers}</TableCell>
                 <TableCell>${product.price.toFixed(2)}</TableCell>
                 <ActionCell>
-                  <ActionIcon src={editIcon} alt="Edit" />
-                  <ActionIcon src={trashIcon} alt="Delete" />
+                  <EditButton>
+                    <ActionIcon src={editIcon} alt="Edit" />
+                  </EditButton>
+                  <DeleteButton>
+                    <ActionIcon src={trashIcon} alt="Delete" />
+                  </DeleteButton>
                 </ActionCell>
               </TableBodyRow>
             ))}
           </TableBody>
         </TableWrapper>
       </TableContainer>
-      <PaginationContainer>
-        <PaginationDot active />
-        <PaginationDot />
-        <PaginationDot />
-        <PaginationDot />
-      </PaginationContainer>
-      {products.length >= 6 && <img src={sliderIcon} alt="slider" />}
+      {products.length >= 6 && <SliderIcon src={sliderIcon} alt="slider" />}
     </ProductsContainer>
   );
 };

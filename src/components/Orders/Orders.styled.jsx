@@ -71,8 +71,6 @@ export const FilterContainer = styled.div`
   gap: 14px;
 
   @media (max-width: 768px) {
-    // width: 671px;
-    // height: 460px;
     gap: 8px;
   }
 `;
@@ -127,7 +125,7 @@ export const FilterIcon = styled.img`
 `;
 
 export const TableTitle = styled.div`
-  width: 100%;
+  width: 1242px;
   height: 24px;
   padding: 20px;
   font-size: 18px;

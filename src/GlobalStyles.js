@@ -18,6 +18,8 @@ const GlobalStyles = createGlobalStyle`
   --accent-blue: #70A6E8; // Blue accent
   --accent-orange: #F79042; // Orange accent
   --accent-purple: #8059E4; // Purple accent
+  --btn--accent-red: rgba(232, 80, 80, 0.5);
+  --btn--accent-green: rgba(89, 177, 122, 0.5);
 }
 
 body {

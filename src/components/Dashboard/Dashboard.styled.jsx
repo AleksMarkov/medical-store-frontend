@@ -475,6 +475,6 @@ export const TableHeaderRow = styled.tr`
 
 export const TableBodyRow = styled.tr`
   &:nth-child(even) {
-    background-color: var(--background-accent-light);
+    background-color: var(--background-light);
   }
 `;
