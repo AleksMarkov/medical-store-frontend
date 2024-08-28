@@ -9,7 +9,7 @@ const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const SharedLayout = lazy(() => import("./pages/SharedLayout/SharedLayout")); // Новый SharedLayout компонент
 const Dashboard = lazy(() => import("./components/Dashboard/Dashboard"));
 const Orders = lazy(() => import("./components/Orders/Orders"));
-const Products = lazy(() => import("./pages/Products/Products"));
+const Products = lazy(() => import("./components/Products/Products"));
 const Suppliers = lazy(() => import("./pages/Suppliers/Suppliers"));
 const Customers = lazy(() => import("./pages/Customers/Customers"));
 

@@ -17,7 +17,7 @@ import Modal from "../Modal/Modal";
 import burger from "../../assets/svg/burger.svg";
 import logo from "../../assets/svg/logo.svg";
 import logoutIcon from "../../assets/svg/logout.svg";
-import useLogout from "../../helpers/logoutHelper"; // Импорт новой функции
+import useLogout from "../../helpers/logoutHelper";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -25,7 +25,7 @@ const Header = ({ activePage, setActivePage }) => {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  const { logout } = useLogout(); // Использование функции
+  const { logout } = useLogout();
 
   const handleLogoClick = () => {
     if (user) {
