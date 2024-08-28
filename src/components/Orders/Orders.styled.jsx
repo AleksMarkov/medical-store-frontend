@@ -31,9 +31,10 @@ export const OrdersContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 335px;
-    height: 1335px;
-    padding: 20px;
+    height: 672px;
+    padding: 40px 20px 20px 20px;
     gap: 20px;
+    overflow-x: auto;
   }
 `;
 
@@ -58,8 +59,8 @@ export const TableContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 335px;
-    height: 511px;
+    width: 671px;
+    height: 482px;
   }
 `;
 
@@ -68,6 +69,12 @@ export const FilterContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: 14px;
+
+  @media (max-width: 768px) {
+    // width: 671px;
+    // height: 460px;
+    gap: 8px;
+  }
 `;
 
 export const FilterInput = styled.input`
@@ -81,6 +88,12 @@ export const FilterInput = styled.input`
   line-height: 18px;
   text-align: left;
   background-color: var(--background-white);
+
+  @media (max-width: 768px) {
+    width: 182px;
+    padding: 13px 13px 13px 18px;
+    gap: 8px;
+  }
 `;
 
 export const FilterButton = styled.div`
@@ -98,6 +111,11 @@ export const FilterButton = styled.div`
   line-height: 18px;
   font-weight: 500;
   font-size: 14px;
+
+  @media (max-width: 768px) {
+    width: 112px;
+    font-size: 12px;
+  }
 `;
 
 export const FilterIcon = styled.img`
@@ -105,8 +123,6 @@ export const FilterIcon = styled.img`
   height: 14px;
 
   @media (max-width: 768px) {
-    width: 18px;
-    height: 18px;
   }
 `;
 
@@ -143,7 +159,7 @@ export const UserInfo = styled.div`
   width: 100%;
 
   @media (max-width: 768px) {
-    width: 84px;
+    width: 107px;
     align-items: flex-start;
     flex-direction: column;
     overflow: hidden;
@@ -230,8 +246,9 @@ export const SliderIcon = styled.img`
   }
 
   @media (max-width: 768px) {
-    width: 18px;
-    height: 18px;
+    width: 112px;
+    height: 16px;
+    margin-left: 111px;
   }
 `;
 
@@ -275,10 +292,28 @@ export const TableHeaderCell = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 83px;
     font-size: 12px;
     line-height: 14px;
     padding: 14px 10px 14px 14px;
+  }
+`;
+
+export const HeaderBox01 = styled.div`
+  @media (max-width: 768px) {
+    width: 103px;
+  }
+`;
+
+export const HeaderBox02 = styled.div`
+  @media (max-width: 768px) {
+    width: 85px;
+  }
+`;
+
+export const HeaderBox03 = styled.div`
+  @media (max-width: 768px) {
+    // display: flex;
+    width: 97px;
   }
 `;
 
@@ -319,5 +354,14 @@ export const TableCell = styled.div`
     padding: 14px 7px 14px 14px;
     font-size: 12px;
     line-height: 14px;
+  }
+`;
+
+export const TableCellBox02 = styled.div`
+  @media (max-width: 768px) {
+    width: 88px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // white-space: nowrap;
   }
 `;

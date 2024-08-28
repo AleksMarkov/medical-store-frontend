@@ -22,6 +22,10 @@ import {
   TableWrapper,
   TableHeader,
   TableBody,
+  HeaderBox01,
+  HeaderBox02,
+  TableCellBox02,
+  HeaderBox03,
 } from "./Orders.styled";
 import filterIcon from "../../assets/svg/filter.svg";
 import sliderIcon from "../../assets/svg/Slider.svg";
@@ -72,12 +76,18 @@ const Orders = () => {
         <TableWrapper>
           <TableHeader>
             <TableHeaderRow>
-              <TableHeaderCell>User Info</TableHeaderCell>
-              <TableHeaderCell>Address</TableHeaderCell>
+              <TableHeaderCell>
+                <HeaderBox01>User Info</HeaderBox01>
+              </TableHeaderCell>
+              <TableHeaderCell>
+                <HeaderBox02>Address</HeaderBox02>
+              </TableHeaderCell>
               <TableHeaderCell>Products</TableHeaderCell>
               <TableHeaderCell>Order date</TableHeaderCell>
               <TableHeaderCell>Price</TableHeaderCell>
-              <TableHeaderCell>Status</TableHeaderCell>
+              <TableHeaderCell>
+                <HeaderBox03>Status</HeaderBox03>
+              </TableHeaderCell>
             </TableHeaderRow>
           </TableHeader>
           <TableBody>
@@ -92,7 +102,9 @@ const Orders = () => {
                     {order.name}
                   </UserInfo>
                 </TableCell>
-                <TableCell>{order.address}</TableCell>
+                <TableCell>
+                  <TableCellBox02>{order.address}</TableCellBox02>
+                </TableCell>
                 <TableCell>{order.products}</TableCell>
                 <TableCell>{order.order_date}</TableCell>
                 <TableCell>{order.price}</TableCell>
