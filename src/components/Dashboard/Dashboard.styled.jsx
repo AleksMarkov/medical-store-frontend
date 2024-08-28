@@ -18,8 +18,17 @@ export const DashContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+  overflow-x: visible;
 
   @media (max-width: 1440px) {
+    width: 984px;
+    height: 647px;
+    padding: 20px;
+    gap: 20px;
+    overflow-x: auto;
+  }
+
+  @media (max-width: 1024px) {
     width: 704px;
     height: 1212px;
     padding: 20px 32px;
@@ -123,6 +132,9 @@ export const TableBox = styled.div`
   height: 512px;
 
   @media (max-width: 1440px) {
+  }
+
+  @media (max-width: 1024px) {
     flex-direction: column;
     align-items: center;
     width: 704px;
@@ -149,6 +161,11 @@ export const TableContainer = styled.div`
   overflow: hidden;
 
   @media (max-width: 1440px) {
+    width: 630px;
+    height: 512px;
+  }
+
+  @media (max-width: 1024px) {
     width: 704px;
     height: 512px;
   }

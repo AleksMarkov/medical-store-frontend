@@ -14,6 +14,7 @@ export const OrdersContainer = styled.div`
   flex-direction: column;
   gap: 20px;
   margin: 0 auto;
+  overflow-x: visible;
 
   @media (max-width: 1440px) {
     width: 960px;
@@ -25,6 +26,7 @@ export const OrdersContainer = styled.div`
     width: 704px;
     height: 862px;
     padding: 50px 32px 32px 32px;
+    overflow-x: auto;
   }
 
   @media (max-width: 768px) {
@@ -32,6 +34,32 @@ export const OrdersContainer = styled.div`
     height: 1335px;
     padding: 20px;
     gap: 20px;
+  }
+`;
+
+export const TableContainer = styled.div`
+  width: 1280px;
+  height: 502px;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+
+  @media (max-width: 1440px) {
+    width: 960px;
+    height: 502px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 960px;
+    height: 502px;
+  }
+
+  @media (max-width: 768px) {
+    width: 335px;
+    height: 511px;
   }
 `;
 
@@ -204,34 +232,6 @@ export const SliderIcon = styled.img`
   @media (max-width: 768px) {
     width: 18px;
     height: 18px;
-  }
-`;
-
-export const TableContainer = styled.div`
-  width: 1280px;
-  height: 502px;
-  display: flex;
-  flex-direction: column;
-  background: var(--background-white);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  overflow: hidden;
-
-  @media (max-width: 1440px) {
-    width: 960px;
-    height: 502px;
-  }
-
-  @media (max-width: 1024px) {
-    width: 960px;
-    height: 502px;
-    // width: 100%;
-    // overflow-x: auto;
-  }
-
-  @media (max-width: 768px) {
-    width: 335px;
-    height: 511px;
   }
 `;
 
