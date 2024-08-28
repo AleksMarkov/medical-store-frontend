@@ -3,12 +3,14 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { thunk } from "redux-thunk";
 import { dashboardReducer } from "./reducers/dashboardReducer";
 import { orderReducer } from "./reducers/orderReducer";
-import authReducer from "./reducers/authReducer"; // Импорт authReducer
+import { productsReducer } from "./reducers/productsReducer";
+import authReducer from "./reducers/authReducer";
 
 const rootReducer = combineReducers({
-  auth: authReducer, // Добавить authReducer
+  auth: authReducer,
   dashboard: dashboardReducer,
   orders: orderReducer,
+  products: productsReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
