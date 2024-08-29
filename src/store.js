@@ -4,6 +4,7 @@ import { thunk } from "redux-thunk";
 import { dashboardReducer } from "./reducers/dashboardReducer";
 import { orderReducer } from "./reducers/orderReducer";
 import { productsReducer } from "./reducers/productsReducer";
+import { suppliersReducer } from "./reducers/suppliersReducer";
 import authReducer from "./reducers/authReducer";
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   dashboard: dashboardReducer,
   orders: orderReducer,
   products: productsReducer,
+  suppliers: suppliersReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
