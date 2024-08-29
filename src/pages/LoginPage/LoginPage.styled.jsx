@@ -208,6 +208,10 @@ export const Button = styled.button`
   cursor: pointer;
   border: none;
 
+  &:hover {
+    background-color: var(--accent-btn);
+  }
+
   @media (max-width: 768px) {
     width: 335px;
   }

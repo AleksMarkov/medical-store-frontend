@@ -93,6 +93,10 @@ export const FilterButton = styled.button`
   font-weight: 500;
   font-size: 14px;
 
+  &:hover {
+    background-color: var(--accent-btn);
+  }
+
   @media (max-width: 768px) {
     width: 112px;
     font-size: 12px;
@@ -118,12 +122,17 @@ export const AddIcon = styled.img`
 export const AddButton = styled.div`
   width: 16px;
   height: 16px;
-  background-color: var(--accent-btn);
+  background-color: var(--accent-green);
   border-radius: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 13px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--accent-btn);
+  }
 `;
 
 export const AddBlock = styled.div`

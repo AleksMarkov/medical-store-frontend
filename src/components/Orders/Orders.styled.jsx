@@ -109,6 +109,11 @@ export const FilterButton = styled.div`
   line-height: 18px;
   font-weight: 500;
   font-size: 14px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--accent-btn);
+  }
 
   @media (max-width: 768px) {
     width: 112px;

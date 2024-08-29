@@ -1,5 +1,4 @@
 //Products.jsx
-// src/components/Products/Products.jsx
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -27,6 +26,8 @@ import {
   EditButton,
   DeleteButton,
 } from "./Products.styled";
+import Modal from "../Modal/Modal";
+import AddProduct from "./AddProduct/AddProduct";
 import addIcon from "../../assets/svg/add.svg";
 import filterIcon from "../../assets/svg/filter.svg";
 import editIcon from "../../assets/svg/edit.svg";
@@ -38,15 +39,35 @@ const Products = () => {
   const dispatch = useDispatch();
   const { products, error } = useSelector((state) => state.products);
   const [filterText, setFilterText] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [showAddProduct, setShowAddProduct] = useState(false);
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  const handleFilter = () => {};
+  useEffect(() => {
+    setFilteredProducts(products);
+  }, [products]);
+
+  const handleFilter = () => {
+    if (filterText.trim() === "") {
+      setFilteredProducts(products);
+    } else {
+      const filtered = products.filter((product) =>
+        product.name.toLowerCase().includes(filterText.toLowerCase())
+      );
+      setFilteredProducts(filtered);
+    }
+  };
 
   if (error) return <div>Error: {error}</div>;
   if (!products) return <div>Loading...</div>;
+
+  const handleAddProduct = (newProduct) => {
+    // Logic to add the new product
+    console.log(newProduct);
+  };
 
   return (
     <ProductsContainer>
@@ -63,7 +84,15 @@ const Products = () => {
           </FilterButton>
         </FilterBlock>
         <AddBlock>
-          <AddButton>
+          {showAddProduct && (
+            <Modal>
+              <AddProduct
+                onClose={() => setShowAddProduct(false)}
+                onAdd={handleAddProduct}
+              />
+            </Modal>
+          )}
+          <AddButton onClick={() => setShowAddProduct(true)}>
             <AddIcon src={addIcon} alt="add" />
           </AddButton>
           Add a new product
@@ -83,7 +112,7 @@ const Products = () => {
             </TableHeaderRow>
           </TableHeader>
           <TableBody>
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
               <TableBodyRow key={product._id}>
                 <TableCell>{product.name}</TableCell>
                 <TableCell>{product.category}</TableCell>
@@ -103,7 +132,9 @@ const Products = () => {
           </TableBody>
         </TableWrapper>
       </TableContainer>
-      {products.length >= 6 && <SliderIcon src={sliderIcon} alt="slider" />}
+      {filteredProducts.length >= 6 && (
+        <SliderIcon src={sliderIcon} alt="slider" />
+      )}
     </ProductsContainer>
   );
 };
