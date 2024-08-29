@@ -44,7 +44,7 @@ const SharedLayout = () => {
         setActivePage("All suppliers");
         break;
       case "/customers":
-        setActivePage("Customers");
+        setActivePage("All customers");
         break;
       default:
         setActivePage("");

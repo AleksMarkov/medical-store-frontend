@@ -11,7 +11,7 @@ const Dashboard = lazy(() => import("./components/Dashboard/Dashboard"));
 const Orders = lazy(() => import("./components/Orders/Orders"));
 const Products = lazy(() => import("./components/Products/Products"));
 const Suppliers = lazy(() => import("./components/Suppliers/Suppliers"));
-const Customers = lazy(() => import("./pages/Customers/Customers"));
+const Customers = lazy(() => import("./components/Customers/Customers"));
 
 function App() {
   return (
