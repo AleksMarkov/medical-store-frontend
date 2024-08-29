@@ -1,5 +1,7 @@
 // AddSupplier.jsx
 import React, { useState, useRef, useEffect, useCallback } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import {
   ModalOverlay,
   PopupContainer,
@@ -16,10 +18,13 @@ import {
   ChevronImg,
   DropdownList,
   DropdownItem,
+  CalendarImg,
+  DatePickerWrapper,
 } from "./AddSupplier.styled";
 import closeIcon from "../../../assets/svg/close.svg";
 import chevronDownIcon from "../../../assets/svg/chevron-down.svg";
 import chevronUpIcon from "../../../assets/svg/chevron-up.svg";
+import calendarIcon from "../../../assets/svg/calendar.svg";
 import { useDispatch } from "react-redux";
 import { addSupplier } from "../../../actions/suppliersActions";
 
@@ -28,19 +33,22 @@ const AddSupplier = ({ onClose }) => {
   const [supplierInfo, setSupplierInfo] = useState("");
   const [address, setAddress] = useState("");
   const [suppliers, setSuppliers] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(null);
   const [amount, setAmount] = useState("");
   const [status, setStatus] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const modalRef = useRef(null);
   const dropdownRef = useRef(null);
 
   const handleAdd = () => {
+    const formattedDate = formatDate(date); // Используем форматированную дату
+
     const newSupplier = {
       name: supplierInfo,
       address,
       suppliers,
-      date,
+      date: formattedDate, // Сохраняем дату в нужном формате
       amount,
       status,
     };
@@ -74,6 +82,20 @@ const AddSupplier = ({ onClose }) => {
   const handleStatusSelect = (value) => {
     setStatus(value);
     setIsDropdownOpen(false);
+  };
+
+  const toggleCalendar = (e) => {
+    e.preventDefault();
+    setIsCalendarOpen(!isCalendarOpen);
+  };
+
+  const formatDate = (date) => {
+    if (!date) return "";
+    return new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "2-digit",
+    }).format(date);
   };
 
   useEffect(() => {
@@ -112,11 +134,29 @@ const AddSupplier = ({ onClose }) => {
             value={suppliers}
             onChange={(e) => setSuppliers(e.target.value)}
           />
-          <InputField
-            placeholder="Delivery date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
+          <DatePickerWrapper>
+            <InputField
+              placeholder="Delivery date"
+              value={formatDate(date)}
+              readOnly
+            />
+            <CalendarImg
+              src={calendarIcon}
+              alt="calendar"
+              onClick={toggleCalendar}
+            />
+            {isCalendarOpen && (
+              <DatePicker
+                selected={date}
+                onChange={(date) => {
+                  setDate(date);
+                  setIsCalendarOpen(false);
+                }}
+                inline
+                onClickOutside={() => setIsCalendarOpen(false)}
+              />
+            )}
+          </DatePickerWrapper>
         </SecondLine>
         <ThirdLine>
           <InputField

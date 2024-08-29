@@ -186,6 +186,17 @@ export const Input = styled.input`
   line-height: 18px;
   color: var(--label-color);
 
+  &:focus {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
+    outline: none;
+  }
+
+  &:hover {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
+  }
+
   @media (max-width: 768px) {
     width: 299px;
     height: 18px;

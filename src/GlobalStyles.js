@@ -52,9 +52,6 @@ a {
   color: inherit;
 }
 
-input, button, textarea {
-  font-family: 'Inter', sans-serif;
-}
 `;
 
 export default GlobalStyles;

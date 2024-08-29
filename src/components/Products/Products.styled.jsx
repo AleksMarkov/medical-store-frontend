@@ -74,6 +74,17 @@ export const FilterInput = styled.input`
   text-align: left;
   background-color: var(--background-white);
 
+  &:focus {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
+    outline: none;
+  }
+
+  &:hover {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
+  }
+
   @media (max-width: 768px) {
     width: 182px;
     padding: 13px 13px 13px 18px;
@@ -269,24 +280,26 @@ export const TableCell = styled.div`
   text-align: left;
 
   @media (max-width: 1440px) {
-    width: 106px;
-    padding: 14px 7px 14px 14px;
-    font-size: 12px;
-    line-height: 14px;
+    // width: 106px;
+    // padding: 14px 7px 14px 14px;
+    // font-size: 12px;
+    // line-height: 14px;
   }
 
   @media (max-width: 1024px) {
-    width: 106px;
-    padding: 14px 7px 14px 14px;
-    font-size: 12px;
-    line-height: 14px;
+    // width: 106px;
+    // padding: 14px 7px 14px 14px;
+    // font-size: 12px;
+    // line-height: 14px;
   }
 
   @media (max-width: 768px) {
-    width: 106px;
-    padding: 14px 7px 14px 14px;
+    width: 112px;
+    /* padding: 14px 7px 14px 14px; */
     font-size: 12px;
     line-height: 14px;
+    // word-wrap: break-word; /* Добавьте это свойство */
+    // overflow-wrap: break-word; /* Или используйте это свойство */
   }
 `;
 

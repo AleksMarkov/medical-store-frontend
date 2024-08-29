@@ -1,6 +1,8 @@
 //EditSupplier.jsx
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import {
   ModalOverlay,
   PopupContainer,
@@ -13,45 +15,56 @@ import {
   ButtonContainer,
   FirstLine,
   SecondLine,
+  ThirdLine,
   ChevronImg,
   DropdownList,
   DropdownItem,
+  CalendarImg,
+  DatePickerWrapper,
 } from "./EditSupplier.styled";
 import closeIcon from "../../../assets/svg/close.svg";
 import chevronDownIcon from "../../../assets/svg/chevron-down.svg";
 import chevronUpIcon from "../../../assets/svg/chevron-up.svg";
-import { updateProduct } from "../../../actions/productsActions";
+import calendarIcon from "../../../assets/svg/calendar.svg";
+import { updateSupplier } from "../../../actions/suppliersActions";
 
-const EditSupplier = ({ product, onClose }) => {
+const EditSupplier = ({ supplier, onClose }) => {
   const dispatch = useDispatch();
-  const [productInfo, setProductInfo] = useState(product?.name || "");
-  const [category, setCategory] = useState(product?.category || "");
-  const [stock, setStock] = useState(product?.stock || "");
-  const [suppliers, setSuppliers] = useState(product?.suppliers || "");
-  const [price, setPrice] = useState(product?.price || "");
+  const [supplierInfo, setSupplierInfo] = useState("");
+  const [address, setAddress] = useState("");
+  const [suppliers, setSuppliers] = useState("");
+  const [date, setDate] = useState(null);
+  const [amount, setAmount] = useState("");
+  const [status, setStatus] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const modalRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
-    if (product) {
-      setProductInfo(product.name);
-      setCategory(product.category);
-      setStock(product.stock);
-      setSuppliers(product.suppliers);
-      setPrice(product.price);
+    if (supplier) {
+      setSupplierInfo(supplier.name);
+      setAddress(supplier.address);
+      setSuppliers(supplier.suppliers);
+      setDate(supplier.date ? new Date(supplier.date) : null); // Преобразование даты в объект Date
+      setAmount(supplier.amount);
+      setStatus(supplier.status);
     }
-  }, [product]);
+  }, [supplier]);
 
   const handleEdit = () => {
-    const updatedProduct = {
-      name: productInfo,
-      category,
-      stock,
+    const formattedDate = formatDate(date); // Используем форматированную дату
+
+    const updatedSupplier = {
+      name: supplierInfo,
+      address,
       suppliers,
-      price,
+      date: formattedDate, // Сохраняем дату в нужном формате
+      amount,
+      status,
     };
 
-    dispatch(updateProduct(product._id, updatedProduct));
+    dispatch(updateSupplier(supplier._id, updatedSupplier));
     onClose();
   };
 
@@ -77,9 +90,23 @@ const EditSupplier = ({ product, onClose }) => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const handleCategorySelect = (value) => {
-    setCategory(value);
+  const handleStatusSelect = (value) => {
+    setStatus(value);
     setIsDropdownOpen(false);
+  };
+
+  const toggleCalendar = (e) => {
+    e.preventDefault();
+    setIsCalendarOpen(!isCalendarOpen);
+  };
+
+  const formatDate = (date) => {
+    if (!date || !(date instanceof Date)) return ""; // Проверка на null и тип Date
+    return new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "2-digit",
+    }).format(date);
   };
 
   useEffect(() => {
@@ -91,19 +118,7 @@ const EditSupplier = ({ product, onClose }) => {
     };
   }, [handleOverlayClick, handleEscKey]);
 
-  const categories = [
-    "Medicine",
-    "Head",
-    "Hand",
-    "Heart",
-    "Leg",
-    "Dental Care",
-    "Skin Care",
-    "Eye Care",
-    "Vitamins & Supplements",
-    "Orthopedic Products",
-    "Baby Care",
-  ];
+  const statuses = ["Active", "Deactive"];
 
   return (
     <ModalOverlay>
@@ -114,47 +129,69 @@ const EditSupplier = ({ product, onClose }) => {
         <Headline>Edit supplier</Headline>
         <FirstLine>
           <InputField
-            placeholder="Product Info"
-            value={productInfo}
-            onChange={(e) => setProductInfo(e.target.value)}
+            placeholder="Supplier Info"
+            value={supplierInfo}
+            onChange={(e) => setSupplierInfo(e.target.value)}
+          />
+          <InputField
+            placeholder="Address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+        </FirstLine>
+        <SecondLine>
+          <InputField
+            placeholder="Company"
+            value={suppliers}
+            onChange={(e) => setSuppliers(e.target.value)}
+          />
+          <DatePickerWrapper>
+            <InputField
+              placeholder="Delivery date"
+              value={formatDate(date)}
+              readOnly
+            />
+            <CalendarImg
+              src={calendarIcon}
+              alt="calendar"
+              onClick={toggleCalendar}
+            />
+            {isCalendarOpen && (
+              <DatePicker
+                selected={date}
+                onChange={(date) => {
+                  setDate(date);
+                  setIsCalendarOpen(false);
+                }}
+                inline
+                onClickOutside={() => setIsCalendarOpen(false)}
+              />
+            )}
+          </DatePickerWrapper>
+        </SecondLine>
+        <ThirdLine>
+          <InputField
+            placeholder="Amount"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
           />
           <SelectField onClick={toggleDropdown}>
-            {category || "Category"}
+            {status || "Status"}
             <ChevronImg
               src={isDropdownOpen ? chevronUpIcon : chevronDownIcon}
               alt="chevron"
             />
           </SelectField>
           {isDropdownOpen && (
-            <DropdownList>
-              {categories.map((cat) => (
-                <DropdownItem
-                  key={cat}
-                  onClick={() => handleCategorySelect(cat)}
-                >
+            <DropdownList ref={dropdownRef}>
+              {statuses.map((cat) => (
+                <DropdownItem key={cat} onClick={() => handleStatusSelect(cat)}>
                   {cat}
                 </DropdownItem>
               ))}
             </DropdownList>
           )}
-        </FirstLine>
-        <SecondLine>
-          <InputField
-            placeholder="Stock"
-            value={stock}
-            onChange={(e) => setStock(e.target.value)}
-          />
-          <InputField
-            placeholder="Suppliers"
-            value={suppliers}
-            onChange={(e) => setSuppliers(e.target.value)}
-          />
-        </SecondLine>
-        <InputField
-          placeholder="Price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
+        </ThirdLine>
         <ButtonContainer>
           <AddButton onClick={handleEdit}>Save</AddButton>
           <CancelButton onClick={onClose}>Cancel</CancelButton>

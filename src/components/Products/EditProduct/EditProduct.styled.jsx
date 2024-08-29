@@ -117,6 +117,17 @@ export const InputField = styled.input`
     color: var(--label-color);
   }
 
+  &:focus {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
+    outline: none;
+  }
+
+  &:hover {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
+  }
+
   @media (max-width: 768px) {
     width: 295px;
     height: 44px;
@@ -223,6 +234,17 @@ export const SelectField = styled.div`
   justify-content: space-between;
   cursor: pointer;
   position: relative;
+
+  &:focus {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
+    outline: none;
+  }
+
+  &:hover {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
+  }
 
   @media (max-width: 768px) {
     width: 295px;

@@ -135,7 +135,7 @@ const Suppliers = () => {
       {showEditSupplier && (
         <Modal>
           <EditSupplier
-            product={supplierToEdit}
+            supplier={supplierToEdit}
             onClose={() => setShowEditSupplier(false)}
           />
         </Modal>

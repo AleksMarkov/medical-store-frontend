@@ -74,6 +74,17 @@ export const FilterInput = styled.input`
   text-align: left;
   background-color: var(--background-white);
 
+  &:focus {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
+    outline: none;
+  }
+
+  &:hover {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
+  }
+
   @media (max-width: 768px) {
     width: 182px;
     padding: 13px 13px 13px 18px;
@@ -268,22 +279,22 @@ export const TableCell = styled.div`
   text-align: left;
 
   @media (max-width: 1440px) {
-    width: 106px;
-    padding: 14px 7px 14px 14px;
-    font-size: 12px;
-    line-height: 14px;
+    // width: 106px;
+    // padding: 14px 7px 14px 14px;
+    // font-size: 12px;
+    // line-height: 14px;
   }
 
   @media (max-width: 1024px) {
-    width: 106px;
-    padding: 14px 7px 14px 14px;
-    font-size: 12px;
-    line-height: 14px;
+    // width: 106px;
+    // padding: 14px 7px 14px 14px;
+    // font-size: 12px;
+    // line-height: 14px;
   }
 
   @media (max-width: 768px) {
     width: 106px;
-    padding: 14px 7px 14px 14px;
+    padding: 29px 5px 29px 10px;
     font-size: 12px;
     line-height: 14px;
   }
@@ -334,6 +345,12 @@ export const EditButton = styled.div`
   line-height: 18px;
   gap: 4px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 70px;
+    font-size: 12px;
+    line-height: 14px;
+  }
 `;
 
 export const StatusBadge = styled.span`
@@ -365,4 +382,11 @@ export const StatusBadge = styled.span`
         return "#E0E0E0";
     }
   }};
+
+  @media (max-width: 768px) {
+    width: 70px;
+    padding: 4px 2px;
+    font-size: 12px;
+    line-height: 14px;
+  }
 `;

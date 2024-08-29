@@ -42,7 +42,7 @@ export const PopupContainer = styled.div`
     left: 20px;
     top: 200px;
     width: 335px;
-    height: 484px;
+    height: 542px;
     padding: 40px 20px;
   }
 `;
@@ -134,6 +134,17 @@ export const InputField = styled.input`
 
   &::placeholder {
     color: var(--label-color);
+  }
+
+  &:focus {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
+    outline: none;
+  }
+
+  &:hover {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
   }
 
   @media (max-width: 768px) {
@@ -243,10 +254,30 @@ export const SelectField = styled.div`
   cursor: pointer;
   position: relative;
 
+&:focus {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
+    outline: none;
+  }
+
+  &:hover {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
+  }
+
   @media (max-width: 768px) {
     width: 295px;
     padding: 13px 18px;
   }
+`;
+
+export const CalendarImg = styled.img`
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 20px;
+  top: 14px;
+  cursor: pointer;
 `;
 
 export const ChevronImg = styled.img`
@@ -263,7 +294,7 @@ export const DropdownList = styled.div`
   overflow-y: auto;
   background-color: var(--accent-green);
   border-radius: 15px;
-  top: 160px;
+  top: 275px;
   left: 272px;
   z-index: 1002;
   padding: 10px 0px;
@@ -287,5 +318,38 @@ export const DropdownItem = styled.div`
   &:hover {
     background-color: var(--accent-btn);
     color: var(--background-white);
+  }
+`;
+
+export const DatePickerWrapper = styled.div`
+  position: relative;
+  width: 224px;
+
+  .react-datepicker {
+    font-family: Arial, sans-serif;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1003;
+  }
+
+  .react-datepicker__header {
+    background-color: var(--accent-green);
+    border-bottom: none;
+  }
+
+  .react-datepicker__current-month,
+  .react-datepicker__day-name {
+    color: var(--background-white);
+  }
+
+  .react-datepicker__day--selected {
+    background-color: var(--accent-green);
+  }
+
+  @media (max-width: 768px) {
+    width: 295px;
   }
 `;

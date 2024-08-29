@@ -87,6 +87,17 @@ export const FilterInput = styled.input`
   text-align: left;
   background-color: var(--background-white);
 
+  &:focus {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
+    outline: none;
+  }
+
+  &:hover {
+    color: var(--background-dark);
+    border: 1px solid var(--accent-green);
+  }
+
   @media (max-width: 768px) {
     width: 182px;
     padding: 13px 13px 13px 18px;
