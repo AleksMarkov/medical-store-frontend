@@ -10,7 +10,7 @@ const SharedLayout = lazy(() => import("./pages/SharedLayout/SharedLayout")); //
 const Dashboard = lazy(() => import("./components/Dashboard/Dashboard"));
 const Orders = lazy(() => import("./components/Orders/Orders"));
 const Products = lazy(() => import("./components/Products/Products"));
-const Suppliers = lazy(() => import("./pages/Suppliers/Suppliers"));
+const Suppliers = lazy(() => import("./components/Suppliers/Suppliers"));
 const Customers = lazy(() => import("./pages/Customers/Customers"));
 
 function App() {
