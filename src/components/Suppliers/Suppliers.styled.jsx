@@ -259,7 +259,7 @@ export const TableCell = styled.div`
   display: flex;
   height: 17px;
   align-items: center;
-  padding: 29px 10px 29px 20px;
+  padding: 29px 5px 29px 20px;
   border-bottom: 1px solid var(--border-color);
   border-right: 1px solid var(--border-color);
   font-size: 16px;
@@ -295,8 +295,8 @@ export const ActionCell = styled(TableCell)`
 `;
 
 export const ActionIcon = styled.img`
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   // cursor: pointer;
 `;
 
@@ -321,27 +321,48 @@ export const SliderIcon = styled.img`
 `;
 
 export const EditButton = styled.div`
-  width: 16px;
-  height: 16px;
-  // background-color: var(--accent-btn);
-  border-radius: 16px;
+  width: 80px;
+  height: 32px;
+  border-radius: 30px;
   border: 1px solid var(--btn--accent-green);
+  color: var(--accent-green);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  gap: 4px;
   cursor: pointer;
 `;
 
-export const DeleteButton = styled.div`
-  width: 16px;
-  height: 16px;
-  // background-color: var(--accent-btn);
-  border-radius: 16px;
-  border: 1px solid var(--btn--accent-red);
+export const StatusBadge = styled.span`
   display: flex;
-  align-items: center;
+  width: 92px;
   justify-content: center;
-  padding: 8px;
-  cursor: pointer;
+  align-items: center;
+  padding: 4px 4px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  color: ${({ status }) => {
+    switch (status) {
+      case "Active":
+        return "#59B17A";
+      case "Deactive":
+        return "#E85050";
+      default:
+        return "#1D1E21";
+    }
+  }};
+  background-color: ${({ status }) => {
+    switch (status) {
+      case "Active":
+        return "rgba(89, 177, 122, 0.1)";
+      case "Deactive":
+        return "rgba(232, 80, 80, 0.1)";
+      default:
+        return "#E0E0E0";
+    }
+  }};
 `;

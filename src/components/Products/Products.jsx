@@ -134,7 +134,7 @@ const Products = () => {
                 <TableCell>{product.category}</TableCell>
                 <TableCell>{product.stock}</TableCell>
                 <TableCell>{product.suppliers}</TableCell>
-                <TableCell>${product.price}</TableCell>
+                <TableCell>{product.price}</TableCell>
                 <ActionCell>
                   <EditButton onClick={() => handleEditProduct(product)}>
                     <ActionIcon src={editIcon} alt="Edit" />

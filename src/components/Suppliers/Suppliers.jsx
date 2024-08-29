@@ -23,75 +23,58 @@ import {
   FilterBlock,
   SliderIcon,
   EditButton,
-  DeleteButton,
+  StatusBadge,
 } from "./Suppliers.styled";
 import Modal from "../Modal/Modal";
 import AddSupplier from "./AddSupplier/AddSupplier";
 import EditSupplier from "./EditSupplier/EditSupplier";
-import DeleteSupplier from "./DeleteSupplier/DeleteSupplier";
 import filterIcon from "../../assets/svg/filter.svg";
 import editIcon from "../../assets/svg/edit.svg";
-import trashIcon from "../../assets/svg/trash.svg";
 import sliderIcon from "../../assets/svg/Slider.svg";
-import { fetchProducts, deleteProduct } from "../../actions/productsActions";
+import { fetchSuppliers } from "../../actions/suppliersActions";
 
 const Suppliers = () => {
   const dispatch = useDispatch();
-  const { products, error } = useSelector((state) => state.products);
+  const { suppliers, error } = useSelector((state) => state.suppliers);
   const [filterText, setFilterText] = useState("");
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [showAddProduct, setShowAddProduct] = useState(false);
-  const [showEditProduct, setShowEditProduct] = useState(false);
-  const [showDeleteProduct, setShowDeleteProduct] = useState(false);
-  const [productToEdit, setProductToEdit] = useState(null);
-  const [productToDelete, setProductToDelete] = useState(null);
+  const [filteredSuppliers, setFilteredSuppliers] = useState([]);
+  const [showAddSupplier, setShowAddSupplier] = useState(false);
+  const [showEditSupplier, setShowEditSupplier] = useState(false);
+  const [supplierToEdit, setSupplierToEdit] = useState(null);
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    dispatch(fetchSuppliers());
   }, [dispatch]);
 
   useEffect(() => {
-    setFilteredProducts(products);
-  }, [products]);
+    setFilteredSuppliers(suppliers);
+  }, [suppliers]);
 
   const handleFilter = () => {
     if (filterText.trim() === "") {
-      setFilteredProducts(products);
+      setFilteredSuppliers(suppliers);
     } else {
-      const filtered = products.filter((product) =>
-        product.name.toLowerCase().includes(filterText.toLowerCase())
+      const filtered = suppliers.filter((supplier) =>
+        supplier.name.toLowerCase().includes(filterText.toLowerCase())
       );
-      setFilteredProducts(filtered);
+      setFilteredSuppliers(filtered);
     }
   };
 
-  const handleEditProduct = (product) => {
-    setProductToEdit(product);
-    setShowEditProduct(true);
-  };
-
-  const handleDeleteProduct = (product) => {
-    setProductToDelete(product);
-    setShowDeleteProduct(true);
-  };
-
-  const confirmDeleteProduct = async () => {
-    if (productToDelete) {
-      await dispatch(deleteProduct(productToDelete._id));
-      setShowDeleteProduct(false);
-      dispatch(fetchProducts());
-    }
+  const handleEditSupplier = (supplier) => {
+    setSupplierToEdit(supplier);
+    setShowEditSupplier(true);
   };
 
   if (error) return <div>Error: {error}</div>;
-  if (!products) return <div>Loading...</div>;
+  if (!suppliers) return <div>Loading...</div>;
 
   return (
     <ProductsContainer>
       <FilterContainer>
         <FilterBlock>
           <FilterInput
-            placeholder="Product Name"
+            placeholder="Supplier Name"
             value={filterText}
             onChange={(e) => setFilterText(e.target.value)}
           />
@@ -101,12 +84,12 @@ const Suppliers = () => {
           </FilterButton>
         </FilterBlock>
         <AddBlock>
-          {showAddProduct && (
+          {showAddSupplier && (
             <Modal>
-              <AddSupplier onClose={() => setShowAddProduct(false)} />
+              <AddSupplier onClose={() => setShowAddSupplier(false)} />
             </Modal>
           )}
-          <AddButton onClick={() => setShowAddProduct(true)}>
+          <AddButton onClick={() => setShowAddSupplier(true)}>
             Add a new supplier
           </AddButton>
         </AddBlock>
@@ -126,44 +109,38 @@ const Suppliers = () => {
             </TableHeaderRow>
           </TableHeader>
           <TableBody>
-            {filteredProducts.map((product) => (
-              <TableBodyRow key={product._id}>
-                <TableCell>{product.name}</TableCell>
-                <TableCell>{product.category}</TableCell>
-                <TableCell>{product.stock}</TableCell>
-                <TableCell>{product.suppliers}</TableCell>
-                <TableCell>${product.price}</TableCell>
+            {filteredSuppliers.map((supplier) => (
+              <TableBodyRow key={supplier._id}>
+                <TableCell>{supplier.name}</TableCell>
+                <TableCell>{supplier.address}</TableCell>
+                <TableCell>{supplier.suppliers}</TableCell>
+                <TableCell>{supplier.date}</TableCell>
+                <TableCell>{supplier.amount}</TableCell>
+                <TableCell>
+                  <StatusBadge status={supplier.status}>
+                    {supplier.status}
+                  </StatusBadge>
+                </TableCell>
                 <ActionCell>
-                  <EditButton onClick={() => handleEditProduct(product)}>
+                  <EditButton onClick={() => handleEditSupplier(supplier)}>
                     <ActionIcon src={editIcon} alt="Edit" />
+                    Edit
                   </EditButton>
-                  <DeleteButton onClick={() => handleDeleteProduct(product)}>
-                    <ActionIcon src={trashIcon} alt="Delete" />
-                  </DeleteButton>
                 </ActionCell>
               </TableBodyRow>
             ))}
           </TableBody>
         </TableWrapper>
       </TableContainer>
-      {showEditProduct && (
+      {showEditSupplier && (
         <Modal>
           <EditSupplier
-            product={productToEdit}
-            onClose={() => setShowEditProduct(false)}
+            product={supplierToEdit}
+            onClose={() => setShowEditSupplier(false)}
           />
         </Modal>
       )}
-      {showDeleteProduct && (
-        <Modal>
-          <DeleteSupplier
-            product={productToDelete}
-            onClose={() => setShowDeleteProduct(false)}
-            onConfirmDelete={confirmDeleteProduct}
-          />
-        </Modal>
-      )}
-      {filteredProducts.length >= 6 && (
+      {filteredSuppliers.length >= 6 && (
         <SliderIcon src={sliderIcon} alt="slider" />
       )}
     </ProductsContainer>

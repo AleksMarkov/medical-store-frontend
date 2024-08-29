@@ -12,6 +12,7 @@ import {
   ButtonContainer,
   FirstLine,
   SecondLine,
+  ThirdLine,
   ChevronImg,
   DropdownList,
   DropdownItem,
@@ -20,30 +21,31 @@ import closeIcon from "../../../assets/svg/close.svg";
 import chevronDownIcon from "../../../assets/svg/chevron-down.svg";
 import chevronUpIcon from "../../../assets/svg/chevron-up.svg";
 import { useDispatch } from "react-redux";
-import { addProduct } from "../../../actions/productsActions";
+import { addSupplier } from "../../../actions/suppliersActions";
 
 const AddSupplier = ({ onClose }) => {
   const dispatch = useDispatch();
-  const [productInfo, setProductInfo] = useState("");
-  const [category, setCategory] = useState("");
-  const [stock, setStock] = useState("");
+  const [supplierInfo, setSupplierInfo] = useState("");
+  const [address, setAddress] = useState("");
   const [suppliers, setSuppliers] = useState("");
-  const [price, setPrice] = useState("");
+  const [date, setDate] = useState("");
+  const [amount, setAmount] = useState("");
+  const [status, setStatus] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const modalRef = useRef(null);
   const dropdownRef = useRef(null);
 
   const handleAdd = () => {
-    const newProduct = {
-      name: productInfo,
+    const newSupplier = {
+      name: supplierInfo,
+      address,
       suppliers,
-      stock,
-      price,
-      category,
-      photo: "",
+      date,
+      amount,
+      status,
     };
 
-    dispatch(addProduct(newProduct));
+    dispatch(addSupplier(newSupplier));
     onClose();
   };
 
@@ -69,8 +71,8 @@ const AddSupplier = ({ onClose }) => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const handleCategorySelect = (value) => {
-    setCategory(value);
+  const handleStatusSelect = (value) => {
+    setStatus(value);
     setIsDropdownOpen(false);
   };
 
@@ -83,19 +85,7 @@ const AddSupplier = ({ onClose }) => {
     };
   }, [handleOverlayClick, handleEscKey]);
 
-  const categories = [
-    "Medicine",
-    "Head",
-    "Hand",
-    "Heart",
-    "Leg",
-    "Dental Care",
-    "Skin Care",
-    "Eye Care",
-    "Vitamins & Supplements",
-    "Orthopedic Products",
-    "Baby Care",
-  ];
+  const statuses = ["Active", "Deactive"];
 
   return (
     <ModalOverlay>
@@ -106,12 +96,36 @@ const AddSupplier = ({ onClose }) => {
         <Headline>Add a new supplier</Headline>
         <FirstLine>
           <InputField
-            placeholder="Product Info"
-            value={productInfo}
-            onChange={(e) => setProductInfo(e.target.value)}
+            placeholder="Supplier Info"
+            value={supplierInfo}
+            onChange={(e) => setSupplierInfo(e.target.value)}
+          />
+          <InputField
+            placeholder="Address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+        </FirstLine>
+        <SecondLine>
+          <InputField
+            placeholder="Company"
+            value={suppliers}
+            onChange={(e) => setSuppliers(e.target.value)}
+          />
+          <InputField
+            placeholder="Delivery date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </SecondLine>
+        <ThirdLine>
+          <InputField
+            placeholder="Amount"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
           />
           <SelectField onClick={toggleDropdown}>
-            {category || "Category"}
+            {status || "Status"}
             <ChevronImg
               src={isDropdownOpen ? chevronUpIcon : chevronDownIcon}
               alt="chevron"
@@ -119,34 +133,14 @@ const AddSupplier = ({ onClose }) => {
           </SelectField>
           {isDropdownOpen && (
             <DropdownList ref={dropdownRef}>
-              {categories.map((cat) => (
-                <DropdownItem
-                  key={cat}
-                  onClick={() => handleCategorySelect(cat)}
-                >
+              {statuses.map((cat) => (
+                <DropdownItem key={cat} onClick={() => handleStatusSelect(cat)}>
                   {cat}
                 </DropdownItem>
               ))}
             </DropdownList>
           )}
-        </FirstLine>
-        <SecondLine>
-          <InputField
-            placeholder="Stock"
-            value={stock}
-            onChange={(e) => setStock(e.target.value)}
-          />
-          <InputField
-            placeholder="Suppliers"
-            value={suppliers}
-            onChange={(e) => setSuppliers(e.target.value)}
-          />
-        </SecondLine>
-        <InputField
-          placeholder="Price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
+        </ThirdLine>
         <ButtonContainer>
           <AddButton onClick={handleAdd}>Add</AddButton>
           <CancelButton onClick={onClose}>Cancel</CancelButton>

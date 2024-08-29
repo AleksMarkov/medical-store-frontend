@@ -99,6 +99,25 @@ export const SecondLine = styled.div`
   }
 `;
 
+export const ThirdLine = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 456px;
+  height: 44px;
+
+  @media (max-width: 768px) {
+    width: 295px;
+    height: 102px;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 14px;
+  }
+`;
+
 export const InputField = styled.input`
   box-sizing: border-box;
   width: 224px;
