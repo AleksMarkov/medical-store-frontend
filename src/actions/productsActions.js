@@ -14,7 +14,6 @@ export const fetchProducts = () => async (dispatch) => {
 export const addProduct = (product) => async (dispatch) => {
   try {
     const response = await api.post("/products", product);
-    // After successfully adding a product, fetch all products again to update the UI
     dispatch(fetchProducts());
   } catch (error) {
     console.error("Failed to add product:", error.message);
@@ -25,9 +24,17 @@ export const updateProduct =
   (productId, updatedProduct) => async (dispatch) => {
     try {
       await api.put(`/products/${productId}`, updatedProduct);
-      // After successfully updating a product, fetch all products again to update the UI
       dispatch(fetchProducts());
     } catch (error) {
       console.error("Failed to update product:", error.message);
     }
   };
+
+export const deleteProduct = (productId) => async (dispatch) => {
+  try {
+    await api.delete(`/products/${productId}`);
+    dispatch(fetchProducts());
+  } catch (error) {
+    console.error("Failed to delete product:", error.message);
+  }
+};

@@ -29,12 +29,13 @@ import {
 import Modal from "../Modal/Modal";
 import AddProduct from "./AddProduct/AddProduct";
 import EditProduct from "./EditProduct/EditProduct";
+import DeleteProduct from "./DeleteProduct/DeleteProduct";
 import addIcon from "../../assets/svg/add.svg";
 import filterIcon from "../../assets/svg/filter.svg";
 import editIcon from "../../assets/svg/edit.svg";
 import trashIcon from "../../assets/svg/trash.svg";
 import sliderIcon from "../../assets/svg/Slider.svg";
-import { fetchProducts } from "../../actions/productsActions";
+import { fetchProducts, deleteProduct } from "../../actions/productsActions";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -43,7 +44,9 @@ const Products = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [showAddProduct, setShowAddProduct] = useState(false);
   const [showEditProduct, setShowEditProduct] = useState(false);
+  const [showDeleteProduct, setShowDeleteProduct] = useState(false);
   const [productToEdit, setProductToEdit] = useState(null);
+  const [productToDelete, setProductToDelete] = useState(null);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -67,6 +70,19 @@ const Products = () => {
   const handleEditProduct = (product) => {
     setProductToEdit(product);
     setShowEditProduct(true);
+  };
+
+  const handleDeleteProduct = (product) => {
+    setProductToDelete(product);
+    setShowDeleteProduct(true);
+  };
+
+  const confirmDeleteProduct = async () => {
+    if (productToDelete) {
+      await dispatch(deleteProduct(productToDelete._id));
+      setShowDeleteProduct(false);
+      dispatch(fetchProducts()); // Refresh the product list
+    }
   };
 
   if (error) return <div>Error: {error}</div>;
@@ -123,7 +139,7 @@ const Products = () => {
                   <EditButton onClick={() => handleEditProduct(product)}>
                     <ActionIcon src={editIcon} alt="Edit" />
                   </EditButton>
-                  <DeleteButton>
+                  <DeleteButton onClick={() => handleDeleteProduct(product)}>
                     <ActionIcon src={trashIcon} alt="Delete" />
                   </DeleteButton>
                 </ActionCell>
@@ -137,6 +153,15 @@ const Products = () => {
           <EditProduct
             product={productToEdit}
             onClose={() => setShowEditProduct(false)}
+          />
+        </Modal>
+      )}
+      {showDeleteProduct && (
+        <Modal>
+          <DeleteProduct
+            product={productToDelete}
+            onClose={() => setShowDeleteProduct(false)}
+            onConfirmDelete={confirmDeleteProduct}
           />
         </Modal>
       )}

@@ -1,5 +1,4 @@
 //EditProduct.jsx
-// EditProduct.jsx
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import {
