@@ -28,6 +28,7 @@ import {
 } from "./Products.styled";
 import Modal from "../Modal/Modal";
 import AddProduct from "./AddProduct/AddProduct";
+import EditProduct from "./EditProduct/EditProduct";
 import addIcon from "../../assets/svg/add.svg";
 import filterIcon from "../../assets/svg/filter.svg";
 import editIcon from "../../assets/svg/edit.svg";
@@ -41,6 +42,8 @@ const Products = () => {
   const [filterText, setFilterText] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [showAddProduct, setShowAddProduct] = useState(false);
+  const [showEditProduct, setShowEditProduct] = useState(false);
+  const [productToEdit, setProductToEdit] = useState(null);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -61,13 +64,13 @@ const Products = () => {
     }
   };
 
+  const handleEditProduct = (product) => {
+    setProductToEdit(product);
+    setShowEditProduct(true);
+  };
+
   if (error) return <div>Error: {error}</div>;
   if (!products) return <div>Loading...</div>;
-
-  const handleAddProduct = (newProduct) => {
-    // Logic to add the new product
-    console.log(newProduct);
-  };
 
   return (
     <ProductsContainer>
@@ -86,10 +89,7 @@ const Products = () => {
         <AddBlock>
           {showAddProduct && (
             <Modal>
-              <AddProduct
-                onClose={() => setShowAddProduct(false)}
-                onAdd={handleAddProduct}
-              />
+              <AddProduct onClose={() => setShowAddProduct(false)} />
             </Modal>
           )}
           <AddButton onClick={() => setShowAddProduct(true)}>
@@ -120,7 +120,7 @@ const Products = () => {
                 <TableCell>{product.suppliers}</TableCell>
                 <TableCell>${product.price}</TableCell>
                 <ActionCell>
-                  <EditButton>
+                  <EditButton onClick={() => handleEditProduct(product)}>
                     <ActionIcon src={editIcon} alt="Edit" />
                   </EditButton>
                   <DeleteButton>
@@ -132,6 +132,14 @@ const Products = () => {
           </TableBody>
         </TableWrapper>
       </TableContainer>
+      {showEditProduct && (
+        <Modal>
+          <EditProduct
+            product={productToEdit}
+            onClose={() => setShowEditProduct(false)}
+          />
+        </Modal>
+      )}
       {filteredProducts.length >= 6 && (
         <SliderIcon src={sliderIcon} alt="slider" />
       )}

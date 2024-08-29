@@ -1,5 +1,7 @@
-// AddProduct.jsx
+//EditProduct.jsx
+// EditProduct.jsx
 import React, { useState, useRef, useEffect, useCallback } from "react";
+import { useDispatch } from "react-redux";
 import {
   ModalOverlay,
   PopupContainer,
@@ -15,35 +17,42 @@ import {
   ChevronImg,
   DropdownList,
   DropdownItem,
-} from "./AddProduct.styled";
+} from "./EditProduct.styled";
 import closeIcon from "../../../assets/svg/close.svg";
 import chevronDownIcon from "../../../assets/svg/chevron-down.svg";
 import chevronUpIcon from "../../../assets/svg/chevron-up.svg";
-import { useDispatch } from "react-redux";
-import { addProduct } from "../../../actions/productsActions";
+import { updateProduct } from "../../../actions/productsActions";
 
-const AddProduct = ({ onClose }) => {
+const EditProduct = ({ product, onClose }) => {
   const dispatch = useDispatch();
-  const [productInfo, setProductInfo] = useState("");
-  const [category, setCategory] = useState("");
-  const [stock, setStock] = useState("");
-  const [suppliers, setSuppliers] = useState("");
-  const [price, setPrice] = useState("");
+  const [productInfo, setProductInfo] = useState(product?.name || "");
+  const [category, setCategory] = useState(product?.category || "");
+  const [stock, setStock] = useState(product?.stock || "");
+  const [suppliers, setSuppliers] = useState(product?.suppliers || "");
+  const [price, setPrice] = useState(product?.price || "");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const modalRef = useRef(null);
-  const dropdownRef = useRef(null);
 
-  const handleAdd = () => {
-    const newProduct = {
+  useEffect(() => {
+    if (product) {
+      setProductInfo(product.name);
+      setCategory(product.category);
+      setStock(product.stock);
+      setSuppliers(product.suppliers);
+      setPrice(product.price);
+    }
+  }, [product]);
+
+  const handleEdit = () => {
+    const updatedProduct = {
       name: productInfo,
-      suppliers,
-      stock,
-      price,
       category,
-      photo: "",
+      stock,
+      suppliers,
+      price,
     };
 
-    dispatch(addProduct(newProduct));
+    dispatch(updateProduct(product._id, updatedProduct));
     onClose();
   };
 
@@ -103,7 +112,7 @@ const AddProduct = ({ onClose }) => {
         <CloseButton onClick={onClose}>
           <img src={closeIcon} width={26} height={26} alt="Close" />
         </CloseButton>
-        <Headline>Add a new product</Headline>
+        <Headline>Edit product</Headline>
         <FirstLine>
           <InputField
             placeholder="Product Info"
@@ -118,7 +127,7 @@ const AddProduct = ({ onClose }) => {
             />
           </SelectField>
           {isDropdownOpen && (
-            <DropdownList ref={dropdownRef}>
+            <DropdownList>
               {categories.map((cat) => (
                 <DropdownItem
                   key={cat}
@@ -148,7 +157,7 @@ const AddProduct = ({ onClose }) => {
           onChange={(e) => setPrice(e.target.value)}
         />
         <ButtonContainer>
-          <AddButton onClick={handleAdd}>Add</AddButton>
+          <AddButton onClick={handleEdit}>Save</AddButton>
           <CancelButton onClick={onClose}>Cancel</CancelButton>
         </ButtonContainer>
       </PopupContainer>
@@ -156,4 +165,4 @@ const AddProduct = ({ onClose }) => {
   );
 };
 
-export default AddProduct;
+export default EditProduct;

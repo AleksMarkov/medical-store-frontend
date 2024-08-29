@@ -1,4 +1,4 @@
-//AddProduct.styled.jsx
+//EditProduct.styled.jsx;
 import styled from "styled-components";
 
 export const ModalOverlay = styled.div`
