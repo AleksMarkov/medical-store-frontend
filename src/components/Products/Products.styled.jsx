@@ -40,10 +40,14 @@ export const ProductsContainer = styled.div`
 
 export const FilterContainer = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
   @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: start;
+    gap: 18px;
   }
 `;
 

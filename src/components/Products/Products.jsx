@@ -81,7 +81,7 @@ const Products = () => {
     if (productToDelete) {
       await dispatch(deleteProduct(productToDelete._id));
       setShowDeleteProduct(false);
-      dispatch(fetchProducts()); // Refresh the product list
+      dispatch(fetchProducts());
     }
   };
 

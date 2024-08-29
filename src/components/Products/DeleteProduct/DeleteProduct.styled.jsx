@@ -41,6 +41,9 @@ export const PopupContainer = styled.div`
   @media (max-width: 768px) {
     left: 20px;
     top: 200px;
+    width: 335px;
+    height: 484px;
+    padding: 40px 20px;
   }
 `;
 
@@ -51,6 +54,12 @@ export const Headline = styled.div`
   line-height: 28px;
   color: var(--accent-red);
   margin-bottom: 26px;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 6px;
+  }
 `;
 
 export const FirstLine = styled.div`
@@ -61,6 +70,15 @@ export const FirstLine = styled.div`
   gap: 8px;
   width: 456px;
   height: 44px;
+
+  @media (max-width: 768px) {
+    width: 295px;
+    height: 102px;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 14px;
+  }
 `;
 export const SecondLine = styled.div`
   display: flex;
@@ -70,6 +88,15 @@ export const SecondLine = styled.div`
   gap: 8px;
   width: 456px;
   height: 44px;
+
+  @media (max-width: 768px) {
+    width: 295px;
+    height: 102px;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 14px;
+  }
 `;
 
 export const InputField = styled.div`
@@ -85,6 +112,12 @@ export const InputField = styled.div`
   font-size: 12px;
   line-height: 18px;
   color: var(--background-dark);
+
+  @media (max-width: 768px) {
+    width: 295px;
+    height: 44px;
+    padding: 13px 18px;
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -97,6 +130,11 @@ export const CloseButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -126,6 +164,10 @@ export const AddButton = styled.button`
   &:hover {
     background-color: var(--accent-btn);
   }
+
+  @media (max-width: 768px) {
+    width: 146px;
+  }
 `;
 
 export const CancelButton = styled.button`
@@ -150,5 +192,9 @@ export const CancelButton = styled.button`
     background-color: var(--background-white);
     color: var(--accent-green);
     border: 1px solid var(--accent-green);
+  }
+
+  @media (max-width: 768px) {
+    width: 146px;
   }
 `;

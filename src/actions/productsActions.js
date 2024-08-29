@@ -13,7 +13,7 @@ export const fetchProducts = () => async (dispatch) => {
 
 export const addProduct = (product) => async (dispatch) => {
   try {
-    const response = await api.post("/products", product);
+    await api.post("/products", product);
     dispatch(fetchProducts());
   } catch (error) {
     console.error("Failed to add product:", error.message);
