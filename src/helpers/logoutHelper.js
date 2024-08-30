@@ -8,7 +8,7 @@ const useLogout = () => {
 
   const logout = async (navigate) => {
     try {
-      await api.post("/user/logout");
+      await api.get("/user/logout");
     } catch (error) {
       console.error("Logout error:", error);
     } finally {
