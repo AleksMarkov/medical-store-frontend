@@ -4,7 +4,6 @@ import { LOGOUT } from "../actions/types";
 const initialState = {
   user: null,
   isAuthenticated: false,
-  // другие свойства состояния
 };
 
 const authReducer = (state = initialState, action) => {
@@ -15,7 +14,6 @@ const authReducer = (state = initialState, action) => {
         user: null,
         isAuthenticated: false,
       };
-    // другие случаи
     default:
       return state;
   }

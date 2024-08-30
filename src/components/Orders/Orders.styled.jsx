@@ -272,7 +272,6 @@ export const TableWrapper = styled.div`
   height: calc(100% - 64px);
 
   @media (max-width: 1024px) {
-    // min-width: 768px;
   }
 `;
 
@@ -326,7 +325,6 @@ export const HeaderBox02 = styled.div`
 
 export const HeaderBox03 = styled.div`
   @media (max-width: 768px) {
-    // display: flex;
     width: 97px;
   }
 `;
@@ -376,6 +374,5 @@ export const TableCellBox02 = styled.div`
     width: 88px;
     overflow: hidden;
     text-overflow: ellipsis;
-    // white-space: nowrap;
   }
 `;

@@ -144,11 +144,11 @@ export const LogoutButton = styled.button`
   }
 
   @media (max-width: 1440px) {
-    display: none; /* Hide Sidebar */
+    display: none;
   }
 
   @media (max-width: 768px) {
-    display: none; /* Hide Sidebar */
+    display: none;
   }
 `;
 
@@ -157,10 +157,10 @@ export const LogoutIcon = styled.img`
   height: 16px;
 
   @media (max-width: 1440px) {
-    display: none; /* Hide Sidebar */
+    display: none; 
   }
 
   @media (max-width: 768px) {
-    display: none; /* Hide Sidebar */
+    display: none; 
   }
 `;

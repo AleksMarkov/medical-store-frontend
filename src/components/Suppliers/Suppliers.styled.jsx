@@ -217,7 +217,6 @@ export const TableWrapper = styled.div`
   height: calc(100% - 64px);
 
   @media (max-width: 1024px) {
-    // min-width: 768px;
   }
 `;
 
@@ -279,17 +278,9 @@ export const TableCell = styled.div`
   text-align: left;
 
   @media (max-width: 1440px) {
-    // width: 106px;
-    // padding: 14px 7px 14px 14px;
-    // font-size: 12px;
-    // line-height: 14px;
   }
 
   @media (max-width: 1024px) {
-    // width: 106px;
-    // padding: 14px 7px 14px 14px;
-    // font-size: 12px;
-    // line-height: 14px;
   }
 
   @media (max-width: 768px) {
@@ -308,7 +299,6 @@ export const ActionCell = styled(TableCell)`
 export const ActionIcon = styled.img`
   width: 14px;
   height: 14px;
-  // cursor: pointer;
 `;
 
 export const SliderIcon = styled.img`

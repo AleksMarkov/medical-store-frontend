@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 export const ScrollableTableContainer = styled.div`
-  height: 428px; // 512px (высота TableContainer) - 84px (высота заголовка и отступы)
+  height: 428px;
   overflow-y: auto;
 `;
 
@@ -267,7 +267,6 @@ export const TableHeaderCell2 = styled.div`
   display: table-cell;
   padding: 20px;
   border-bottom: 1px solid var(--border-color);
-  // border-left: 1px solid var(--border-color);
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
@@ -382,7 +381,6 @@ export const TableCell2 = styled.div`
   display: table-cell;
   padding: 20px;
   border-bottom: 1px solid var(--border-color);
-  // border-left: 1px solid var(--border-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 18px;
@@ -415,7 +413,6 @@ export const TransactionType = styled.span`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  // padding: 4px;
   border-radius: 40px;
   font-weight: 500;
   letter-spacing: -0.05em;
@@ -452,12 +449,10 @@ export const TransactionAmount = styled.span`
 export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 428px; // 512px (высота TableContainer) - 84px (высота заголовка таблицы и отступы)
+  height: 428px;
 `;
 
-export const TableHeaderWrapper = styled.div`
-  // Оставляем заголовок фиксированным
-`;
+export const TableHeaderWrapper = styled.div``;
 
 export const TableBodyWrapper = styled.div`
   overflow-y: auto;

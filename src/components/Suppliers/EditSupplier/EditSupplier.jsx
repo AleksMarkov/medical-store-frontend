@@ -46,20 +46,20 @@ const EditSupplier = ({ supplier, onClose }) => {
       setSupplierInfo(supplier.name);
       setAddress(supplier.address);
       setSuppliers(supplier.suppliers);
-      setDate(supplier.date ? new Date(supplier.date) : null); // Преобразование даты в объект Date
+      setDate(supplier.date ? new Date(supplier.date) : null);
       setAmount(supplier.amount);
       setStatus(supplier.status);
     }
   }, [supplier]);
 
   const handleEdit = () => {
-    const formattedDate = formatDate(date); // Используем форматированную дату
+    const formattedDate = formatDate(date);
 
     const updatedSupplier = {
       name: supplierInfo,
       address,
       suppliers,
-      date: formattedDate, // Сохраняем дату в нужном формате
+      date: formattedDate,
       amount,
       status,
     };
@@ -101,7 +101,7 @@ const EditSupplier = ({ supplier, onClose }) => {
   };
 
   const formatDate = (date) => {
-    if (!date || !(date instanceof Date)) return ""; // Проверка на null и тип Date
+    if (!date || !(date instanceof Date)) return "";
     return new Intl.DateTimeFormat("en-US", {
       year: "numeric",
       month: "long",

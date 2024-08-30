@@ -218,7 +218,6 @@ export const TableWrapper = styled.div`
   height: calc(100% - 64px);
 
   @media (max-width: 1024px) {
-    // min-width: 768px;
   }
 `;
 
@@ -280,26 +279,15 @@ export const TableCell = styled.div`
   text-align: left;
 
   @media (max-width: 1440px) {
-    // width: 106px;
-    // padding: 14px 7px 14px 14px;
-    // font-size: 12px;
-    // line-height: 14px;
   }
 
   @media (max-width: 1024px) {
-    // width: 106px;
-    // padding: 14px 7px 14px 14px;
-    // font-size: 12px;
-    // line-height: 14px;
   }
 
   @media (max-width: 768px) {
     width: 112px;
-    /* padding: 14px 7px 14px 14px; */
     font-size: 12px;
     line-height: 14px;
-    // word-wrap: break-word; /* Добавьте это свойство */
-    // overflow-wrap: break-word; /* Или используйте это свойство */
   }
 `;
 
@@ -311,7 +299,6 @@ export const ActionCell = styled(TableCell)`
 export const ActionIcon = styled.img`
   width: 16px;
   height: 16px;
-  // cursor: pointer;
 `;
 
 export const SliderIcon = styled.img`
@@ -337,7 +324,6 @@ export const SliderIcon = styled.img`
 export const EditButton = styled.div`
   width: 16px;
   height: 16px;
-  // background-color: var(--accent-btn);
   border-radius: 16px;
   border: 1px solid var(--btn--accent-green);
   display: flex;
@@ -350,7 +336,6 @@ export const EditButton = styled.div`
 export const DeleteButton = styled.div`
   width: 16px;
   height: 16px;
-  // background-color: var(--accent-btn);
   border-radius: 16px;
   border: 1px solid var(--btn--accent-red);
   display: flex;

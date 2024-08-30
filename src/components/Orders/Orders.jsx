@@ -41,12 +41,12 @@ const Orders = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    setFilteredOrders(orders); // Сначала устанавливаем все заказы
+    setFilteredOrders(orders);
   }, [orders]);
 
   const handleFilter = () => {
     if (filterText.trim() === "") {
-      setFilteredOrders(orders); // Если поле фильтра пустое, показываем все заказы
+      setFilteredOrders(orders);
     } else {
       const filtered = orders.filter((order) =>
         order.name.toLowerCase().includes(filterText.toLowerCase())

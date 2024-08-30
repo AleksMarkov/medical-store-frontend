@@ -8,8 +8,6 @@ export const MainContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  // background-color: var(--background-light);
-  // color: var(--background-dark);
 
   @media (max-width: 1440px) {
     width: 1024px;
@@ -33,8 +31,6 @@ export const BodyContainer = styled.div`
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  // background-color: var(--background-light);
-  // color: var(--background-dark);
 
   @media (max-width: 1440px) {
     width: 1024px;

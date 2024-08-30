@@ -39,21 +39,20 @@ import usersIcon from "../../assets/svg/users.svg";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const dashboardData = useSelector((state) => state.dashboard.data); // Access data from Redux store
+  const dashboardData = useSelector((state) => state.dashboard.data);
   const error = useSelector((state) => state.dashboard.error);
 
   useEffect(() => {
-    dispatch(fetchDashboardData()); // Dispatch action to fetch data
+    dispatch(fetchDashboardData());
   }, [dispatch]);
 
   if (error) return <div>Error: {error}</div>;
   if (!dashboardData) return <div>Loading...</div>;
 
-  // Преобразуем строки дат в объекты Date и сортируем массив recentCustomers по дате в порядке убывания
   const sortedCustomers = [...dashboardData.recentCustomers].sort((a, b) => {
     const dateA = new Date(a.register_date);
     const dateB = new Date(b.register_date);
-    return dateB - dateA; // Сортировка по убыванию даты
+    return dateB - dateA;
   });
 
   return (

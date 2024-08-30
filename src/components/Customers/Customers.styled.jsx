@@ -221,7 +221,6 @@ export const TableWrapper = styled.div`
   height: calc(100% - 64px);
 
   @media (max-width: 1024px) {
-    // min-width: 768px;
   }
 `;
 

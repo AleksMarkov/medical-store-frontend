@@ -6,7 +6,7 @@ import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
-const SharedLayout = lazy(() => import("./pages/SharedLayout/SharedLayout")); // Новый SharedLayout компонент
+const SharedLayout = lazy(() => import("./pages/SharedLayout/SharedLayout"));
 const Dashboard = lazy(() => import("./components/Dashboard/Dashboard"));
 const Orders = lazy(() => import("./components/Orders/Orders"));
 const Products = lazy(() => import("./components/Products/Products"));

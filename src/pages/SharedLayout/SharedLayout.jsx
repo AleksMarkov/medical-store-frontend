@@ -19,13 +19,10 @@ const SharedLayout = () => {
       }
     };
 
-    // Check initial width
     handleResize();
 
-    // Add event listener to handle resize
     window.addEventListener("resize", handleResize);
 
-    // Clean up event listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 

@@ -27,7 +27,6 @@ api.interceptors.response.use(
   async (error) => {
     if (error.response && error.response.status === 401) {
       try {
-        // Attempt to refresh the access token
         const response = await axios.post(
           `${API_URL}/user/refresh-token`,
           {},
@@ -36,11 +35,9 @@ api.interceptors.response.use(
         const { accessToken } = response.data;
         localStorage.setItem("accessToken", accessToken);
 
-        // Retry the failed request with the new token
         error.config.headers.Authorization = `Bearer ${accessToken}`;
         return axios(error.config);
       } catch (refreshError) {
-        // If refresh fails, clear tokens and redirect to login
         localStorage.removeItem("accessToken");
         window.location.href = "/login";
       }

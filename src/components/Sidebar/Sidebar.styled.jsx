@@ -15,11 +15,11 @@ export const SidebarContainer = styled.div`
   border-color: var(--border-color);
 
   @media (max-width: 1440px) {
-    display: none; /* Hide Sidebar */
+    display: none;
   }
 
   @media (max-width: 768px) {
-    display: none; /* Hide Sidebar */
+    display: none;
   }
 `;
 

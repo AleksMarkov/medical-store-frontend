@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem("accessToken");
     const storedUser = localStorage.getItem("user");
     if (token && storedUser) {
-      setUser(JSON.parse(storedUser)); // Parse stored user data
+      setUser(JSON.parse(storedUser));
     }
     setLoading(false);
   }, []);
@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   const login = (accessToken, userDetails) => {
     setUser(userDetails);
     localStorage.setItem("accessToken", accessToken);
-    localStorage.setItem("user", JSON.stringify(userDetails)); // Store user details
+    localStorage.setItem("user", JSON.stringify(userDetails));
     navigate("/dashboard");
   };
 

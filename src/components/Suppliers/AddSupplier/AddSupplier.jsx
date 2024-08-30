@@ -42,13 +42,13 @@ const AddSupplier = ({ onClose }) => {
   const dropdownRef = useRef(null);
 
   const handleAdd = () => {
-    const formattedDate = formatDate(date); // Используем форматированную дату
+    const formattedDate = formatDate(date);
 
     const newSupplier = {
       name: supplierInfo,
       address,
       suppliers,
-      date: formattedDate, // Сохраняем дату в нужном формате
+      date: formattedDate,
       amount,
       status,
     };
