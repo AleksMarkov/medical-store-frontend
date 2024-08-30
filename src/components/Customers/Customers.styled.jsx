@@ -195,57 +195,6 @@ export const UserAvatar = styled.img`
   }
 `;
 
-export const StatusBadge = styled.span`
-  display: flex;
-  width: 92px;
-  justify-content: center;
-  align-items: center;
-  padding: 4px 4px;
-  border-radius: 40px;
-  font-size: 14px;
-  font-weight: 500;
-  color: ${({ status }) => {
-    switch (status) {
-      case "Completed":
-        return "#59B17A";
-      case "Confirmed":
-        return "#8059E4";
-      case "Pending":
-        return "#F79042";
-      case "Cancelled":
-        return "#E85050";
-      case "Processing":
-        return "#70A6E8";
-      case "Shipped":
-        return "#4A90E2";
-      case "Delivered":
-        return "#50C878";
-      default:
-        return "#1D1E21";
-    }
-  }};
-  background-color: ${({ status }) => {
-    switch (status) {
-      case "Completed":
-        return "rgba(89, 177, 122, 0.1)";
-      case "Confirmed":
-        return "rgba(128, 89, 228, 0.1)";
-      case "Pending":
-        return "rgba(247, 144, 66, 0.1)";
-      case "Cancelled":
-        return "rgba(232, 80, 80, 0.1)";
-      case "Processing":
-        return "rgba(112, 166, 232, 0.1)";
-      case "Shipped":
-        return "rgba(74, 144, 226, 0.1)";
-      case "Delivered":
-        return "rgba(80, 200, 120, 0.1)";
-      default:
-        return "#E0E0E0";
-    }
-  }};
-`;
-
 export const SliderIcon = styled.img`
   width: 127px;
   height: 19px;
@@ -324,13 +273,6 @@ export const HeaderBox02 = styled.div`
   }
 `;
 
-export const HeaderBox03 = styled.div`
-  @media (max-width: 768px) {
-    // display: flex;
-    width: 97px;
-  }
-`;
-
 export const TableBodyRow = styled.div`
   display: flex;
   &:nth-child(even) {
@@ -372,10 +314,15 @@ export const TableCell = styled.div`
 `;
 
 export const TableCellBox02 = styled.div`
+  width: 226px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
   @media (max-width: 768px) {
-    width: 88px;
+    width: 108px;
     overflow: hidden;
     text-overflow: ellipsis;
-    // white-space: nowrap;
+    white-space: nowrap;
   }
 `;

@@ -1,7 +1,7 @@
 //Customers.jsx
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchOrders } from "../../actions/ordersActions";
+import { fetchCustomers } from "../../actions/customersActions";
 import placeholderImage from "../../assets/images/placeholderImage.png";
 import {
   OrdersContainer,
@@ -15,7 +15,6 @@ import {
   TableCell,
   UserInfo,
   UserAvatar,
-  StatusBadge,
   FilterIcon,
   TableHeaderCell,
   SliderIcon,
@@ -25,38 +24,37 @@ import {
   HeaderBox01,
   HeaderBox02,
   TableCellBox02,
-  HeaderBox03,
 } from "./Customers.styled";
 import filterIcon from "../../assets/svg/filter.svg";
 import sliderIcon from "../../assets/svg/Slider.svg";
 
 const Customers = () => {
   const dispatch = useDispatch();
-  const { orders, error } = useSelector((state) => state.orders);
+  const { customers, error } = useSelector((state) => state.customers);
   const [filterText, setFilterText] = useState("");
-  const [filteredOrders, setFilteredOrders] = useState([]);
+  const [filteredCustomers, setFilteredCustomers] = useState([]);
 
   useEffect(() => {
-    dispatch(fetchOrders());
+    dispatch(fetchCustomers());
   }, [dispatch]);
 
   useEffect(() => {
-    setFilteredOrders(orders); // Сначала устанавливаем все заказы
-  }, [orders]);
+    setFilteredCustomers(customers);
+  }, [customers]);
 
   const handleFilter = () => {
     if (filterText.trim() === "") {
-      setFilteredOrders(orders); // Если поле фильтра пустое, показываем все заказы
+      setFilteredCustomers(customers);
     } else {
-      const filtered = orders.filter((order) =>
-        order.name.toLowerCase().includes(filterText.toLowerCase())
+      const filtered = customers.filter((customer) =>
+        customer.name.toLowerCase().includes(filterText.toLowerCase())
       );
-      setFilteredOrders(filtered);
+      setFilteredCustomers(filtered);
     }
   };
 
   if (error) return <div>Error: {error}</div>;
-  if (!orders) return <div>Loading...</div>;
+  if (!customers) return <div>Loading...</div>;
 
   return (
     <OrdersContainer>
@@ -72,7 +70,7 @@ const Customers = () => {
         </FilterButton>
       </FilterContainer>
       <TableContainer>
-        <TableTitle>All orders</TableTitle>
+        <TableTitle>Customers Data</TableTitle>
         <TableWrapper>
           <TableHeader>
             <TableHeaderRow>
@@ -80,45 +78,37 @@ const Customers = () => {
                 <HeaderBox01>User Info</HeaderBox01>
               </TableHeaderCell>
               <TableHeaderCell>
-                <HeaderBox02>Address</HeaderBox02>
+                <HeaderBox02>Email</HeaderBox02>
               </TableHeaderCell>
-              <TableHeaderCell>Products</TableHeaderCell>
-              <TableHeaderCell>Order date</TableHeaderCell>
-              <TableHeaderCell>Price</TableHeaderCell>
-              <TableHeaderCell>
-                <HeaderBox03>Status</HeaderBox03>
-              </TableHeaderCell>
+              <TableHeaderCell>Address</TableHeaderCell>
+              <TableHeaderCell>Phone</TableHeaderCell>
+              <TableHeaderCell>Register date</TableHeaderCell>
             </TableHeaderRow>
           </TableHeader>
           <TableBody>
-            {filteredOrders.map((order) => (
-              <TableBodyRow key={order._id}>
+            {filteredCustomers.map((customer) => (
+              <TableBodyRow key={customer._id}>
                 <TableCell>
                   <UserInfo>
                     <UserAvatar
-                      src={order.photo ? order.photo : placeholderImage}
-                      alt={order.name}
+                      src={customer.image ? customer.image : placeholderImage}
+                      alt={customer.name}
                     />
-                    {order.name}
+                    {customer.name}
                   </UserInfo>
                 </TableCell>
                 <TableCell>
-                  <TableCellBox02>{order.address}</TableCellBox02>
+                  <TableCellBox02>{customer.email}</TableCellBox02>
                 </TableCell>
-                <TableCell>{order.products}</TableCell>
-                <TableCell>{order.order_date}</TableCell>
-                <TableCell>{order.price}</TableCell>
-                <TableCell>
-                  <StatusBadge status={order.status}>
-                    {order.status}
-                  </StatusBadge>
-                </TableCell>
+                <TableCell>{customer.address}</TableCell>
+                <TableCell>{customer.phone}</TableCell>
+                <TableCell>{customer.register_date}</TableCell>
               </TableBodyRow>
             ))}
           </TableBody>
         </TableWrapper>
       </TableContainer>
-      {filteredOrders.length >= 6 && (
+      {filteredCustomers.length >= 6 && (
         <SliderIcon src={sliderIcon} alt="slider" />
       )}
     </OrdersContainer>

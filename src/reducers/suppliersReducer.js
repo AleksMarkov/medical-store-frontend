@@ -1,4 +1,4 @@
-//productsReducer.js
+//suppliersReducer.js
 import {
   FETCH_SUPPLIERS_SUCCESS,
   FETCH_SUPPLIERS_ERROR,

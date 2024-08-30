@@ -5,6 +5,7 @@ import { dashboardReducer } from "./reducers/dashboardReducer";
 import { orderReducer } from "./reducers/orderReducer";
 import { productsReducer } from "./reducers/productsReducer";
 import { suppliersReducer } from "./reducers/suppliersReducer";
+import { customersReducer } from "./reducers/customersReducer";
 import authReducer from "./reducers/authReducer";
 
 const rootReducer = combineReducers({
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   orders: orderReducer,
   products: productsReducer,
   suppliers: suppliersReducer,
+  customers: customersReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
