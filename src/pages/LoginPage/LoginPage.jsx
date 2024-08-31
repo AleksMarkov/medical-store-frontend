@@ -2,7 +2,6 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { loginSchema } from "../../schemas/loginSchema";
 import { AuthContext } from "../../context/AuthContext";
@@ -30,17 +29,13 @@ const LoginPage = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  const navigate = useNavigate();
   const { login } = useContext(AuthContext);
 
   const onSubmit = async (data) => {
     try {
       const response = await api.post("/user/login", data);
-      const token = response.data.accessToken;
-      const user = response.data.user;
-      localStorage.setItem("accessToken", token);
-      login(token, user);
-      navigate("/dashboard");
+      const { accessToken, refreshToken, user } = response.data;
+      login(accessToken, refreshToken, user);
     } catch (error) {
       console.error("Ошибка входа", error);
     }

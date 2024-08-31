@@ -8,17 +8,24 @@ const useLogout = () => {
 
   const logout = async (navigate) => {
     try {
-      await api.get("/user/logout");
+      const response = await api.get("/user/logout");
+      if (response.status === 204) {
+        dispatch(logoutAction());
+        if (navigate) navigate("/login");
+      } else {
+        throw new Error("Unexpected response status");
+      }
     } catch (error) {
       console.error("Logout error:", error);
-    } finally {
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("user");
-      dispatch(logoutAction());
-      if (navigate) navigate("/login");
+      if (error.response) {
+        console.error("Response data:", error.response.data);
+        console.error("Response status:", error.response.status);
+      }
+      alert(
+        `Ошибка при выходе: ${error.message}. Пожалуйста, попробуйте еще раз или обратитесь в службу поддержки.`
+      );
     }
   };
-
   return { logout };
 };
 

@@ -1,10 +1,11 @@
 //services/api.js
 import axios from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000/api";
 
 const api = axios.create({
   baseURL: API_URL,
+  withCredentials: true,
 });
 
 api.interceptors.request.use(
@@ -25,21 +26,26 @@ api.interceptors.response.use(
     return response;
   },
   async (error) => {
-    if (error.response && error.response.status === 401) {
+    const originalRequest = error.config;
+    if (error.response.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
       try {
+        const refreshToken = localStorage.getItem("refreshToken");
         const response = await axios.post(
           `${API_URL}/user/refresh-token`,
-          {},
+          { refreshToken },
           { withCredentials: true }
         );
-        const { accessToken } = response.data;
+        const { accessToken, newRefreshToken } = response.data;
         localStorage.setItem("accessToken", accessToken);
-
-        error.config.headers.Authorization = `Bearer ${accessToken}`;
-        return axios(error.config);
+        localStorage.setItem("refreshToken", newRefreshToken);
+        api.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+        return api(originalRequest);
       } catch (refreshError) {
         localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
         window.location.href = "/login";
+        return Promise.reject(refreshError);
       }
     }
     return Promise.reject(error);

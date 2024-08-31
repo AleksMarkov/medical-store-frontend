@@ -12,7 +12,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/medical-store-frontend">
+      {/* <BrowserRouter basename="/medical-store-frontend"> */}
+      <BrowserRouter>
         <AuthProvider>
           <GlobalStyles />
           <App />
