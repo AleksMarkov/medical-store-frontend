@@ -1,8 +1,8 @@
-"use strict";(self.webpackChunkmedical_store_frontend=self.webpackChunkmedical_store_frontend||[]).push([[532],{5532:(e,t,i)=>{i.r(t),i.d(t,{default:()=>I});var a=i(5043),r=i(4858),d=i(8403),o=i(3216),p=i(4505),n=i(899);const x=n.Ik().shape({email:n.Yj().email("Invalid email").required("Email is required"),password:n.Yj().min(6,"Minimum 6 characters").required("Password is required")});var s=i(8729),l=i(1529);const c=i.p+"static/media/pill.8ed49f97304c23a50c7659621a94bc6c.svg";const h=i.p+"static/media/elements.0f50220c6d8a9ab08318df022252b90c.svg";const g=i.p+"static/media/elementsMob.0dd62ea39ed7c95c97ff795abfd27f05.svg";var m=i(6405);const u=l.Ay.div`
+"use strict";(self.webpackChunkmedical_store_frontend=self.webpackChunkmedical_store_frontend||[]).push([[532],{5532:(e,t,i)=>{i.r(t),i.d(t,{default:()=>S});var a=i(5043),r=i(4858),d=i(8403),p=i(4505),o=i(899);const n=o.Ik().shape({email:o.Yj().email("Invalid email").required("Email is required"),password:o.Yj().min(6,"Minimum 6 characters").required("Password is required")});var x=i(8729),s=i(1529);const l=i.p+"static/media/pill.8ed49f97304c23a50c7659621a94bc6c.svg";const c=i.p+"static/media/elements.0f50220c6d8a9ab08318df022252b90c.svg";const h=i.p+"static/media/elementsMob.0dd62ea39ed7c95c97ff795abfd27f05.svg";var g=i(6405);const m=s.Ay.div`
   width: 100%;
   height: 100vh;
   background: var(--background-dark);
-`,f=l.Ay.div`
+`,u=s.Ay.div`
   width: 1340px;
   height: 772px;
   display: flex;
@@ -30,19 +30,19 @@
     padding-left: 20px;
     gap: 148px;
   }
-`,w=l.Ay.div`
+`,f=s.Ay.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   width: 175px;
   height: 44px;
-`,b=l.Ay.div`
+`,w=s.Ay.div`
   width: 44px;
   height: 44px;
-  background: url(${m.A}) no-repeat center center;
+  background: url(${g.A}) no-repeat center center;
   background-size: contain;
-`,v=l.Ay.div`
+`,b=s.Ay.div`
   margin-left: 14px;
   width: 130px;
   height: 24px;
@@ -52,13 +52,13 @@
   line-height: 24px;
   letter-spacing: -0.03em;
   color: var(--background-dark);
-`,k=l.Ay.div`
+`,v=s.Ay.div`
   position: absolute;
   width: 179px;
   height: 175px;
   left: 516px;
   top: 190px;
-  background: url(${c}) no-repeat center center;
+  background: url(${l}) no-repeat center center;
   background-size: contain;
 
   @media (max-width: 1440px) {
@@ -72,13 +72,13 @@
     left: 248px;
     top: 164px;
   }
-`,y=l.Ay.div`
+`,k=s.Ay.div`
   position: absolute;
   width: 300px;
   height: 270px;
   left: 1140px;
   top: 548px;
-  background: url(${h}) no-repeat center center;
+  background: url(${c}) no-repeat center center;
   background-size: contain;
   overflow: hidden;
 
@@ -92,9 +92,9 @@
     height: 170px;
     left: 140px;
     top: 640px;
-    background: url(${g}) no-repeat left top;
+    background: url(${h}) no-repeat left top;
   }
-`,j=l.Ay.div`
+`,y=s.Ay.div`
   width: 1087px;
   height: 240px;
   display: flex;
@@ -116,7 +116,7 @@
     width: 335px;
     height: 362px;
   }
-`,A=l.Ay.h1`
+`,j=s.Ay.h1`
   width: 614px;
   height: 240px;
   font-weight: 600;
@@ -135,7 +135,7 @@
     width: 335px;
     height: 136px;
   }
-`,z=l.Ay.form`
+`,A=s.Ay.form`
   width: 323px;
   height: 186px;
   display: flex;
@@ -148,7 +148,7 @@
     width: 335px;
     height: 186px;
   }
-`,C=l.Ay.input`
+`,z=s.Ay.input`
   width: 287px;
   height: 18px;
   padding: 13px 18px;
@@ -174,7 +174,7 @@
     width: 299px;
     height: 18px;
   }
-`,S=l.Ay.button`
+`,C=s.Ay.button`
   width: 323px;
   height: 44px;
   margin-top: 26px;
@@ -197,5 +197,5 @@
   @media (max-width: 768px) {
     width: 335px;
   }
-`;var q=i(579);const I=()=>{const{register:e,handleSubmit:t,formState:{errors:i}}=(0,r.mN)({resolver:(0,d.t)(x)}),n=(0,o.Zp)(),{login:l}=(0,a.useContext)(s.c);return(0,q.jsx)(u,{children:(0,q.jsxs)(f,{children:[(0,q.jsxs)(w,{children:[(0,q.jsx)(b,{}),(0,q.jsx)(v,{children:"E-Pharmacy"})]}),(0,q.jsxs)(j,{children:[(0,q.jsxs)(A,{children:["Your medication, delivered Say goodbye to all"," ",(0,q.jsx)("span",{children:"your healthcare "}),"worries with us"]}),(0,q.jsxs)(z,{onSubmit:t((async e=>{try{const t=await p.A.post("/user/login",e),i=t.data.accessToken,a=t.data.user;localStorage.setItem("accessToken",i),l(i,a),n("/dashboard")}catch(t){console.error("\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0445\u043e\u0434\u0430",t)}})),children:[(0,q.jsx)(C,{type:"email",name:"email",placeholder:"Email address",autoComplete:"username",...e("email")}),i.email&&(0,q.jsx)("p",{children:i.email.message}),(0,q.jsx)(C,{type:"password",name:"password",placeholder:"Password",autoComplete:"current-password",...e("password")}),i.password&&(0,q.jsx)("p",{children:i.password.message}),(0,q.jsx)(S,{type:"submit",children:"Log In"})]}),(0,q.jsx)(k,{})]}),(0,q.jsx)(y,{})]})})}}}]);
-//# sourceMappingURL=532.055f035b.chunk.js.map
+`;var q=i(579);const S=()=>{const{register:e,handleSubmit:t,formState:{errors:i}}=(0,r.mN)({resolver:(0,d.t)(n)}),{login:o}=(0,a.useContext)(x.c);return(0,q.jsx)(m,{children:(0,q.jsxs)(u,{children:[(0,q.jsxs)(f,{children:[(0,q.jsx)(w,{}),(0,q.jsx)(b,{children:"E-Pharmacy"})]}),(0,q.jsxs)(y,{children:[(0,q.jsxs)(j,{children:["Your medication, delivered Say goodbye to all"," ",(0,q.jsx)("span",{children:"your healthcare "}),"worries with us"]}),(0,q.jsxs)(A,{onSubmit:t((async e=>{try{const t=await p.A.post("/user/login",e),{accessToken:i,refreshToken:a,user:r}=t.data;o(i,a,r)}catch(t){console.error("\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0445\u043e\u0434\u0430",t)}})),children:[(0,q.jsx)(z,{type:"email",name:"email",placeholder:"Email address",autoComplete:"username",...e("email")}),i.email&&(0,q.jsx)("p",{children:i.email.message}),(0,q.jsx)(z,{type:"password",name:"password",placeholder:"Password",autoComplete:"current-password",...e("password")}),i.password&&(0,q.jsx)("p",{children:i.password.message}),(0,q.jsx)(C,{type:"submit",children:"Log In"})]}),(0,q.jsx)(v,{})]}),(0,q.jsx)(k,{})]})})}}}]);
+//# sourceMappingURL=532.780463fd.chunk.js.map
