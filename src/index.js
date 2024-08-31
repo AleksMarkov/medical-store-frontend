@@ -12,8 +12,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <BrowserRouter basename="/medical-store-frontend"> */}
-      <BrowserRouter>
+      <BrowserRouter basename="/medical-store-frontend">
+        {/* <BrowserRouter> // для отладки Локально */}
         <AuthProvider>
           <GlobalStyles />
           <App />
