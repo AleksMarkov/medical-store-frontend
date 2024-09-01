@@ -19,11 +19,11 @@ function App() {
       <Routes>
         <Route path="/login" element={<PublicRoute element={LoginPage} />} />
         <Route path="/" element={<PrivateRoute element={SharedLayout} />}>
-          <Route path="dashboard/*" element={<Dashboard />} />
-          <Route path="orders/*" element={<Orders />} />
-          <Route path="products/*" element={<Products />} />
-          <Route path="suppliers/*" element={<Suppliers />} />
-          <Route path="customers/*" element={<Customers />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/suppliers" element={<Suppliers />} />
+          <Route path="/customers" element={<Customers />} />
         </Route>
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
