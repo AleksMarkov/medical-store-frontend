@@ -21,6 +21,7 @@ export const supplierSchema = yup.object().shape({
   amount: yup
     .number()
     .typeError("Amount must be a number")
+    .min(0, "Amount cannot be negative")
     .required("Amount is required")
     .test(
       "is-decimal",

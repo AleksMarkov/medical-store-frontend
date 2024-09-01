@@ -292,3 +292,30 @@ export const DropdownItem = styled.div`
     color: var(--background-white);
   }
 `;
+
+export const ErrorMessage = styled.p`
+  color: var(--accent-red);
+  font-size: 10px;
+  margin-left: 16px;
+`;
+
+export const FormContainer = styled.form`
+  width: 456px;
+  height: 332px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 14px;
+
+  @media (max-width: 1440px) {
+  }
+
+  @media (max-width: 1024px) {
+  }
+
+  @media (max-width: 768px) {
+    width: 295px;
+    height: 404px;
+  }
+`;

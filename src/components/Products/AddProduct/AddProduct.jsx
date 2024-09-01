@@ -1,5 +1,7 @@
 // AddProduct.jsx
 import React, { useState, useRef, useEffect, useCallback } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import {
   ModalOverlay,
   PopupContainer,
@@ -15,35 +17,34 @@ import {
   ChevronImg,
   DropdownList,
   DropdownItem,
+  ErrorMessage,
+  FormContainer,
 } from "./AddProduct.styled";
 import closeIcon from "../../../assets/svg/close.svg";
 import chevronDownIcon from "../../../assets/svg/chevron-down.svg";
 import chevronUpIcon from "../../../assets/svg/chevron-up.svg";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../../redux/actions/productsActions";
+import { productSchema } from "../../../schemas/productSchema";
 
 const AddProduct = ({ onClose }) => {
   const dispatch = useDispatch();
-  const [productInfo, setProductInfo] = useState("");
-  const [category, setCategory] = useState("");
-  const [stock, setStock] = useState("");
-  const [suppliers, setSuppliers] = useState("");
-  const [price, setPrice] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const modalRef = useRef(null);
   const dropdownRef = useRef(null);
 
-  const handleAdd = () => {
-    const newProduct = {
-      name: productInfo,
-      suppliers,
-      stock,
-      price,
-      category,
-      photo: "",
-    };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+    watch,
+  } = useForm({
+    resolver: yupResolver(productSchema),
+  });
 
-    dispatch(addProduct(newProduct));
+  const onSubmit = (data) => {
+    dispatch(addProduct(data));
     onClose();
   };
 
@@ -70,7 +71,7 @@ const AddProduct = ({ onClose }) => {
   };
 
   const handleCategorySelect = (value) => {
-    setCategory(value);
+    setValue("category", value);
     setIsDropdownOpen(false);
   };
 
@@ -104,53 +105,66 @@ const AddProduct = ({ onClose }) => {
           <img src={closeIcon} width={26} height={26} alt="Close" />
         </CloseButton>
         <Headline>Add a new product</Headline>
-        <FirstLine>
-          <InputField
-            placeholder="Product Info"
-            value={productInfo}
-            onChange={(e) => setProductInfo(e.target.value)}
-          />
-          <SelectField onClick={toggleDropdown}>
-            {category || "Category"}
-            <ChevronImg
-              src={isDropdownOpen ? chevronUpIcon : chevronDownIcon}
-              alt="chevron"
-            />
-          </SelectField>
-          {isDropdownOpen && (
-            <DropdownList ref={dropdownRef}>
-              {categories.map((cat) => (
-                <DropdownItem
-                  key={cat}
-                  onClick={() => handleCategorySelect(cat)}
-                >
-                  {cat}
-                </DropdownItem>
-              ))}
-            </DropdownList>
-          )}
-        </FirstLine>
-        <SecondLine>
-          <InputField
-            placeholder="Stock"
-            value={stock}
-            onChange={(e) => setStock(e.target.value)}
-          />
-          <InputField
-            placeholder="Suppliers"
-            value={suppliers}
-            onChange={(e) => setSuppliers(e.target.value)}
-          />
-        </SecondLine>
-        <InputField
-          placeholder="Price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-        <ButtonContainer>
-          <AddButton onClick={handleAdd}>Add</AddButton>
-          <CancelButton onClick={onClose}>Cancel</CancelButton>
-        </ButtonContainer>
+        <FormContainer onSubmit={handleSubmit(onSubmit)}>
+          <FirstLine>
+            <div>
+              <InputField placeholder="Product Info" {...register("name")} />
+              {errors.name && (
+                <ErrorMessage>{errors.name.message}</ErrorMessage>
+              )}
+            </div>
+            <div>
+              <SelectField onClick={toggleDropdown}>
+                {watch("category") || "Category"}
+                <ChevronImg
+                  src={isDropdownOpen ? chevronUpIcon : chevronDownIcon}
+                  alt="chevron"
+                />
+              </SelectField>
+              {isDropdownOpen && (
+                <DropdownList ref={dropdownRef}>
+                  {categories.map((cat) => (
+                    <DropdownItem
+                      key={cat}
+                      onClick={() => handleCategorySelect(cat)}
+                    >
+                      {cat}
+                    </DropdownItem>
+                  ))}
+                </DropdownList>
+              )}
+              {errors.category && (
+                <ErrorMessage>{errors.category.message}</ErrorMessage>
+              )}
+            </div>
+          </FirstLine>
+          <SecondLine>
+            <div>
+              <InputField placeholder="Stock" {...register("stock")} />
+              {errors.stock && (
+                <ErrorMessage>{errors.stock.message}</ErrorMessage>
+              )}
+            </div>
+            <div>
+              <InputField placeholder="Suppliers" {...register("suppliers")} />
+              {errors.suppliers && (
+                <ErrorMessage>{errors.suppliers.message}</ErrorMessage>
+              )}
+            </div>
+          </SecondLine>
+          <div>
+            <InputField placeholder="Price" {...register("price")} />
+            {errors.price && (
+              <ErrorMessage>{errors.price.message}</ErrorMessage>
+            )}
+          </div>
+          <ButtonContainer>
+            <AddButton type="submit">Add</AddButton>
+            <CancelButton type="button" onClick={onClose}>
+              Cancel
+            </CancelButton>
+          </ButtonContainer>
+        </FormContainer>
       </PopupContainer>
     </ModalOverlay>
   );
