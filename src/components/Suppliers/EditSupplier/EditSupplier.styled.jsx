@@ -301,7 +301,7 @@ export const DropdownList = styled.div`
 
   @media (max-width: 768px) {
     width: 295px;
-    top: 190px;
+    top: 426px;
     left: 20px;
   }
 `;

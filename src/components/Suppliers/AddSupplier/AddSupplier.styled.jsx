@@ -301,7 +301,7 @@ export const DropdownList = styled.div`
 
   @media (max-width: 768px) {
     width: 295px;
-    top: 190px;
+    top: 426px;
     left: 20px;
   }
 `;
@@ -351,5 +351,32 @@ export const DatePickerWrapper = styled.div`
 
   @media (max-width: 768px) {
     width: 295px;
+  }
+`;
+
+export const ErrorMessage = styled.p`
+  color: var(--accent-red);
+  font-size: 10px;
+  margin-left: 16px;
+`;
+
+export const FormContainer = styled.form`
+  width: 456px;
+  height: 304px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 14px;
+
+  @media (max-width: 1440px) {
+  }
+
+  @media (max-width: 1024px) {
+  }
+
+  @media (max-width: 768px) {
+    width: 295px;
+    height: 462px;
   }
 `;

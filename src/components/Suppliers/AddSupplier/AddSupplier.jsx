@@ -1,5 +1,7 @@
-// AddSupplier.jsx
+//AddSupplier.jsx
 import React, { useState, useRef, useEffect, useCallback } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {
@@ -20,6 +22,8 @@ import {
   DropdownItem,
   CalendarImg,
   DatePickerWrapper,
+  ErrorMessage,
+  FormContainer,
 } from "./AddSupplier.styled";
 import closeIcon from "../../../assets/svg/close.svg";
 import chevronDownIcon from "../../../assets/svg/chevron-down.svg";
@@ -27,33 +31,31 @@ import chevronUpIcon from "../../../assets/svg/chevron-up.svg";
 import calendarIcon from "../../../assets/svg/calendar.svg";
 import { useDispatch } from "react-redux";
 import { addSupplier } from "../../../redux/actions/suppliersActions";
+import { supplierSchema } from "../../../schemas/supplierSchema";
 
 const AddSupplier = ({ onClose }) => {
   const dispatch = useDispatch();
-  const [supplierInfo, setSupplierInfo] = useState("");
-  const [address, setAddress] = useState("");
-  const [suppliers, setSuppliers] = useState("");
-  const [date, setDate] = useState(null);
-  const [amount, setAmount] = useState("");
-  const [status, setStatus] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const modalRef = useRef(null);
   const dropdownRef = useRef(null);
 
-  const handleAdd = () => {
-    const formattedDate = formatDate(date);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+    watch,
+  } = useForm({
+    resolver: yupResolver(supplierSchema),
+  });
 
-    const newSupplier = {
-      name: supplierInfo,
-      address,
-      suppliers,
-      date: formattedDate,
-      amount,
-      status,
-    };
+  const date = watch("date");
 
-    dispatch(addSupplier(newSupplier));
+  const onSubmit = (data) => {
+    const formattedDate = formatDate(data.date);
+    const supplierData = { ...data, date: formattedDate };
+    dispatch(addSupplier(supplierData));
     onClose();
   };
 
@@ -80,7 +82,7 @@ const AddSupplier = ({ onClose }) => {
   };
 
   const handleStatusSelect = (value) => {
-    setStatus(value);
+    setValue("status", value);
     setIsDropdownOpen(false);
   };
 
@@ -116,75 +118,96 @@ const AddSupplier = ({ onClose }) => {
           <img src={closeIcon} width={26} height={26} alt="Close" />
         </CloseButton>
         <Headline>Add a new supplier</Headline>
-        <FirstLine>
-          <InputField
-            placeholder="Supplier Info"
-            value={supplierInfo}
-            onChange={(e) => setSupplierInfo(e.target.value)}
-          />
-          <InputField
-            placeholder="Address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
-        </FirstLine>
-        <SecondLine>
-          <InputField
-            placeholder="Company"
-            value={suppliers}
-            onChange={(e) => setSuppliers(e.target.value)}
-          />
-          <DatePickerWrapper>
-            <InputField
-              placeholder="Delivery date"
-              value={formatDate(date)}
-              readOnly
-            />
-            <CalendarImg
-              src={calendarIcon}
-              alt="calendar"
-              onClick={toggleCalendar}
-            />
-            {isCalendarOpen && (
-              <DatePicker
-                selected={date}
-                onChange={(date) => {
-                  setDate(date);
-                  setIsCalendarOpen(false);
-                }}
-                inline
-                onClickOutside={() => setIsCalendarOpen(false)}
+        <FormContainer onSubmit={handleSubmit(onSubmit)}>
+          {" "}
+          <FirstLine>
+            <div>
+              <InputField placeholder="Supplier Info" {...register("name")} />
+              {errors.name && (
+                <ErrorMessage>{errors.name.message}</ErrorMessage>
+              )}
+            </div>
+            <div>
+              <InputField placeholder="Address" {...register("address")} />
+              {errors.address && (
+                <ErrorMessage>{errors.address.message}</ErrorMessage>
+              )}
+            </div>
+          </FirstLine>
+          <SecondLine>
+            <div>
+              <InputField placeholder="Company" {...register("suppliers")} />
+              {errors.suppliers && (
+                <ErrorMessage>{errors.suppliers.message}</ErrorMessage>
+              )}
+            </div>
+            <DatePickerWrapper>
+              <InputField
+                placeholder="Delivery date"
+                value={formatDate(date)}
+                readOnly
+                onClick={toggleCalendar}
               />
-            )}
-          </DatePickerWrapper>
-        </SecondLine>
-        <ThirdLine>
-          <InputField
-            placeholder="Amount"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-          />
-          <SelectField onClick={toggleDropdown}>
-            {status || "Status"}
-            <ChevronImg
-              src={isDropdownOpen ? chevronUpIcon : chevronDownIcon}
-              alt="chevron"
-            />
-          </SelectField>
-          {isDropdownOpen && (
-            <DropdownList ref={dropdownRef}>
-              {statuses.map((cat) => (
-                <DropdownItem key={cat} onClick={() => handleStatusSelect(cat)}>
-                  {cat}
-                </DropdownItem>
-              ))}
-            </DropdownList>
-          )}
-        </ThirdLine>
-        <ButtonContainer>
-          <AddButton onClick={handleAdd}>Add</AddButton>
-          <CancelButton onClick={onClose}>Cancel</CancelButton>
-        </ButtonContainer>
+              <CalendarImg
+                src={calendarIcon}
+                alt="calendar"
+                onClick={toggleCalendar}
+              />
+              {isCalendarOpen && (
+                <DatePicker
+                  selected={date}
+                  onChange={(date) => {
+                    setValue("date", date);
+                    setIsCalendarOpen(false);
+                  }}
+                  inline
+                  onClickOutside={() => setIsCalendarOpen(false)}
+                />
+              )}
+              {errors.date && (
+                <ErrorMessage>{errors.date.message}</ErrorMessage>
+              )}
+            </DatePickerWrapper>
+          </SecondLine>
+          <ThirdLine>
+            <div>
+              <InputField placeholder="Amount" {...register("amount")} />
+              {errors.amount && (
+                <ErrorMessage>{errors.amount.message}</ErrorMessage>
+              )}
+            </div>
+            <div>
+              <SelectField onClick={toggleDropdown}>
+                {watch("status") || "Status"}
+                <ChevronImg
+                  src={isDropdownOpen ? chevronUpIcon : chevronDownIcon}
+                  alt="chevron"
+                />
+              </SelectField>
+              {isDropdownOpen && (
+                <DropdownList ref={dropdownRef}>
+                  {statuses.map((status) => (
+                    <DropdownItem
+                      key={status}
+                      onClick={() => handleStatusSelect(status)}
+                    >
+                      {status}
+                    </DropdownItem>
+                  ))}
+                </DropdownList>
+              )}
+              {errors.status && (
+                <ErrorMessage>{errors.status.message}</ErrorMessage>
+              )}
+            </div>
+          </ThirdLine>
+          <ButtonContainer>
+            <AddButton type="submit">Add</AddButton>
+            <CancelButton type="button" onClick={onClose}>
+              Cancel
+            </CancelButton>
+          </ButtonContainer>
+        </FormContainer>
       </PopupContainer>
     </ModalOverlay>
   );
