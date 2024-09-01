@@ -1,5 +1,5 @@
 //suppliersActions.js
-import api from "../services/api";
+import api from "../../services/api";
 import { FETCH_SUPPLIERS_SUCCESS, FETCH_SUPPLIERS_ERROR } from "./types";
 
 export const fetchSuppliers = () => async (dispatch) => {

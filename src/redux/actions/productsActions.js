@@ -1,5 +1,5 @@
 // src/actions/productsActions.js
-import api from "../services/api";
+import api from "../../services/api";
 import { FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_ERROR } from "./types";
 
 export const fetchProducts = () => async (dispatch) => {

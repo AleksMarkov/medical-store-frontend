@@ -31,7 +31,7 @@ import EditSupplier from "./EditSupplier/EditSupplier";
 import filterIcon from "../../assets/svg/filter.svg";
 import editIcon from "../../assets/svg/edit.svg";
 import sliderIcon from "../../assets/svg/Slider.svg";
-import { fetchSuppliers } from "../../actions/suppliersActions";
+import { fetchSuppliers } from "../../redux/actions/suppliersActions";
 
 const Suppliers = () => {
   const dispatch = useDispatch();

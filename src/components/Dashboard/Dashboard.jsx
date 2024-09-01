@@ -1,7 +1,7 @@
 //Dashboard.jsx
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDashboardData } from "../../actions/dashboardActions";
+import { fetchDashboardData } from "../../redux/actions/dashboardActions";
 import placeholderImage from "../../assets/images/placeholderImage.png";
 import {
   DashContainer,

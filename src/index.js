@@ -6,14 +6,14 @@ import { Provider } from "react-redux";
 import App from "./App";
 import GlobalStyles from "./GlobalStyles";
 import { AuthProvider } from "./context/AuthContext";
-import store from "./store";
+import store from "./redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/medical-store-frontend">
-        {/* <BrowserRouter> // для отладки Локально */}
+      {/* <BrowserRouter basename="/medical-store-frontend"> */}
+      <BrowserRouter>
         <AuthProvider>
           <GlobalStyles />
           <App />

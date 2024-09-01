@@ -1,5 +1,5 @@
 // src/actions/dashboardActions.js
-import api from "../services/api";
+import api from "../../services/api";
 import { FETCH_DASHBOARD_SUCCESS, FETCH_DASHBOARD_ERROR } from "./types";
 
 export const fetchDashboardData = () => async (dispatch) => {

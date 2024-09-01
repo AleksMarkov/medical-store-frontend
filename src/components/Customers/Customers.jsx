@@ -1,7 +1,7 @@
 //Customers.jsx
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCustomers } from "../../actions/customersActions";
+import { fetchCustomers } from "../../redux/actions/customersActions";
 import placeholderImage from "../../assets/images/placeholderImage.png";
 import {
   OrdersContainer,

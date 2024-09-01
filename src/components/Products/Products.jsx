@@ -35,7 +35,10 @@ import filterIcon from "../../assets/svg/filter.svg";
 import editIcon from "../../assets/svg/edit.svg";
 import trashIcon from "../../assets/svg/trash.svg";
 import sliderIcon from "../../assets/svg/Slider.svg";
-import { fetchProducts, deleteProduct } from "../../actions/productsActions";
+import {
+  fetchProducts,
+  deleteProduct,
+} from "../../redux/actions/productsActions";
 
 const Products = () => {
   const dispatch = useDispatch();

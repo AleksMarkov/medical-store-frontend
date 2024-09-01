@@ -1,6 +1,6 @@
 //src/helpers/logoutHelper.js
 import { useDispatch } from "react-redux";
-import { logoutAction } from "../actions/authActions";
+import { logoutAction } from "../redux/actions/authActions";
 import api from "../services/api";
 
 const useLogout = () => {

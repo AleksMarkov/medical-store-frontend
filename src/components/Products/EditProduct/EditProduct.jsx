@@ -20,7 +20,7 @@ import {
 import closeIcon from "../../../assets/svg/close.svg";
 import chevronDownIcon from "../../../assets/svg/chevron-down.svg";
 import chevronUpIcon from "../../../assets/svg/chevron-up.svg";
-import { updateProduct } from "../../../actions/productsActions";
+import { updateProduct } from "../../../redux/actions/productsActions";
 
 const EditProduct = ({ product, onClose }) => {
   const dispatch = useDispatch();

@@ -2,7 +2,7 @@
 import React, { createContext, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginAction, logoutAction } from "../actions/authActions";
+import { loginAction, logoutAction } from "../redux/actions/authActions";
 
 export const AuthContext = createContext();
 

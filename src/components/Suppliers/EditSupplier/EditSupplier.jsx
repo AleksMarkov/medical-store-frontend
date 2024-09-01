@@ -26,7 +26,7 @@ import closeIcon from "../../../assets/svg/close.svg";
 import chevronDownIcon from "../../../assets/svg/chevron-down.svg";
 import chevronUpIcon from "../../../assets/svg/chevron-up.svg";
 import calendarIcon from "../../../assets/svg/calendar.svg";
-import { updateSupplier } from "../../../actions/suppliersActions";
+import { updateSupplier } from "../../../redux/actions/suppliersActions";
 
 const EditSupplier = ({ supplier, onClose }) => {
   const dispatch = useDispatch();

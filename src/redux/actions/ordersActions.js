@@ -1,5 +1,5 @@
 //src/actions/ordersActions.js
-import api from "../services/api";
+import api from "../../services/api";
 import { FETCH_ORDERS_SUCCESS, FETCH_ORDERS_ERROR } from "./types";
 
 export const fetchOrders = () => async (dispatch) => {

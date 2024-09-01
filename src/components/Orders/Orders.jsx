@@ -1,7 +1,7 @@
 // Orders.jsx
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchOrders } from "../../actions/ordersActions";
+import { fetchOrders } from "../../redux/actions/ordersActions";
 import placeholderImage from "../../assets/images/placeholderImage.png";
 import {
   OrdersContainer,

@@ -26,7 +26,7 @@ import chevronDownIcon from "../../../assets/svg/chevron-down.svg";
 import chevronUpIcon from "../../../assets/svg/chevron-up.svg";
 import calendarIcon from "../../../assets/svg/calendar.svg";
 import { useDispatch } from "react-redux";
-import { addSupplier } from "../../../actions/suppliersActions";
+import { addSupplier } from "../../../redux/actions/suppliersActions";
 
 const AddSupplier = ({ onClose }) => {
   const dispatch = useDispatch();
