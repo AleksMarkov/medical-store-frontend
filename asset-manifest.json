@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/medical-store-frontend/static/js/main.e9758609.js",
+    "main.js": "/medical-store-frontend/static/js/main.867693aa.js",
     "static/js/532.780463fd.chunk.js": "/medical-store-frontend/static/js/532.780463fd.chunk.js",
     "static/js/592.03b12290.chunk.js": "/medical-store-frontend/static/js/592.03b12290.chunk.js",
     "static/js/162.5087178a.chunk.js": "/medical-store-frontend/static/js/162.5087178a.chunk.js",
@@ -21,9 +21,9 @@
     "static/media/logout.svg": "/medical-store-frontend/static/media/logout.8124413edcfe8b01cca3b9f2947b5639.svg",
     "static/media/shopping-cartOn.svg": "/medical-store-frontend/static/media/shopping-cartOn.8cb762f92fabebb5d044e3bcc8411833.svg",
     "static/media/shopping-cartOff.svg": "/medical-store-frontend/static/media/shopping-cartOff.574725b42f72e3c5346d016956cd8a0a.svg",
+    "index.html": "/medical-store-frontend/index.html",
     "static/media/trash.svg": "/medical-store-frontend/static/media/trash.1ca193d68fc28206ec812809bebc01be.svg",
     "static/media/users.svg": "/medical-store-frontend/static/media/users.ec698f19cac3e2c8b283b6a99b90f6ed.svg",
-    "index.html": "/medical-store-frontend/index.html",
     "static/media/productsOff.svg": "/medical-store-frontend/static/media/productsOff.a0edd640ff91e292d29ef4cce2f1ad1e.svg",
     "static/media/productsOn.svg": "/medical-store-frontend/static/media/productsOn.730f3f7c4513755061ef1555b7df8568.svg",
     "static/media/dashboardOff.svg": "/medical-store-frontend/static/media/dashboardOff.738696c191c3e93beb197b7a2117a469.svg",
@@ -41,7 +41,7 @@
     "static/media/add.svg": "/medical-store-frontend/static/media/add.45724fbdc73a65a596dea6caf22495f3.svg",
     "static/media/chevron-up.svg": "/medical-store-frontend/static/media/chevron-up.268a21ce2508ac227103933f6f4f0799.svg",
     "static/media/chevron-down.svg": "/medical-store-frontend/static/media/chevron-down.f09981c77429ee0b566e40b45bb092e4.svg",
-    "main.e9758609.js.map": "/medical-store-frontend/static/js/main.e9758609.js.map",
+    "main.867693aa.js.map": "/medical-store-frontend/static/js/main.867693aa.js.map",
     "532.780463fd.chunk.js.map": "/medical-store-frontend/static/js/532.780463fd.chunk.js.map",
     "592.03b12290.chunk.js.map": "/medical-store-frontend/static/js/592.03b12290.chunk.js.map",
     "162.5087178a.chunk.js.map": "/medical-store-frontend/static/js/162.5087178a.chunk.js.map",
@@ -56,6 +56,6 @@
     "829.d927c161.chunk.js.map": "/medical-store-frontend/static/js/829.d927c161.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.e9758609.js"
+    "static/js/main.867693aa.js"
   ]
 }
