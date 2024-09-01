@@ -1,6 +1,7 @@
 //EditProduct.jsx
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import {
   ModalOverlay,
   PopupContainer,
@@ -16,42 +17,40 @@ import {
   ChevronImg,
   DropdownList,
   DropdownItem,
-} from "./EditProduct.styled";
+  ErrorMessage,
+  FormContainer,
+} from "../AddProduct/AddProduct.styled";
 import closeIcon from "../../../assets/svg/close.svg";
 import chevronDownIcon from "../../../assets/svg/chevron-down.svg";
 import chevronUpIcon from "../../../assets/svg/chevron-up.svg";
+import { useDispatch } from "react-redux";
 import { updateProduct } from "../../../redux/actions/productsActions";
+import { productSchema } from "../../../schemas/productSchema"; // Импорт схемы
 
 const EditProduct = ({ product, onClose }) => {
   const dispatch = useDispatch();
-  const [productInfo, setProductInfo] = useState(product?.name || "");
-  const [category, setCategory] = useState(product?.category || "");
-  const [stock, setStock] = useState(product?.stock || "");
-  const [suppliers, setSuppliers] = useState(product?.suppliers || "");
-  const [price, setPrice] = useState(product?.price || "");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const modalRef = useRef(null);
 
-  useEffect(() => {
-    if (product) {
-      setProductInfo(product.name);
-      setCategory(product.category);
-      setStock(product.stock);
-      setSuppliers(product.suppliers);
-      setPrice(product.price);
-    }
-  }, [product]);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+    watch,
+  } = useForm({
+    defaultValues: {
+      name: product?.name || "",
+      category: product?.category || "",
+      stock: product?.stock || "",
+      suppliers: product?.suppliers || "",
+      price: product?.price || "",
+    },
+    resolver: yupResolver(productSchema),
+  });
 
-  const handleEdit = () => {
-    const updatedProduct = {
-      name: productInfo,
-      category,
-      stock,
-      suppliers,
-      price,
-    };
-
-    dispatch(updateProduct(product._id, updatedProduct));
+  const onSubmit = (data) => {
+    dispatch(updateProduct(product._id, data));
     onClose();
   };
 
@@ -78,7 +77,7 @@ const EditProduct = ({ product, onClose }) => {
   };
 
   const handleCategorySelect = (value) => {
-    setCategory(value);
+    setValue("category", value);
     setIsDropdownOpen(false);
   };
 
@@ -112,53 +111,66 @@ const EditProduct = ({ product, onClose }) => {
           <img src={closeIcon} width={26} height={26} alt="Close" />
         </CloseButton>
         <Headline>Edit product</Headline>
-        <FirstLine>
-          <InputField
-            placeholder="Product Info"
-            value={productInfo}
-            onChange={(e) => setProductInfo(e.target.value)}
-          />
-          <SelectField onClick={toggleDropdown}>
-            {category || "Category"}
-            <ChevronImg
-              src={isDropdownOpen ? chevronUpIcon : chevronDownIcon}
-              alt="chevron"
-            />
-          </SelectField>
-          {isDropdownOpen && (
-            <DropdownList>
-              {categories.map((cat) => (
-                <DropdownItem
-                  key={cat}
-                  onClick={() => handleCategorySelect(cat)}
-                >
-                  {cat}
-                </DropdownItem>
-              ))}
-            </DropdownList>
-          )}
-        </FirstLine>
-        <SecondLine>
-          <InputField
-            placeholder="Stock"
-            value={stock}
-            onChange={(e) => setStock(e.target.value)}
-          />
-          <InputField
-            placeholder="Suppliers"
-            value={suppliers}
-            onChange={(e) => setSuppliers(e.target.value)}
-          />
-        </SecondLine>
-        <InputField
-          placeholder="Price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-        <ButtonContainer>
-          <AddButton onClick={handleEdit}>Save</AddButton>
-          <CancelButton onClick={onClose}>Cancel</CancelButton>
-        </ButtonContainer>
+        <FormContainer onSubmit={handleSubmit(onSubmit)}>
+          <FirstLine>
+            <div>
+              <InputField placeholder="Product Info" {...register("name")} />
+              {errors.name && (
+                <ErrorMessage>{errors.name.message}</ErrorMessage>
+              )}
+            </div>
+            <div>
+              <SelectField onClick={toggleDropdown}>
+                {watch("category") || "Category"}
+                <ChevronImg
+                  src={isDropdownOpen ? chevronUpIcon : chevronDownIcon}
+                  alt="chevron"
+                />
+              </SelectField>
+              {isDropdownOpen && (
+                <DropdownList>
+                  {categories.map((cat) => (
+                    <DropdownItem
+                      key={cat}
+                      onClick={() => handleCategorySelect(cat)}
+                    >
+                      {cat}
+                    </DropdownItem>
+                  ))}
+                </DropdownList>
+              )}
+              {errors.category && (
+                <ErrorMessage>{errors.category.message}</ErrorMessage>
+              )}
+            </div>
+          </FirstLine>
+          <SecondLine>
+            <div>
+              <InputField placeholder="Stock" {...register("stock")} />
+              {errors.stock && (
+                <ErrorMessage>{errors.stock.message}</ErrorMessage>
+              )}
+            </div>
+            <div>
+              <InputField placeholder="Suppliers" {...register("suppliers")} />
+              {errors.suppliers && (
+                <ErrorMessage>{errors.suppliers.message}</ErrorMessage>
+              )}
+            </div>
+          </SecondLine>
+          <div>
+            <InputField placeholder="Price" {...register("price")} />
+            {errors.price && (
+              <ErrorMessage>{errors.price.message}</ErrorMessage>
+            )}
+          </div>
+          <ButtonContainer>
+            <AddButton type="submit">Save</AddButton>
+            <CancelButton type="button" onClick={onClose}>
+              Cancel
+            </CancelButton>
+          </ButtonContainer>
+        </FormContainer>
       </PopupContainer>
     </ModalOverlay>
   );
