@@ -29,7 +29,7 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--background-dark);
+background-color: var(--background-light);
 }
 
 h1,
