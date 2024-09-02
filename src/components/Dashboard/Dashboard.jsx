@@ -26,9 +26,6 @@ import {
   TableHeaderCell2,
   TableCell2,
   TableWrapper,
-  TableHeaderWrapper,
-  TableBodyWrapper,
-  StyledTable,
   TableHeaderRow,
   TableBodyRow,
   CellBox,
@@ -85,80 +82,54 @@ const Dashboard = () => {
         <TableContainer>
           <TableTitle>Recent Customers</TableTitle>
           <TableWrapper>
-            <TableHeaderWrapper>
-              <StyledTable>
-                <thead>
-                  <TableHeaderRow>
-                    <TableHeaderCell01>Name</TableHeaderCell01>
-                    <TableHeaderCell02>Email</TableHeaderCell02>
-                    <TableHeaderCell03>Spent</TableHeaderCell03>
-                  </TableHeaderRow>
-                </thead>
-              </StyledTable>
-            </TableHeaderWrapper>
-            <TableBodyWrapper>
-              <StyledTable>
-                <tbody>
-                  {sortedCustomers.map((customer) => (
-                    <TableBodyRow key={customer._id}>
-                      <TableCell01>
-                        <CellBox>
-                          <UserAvatar
-                            src={
-                              customer.image ? customer.image : placeholderImage
-                            }
-                            alt={customer.name}
-                          />
-                          {customer.name}
-                        </CellBox>
-                      </TableCell01>
-                      <TableCell02>
-                        <CellBox02>{customer.email}</CellBox02>
-                      </TableCell02>
-                      <TableCell03>{customer.spent}</TableCell03>
-                    </TableBodyRow>
-                  ))}
-                </tbody>
-              </StyledTable>
-            </TableBodyWrapper>
+            <TableHeaderRow>
+              <TableHeaderCell01>Name</TableHeaderCell01>
+              <TableHeaderCell02>Email</TableHeaderCell02>
+              <TableHeaderCell03>Spent</TableHeaderCell03>
+            </TableHeaderRow>
+            {sortedCustomers.map((customer) => (
+              <TableBodyRow key={customer._id}>
+                <TableCell01>
+                  <CellBox>
+                    <UserAvatar
+                      src={customer.image ? customer.image : placeholderImage}
+                      alt={customer.name}
+                    />
+                    {customer.name}
+                  </CellBox>
+                </TableCell01>
+                <TableCell02>
+                  <CellBox02>{customer.email}</CellBox02>
+                </TableCell02>
+                <TableCell03>{customer.spent}</TableCell03>
+              </TableBodyRow>
+            ))}
           </TableWrapper>
         </TableContainer>
 
         <TableContainer>
           <TableTitle>Income/Expenses</TableTitle>
           <TableWrapper>
-            <TableHeaderWrapper>
-              <StyledTable>
-                <thead>
-                  <TableHeaderRow>
-                    <TableHeaderCell2>Type</TableHeaderCell2>
-                    <TableHeaderCell2></TableHeaderCell2>
-                    <TableHeaderCell2></TableHeaderCell2>
-                  </TableHeaderRow>
-                </thead>
-              </StyledTable>
-            </TableHeaderWrapper>
-            <TableBodyWrapper>
-              <StyledTable>
-                <tbody>
-                  {dashboardData.incomeExpenseList.map((transaction) => (
-                    <TableBodyRow key={transaction._id}>
-                      <TableCell2>
-                        <TransactionType type={transaction.type}>
-                          {transaction.type}
-                        </TransactionType>
-                      </TableCell2>
-                      <TableCell2>{transaction.name}</TableCell2>
-                      <TableCell2>
-                        <TransactionAmount type={transaction.type}>
-                          {transaction.amount}
-                        </TransactionAmount>
-                      </TableCell2>
-                    </TableBodyRow>
-                  ))}
-                </tbody>
-              </StyledTable>
-            </TableBodyWrapper>
+            <TableHeaderRow>
+              <TableHeaderCell2>Type</TableHeaderCell2>
+              <TableHeaderCell2></TableHeaderCell2>
+              <TableHeaderCell2></TableHeaderCell2>
+            </TableHeaderRow>
+            {dashboardData.incomeExpenseList.map((transaction) => (
+              <TableBodyRow key={transaction._id}>
+                <TableCell2>
+                  <TransactionType type={transaction.type}>
+                    {transaction.type}
+                  </TransactionType>
+                </TableCell2>
+                <TableCell2>{transaction.name}</TableCell2>
+                <TableCell2>
+                  <TransactionAmount type={transaction.type}>
+                    {transaction.amount}
+                  </TransactionAmount>
+                </TableCell2>
+              </TableBodyRow>
+            ))}
           </TableWrapper>
         </TableContainer>
       </TableBox>
