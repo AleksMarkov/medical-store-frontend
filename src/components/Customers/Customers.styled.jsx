@@ -219,9 +219,7 @@ export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: calc(100% - 64px);
-
-  @media (max-width: 1024px) {
-  }
+  overflow-y: auto;
 `;
 
 export const TableHeader = styled.div`
@@ -231,11 +229,6 @@ export const TableHeader = styled.div`
 export const TableBody = styled.div`
   overflow-y: auto;
   flex-grow: 1;
-`;
-
-export const TableHeaderRow = styled.div`
-  display: flex;
-  background: var(--background-white);
 `;
 
 export const TableHeaderCell = styled.div`
@@ -324,4 +317,12 @@ export const TableCellBox02 = styled.div`
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+`;
+
+export const TableHeaderRow = styled.div`
+  display: flex;
+  background: var(--background-white);
+  position: sticky;
+  top: 0;
+  z-index: 1;
 `;

@@ -19,8 +19,6 @@ import {
   TableHeaderCell,
   SliderIcon,
   TableWrapper,
-  TableHeader,
-  TableBody,
   HeaderBox01,
   HeaderBox02,
   TableCellBox02,
@@ -72,40 +70,36 @@ const Customers = () => {
       <TableContainer>
         <TableTitle>Customers Data</TableTitle>
         <TableWrapper>
-          <TableHeader>
-            <TableHeaderRow>
-              <TableHeaderCell>
-                <HeaderBox01>User Info</HeaderBox01>
-              </TableHeaderCell>
-              <TableHeaderCell>
-                <HeaderBox02>Email</HeaderBox02>
-              </TableHeaderCell>
-              <TableHeaderCell>Address</TableHeaderCell>
-              <TableHeaderCell>Phone</TableHeaderCell>
-              <TableHeaderCell>Register date</TableHeaderCell>
-            </TableHeaderRow>
-          </TableHeader>
-          <TableBody>
-            {filteredCustomers.map((customer) => (
-              <TableBodyRow key={customer._id}>
-                <TableCell>
-                  <UserInfo>
-                    <UserAvatar
-                      src={customer.image ? customer.image : placeholderImage}
-                      alt={customer.name}
-                    />
-                    {customer.name}
-                  </UserInfo>
-                </TableCell>
-                <TableCell>
-                  <TableCellBox02>{customer.email}</TableCellBox02>
-                </TableCell>
-                <TableCell>{customer.address}</TableCell>
-                <TableCell>{customer.phone}</TableCell>
-                <TableCell>{customer.register_date}</TableCell>
-              </TableBodyRow>
-            ))}
-          </TableBody>
+          <TableHeaderRow>
+            <TableHeaderCell>
+              <HeaderBox01>User Info</HeaderBox01>
+            </TableHeaderCell>
+            <TableHeaderCell>
+              <HeaderBox02>Email</HeaderBox02>
+            </TableHeaderCell>
+            <TableHeaderCell>Address</TableHeaderCell>
+            <TableHeaderCell>Phone</TableHeaderCell>
+            <TableHeaderCell>Register date</TableHeaderCell>
+          </TableHeaderRow>
+          {filteredCustomers.map((customer) => (
+            <TableBodyRow key={customer._id}>
+              <TableCell>
+                <UserInfo>
+                  <UserAvatar
+                    src={customer.image ? customer.image : placeholderImage}
+                    alt={customer.name}
+                  />
+                  {customer.name}
+                </UserInfo>
+              </TableCell>
+              <TableCell>
+                <TableCellBox02>{customer.email}</TableCellBox02>
+              </TableCell>
+              <TableCell>{customer.address}</TableCell>
+              <TableCell>{customer.phone}</TableCell>
+              <TableCell>{customer.register_date}</TableCell>
+            </TableBodyRow>
+          ))}
         </TableWrapper>
       </TableContainer>
       {filteredCustomers.length >= 6 && (

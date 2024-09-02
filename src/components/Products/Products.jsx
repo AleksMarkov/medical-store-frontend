@@ -10,8 +10,6 @@ import {
   TableContainer,
   TableTitle,
   TableWrapper,
-  TableHeader,
-  TableBody,
   TableHeaderRow,
   TableBodyRow,
   TableHeaderCell,
@@ -120,35 +118,31 @@ const Products = () => {
       <TableContainer>
         <TableTitle>All products</TableTitle>
         <TableWrapper>
-          <TableHeader>
-            <TableHeaderRow>
-              <TableHeaderCell>Product Info</TableHeaderCell>
-              <TableHeaderCell>Category</TableHeaderCell>
-              <TableHeaderCell>Stock</TableHeaderCell>
-              <TableHeaderCell>Suppliers</TableHeaderCell>
-              <TableHeaderCell>Price</TableHeaderCell>
-              <TableHeaderCell>Action</TableHeaderCell>
-            </TableHeaderRow>
-          </TableHeader>
-          <TableBody>
-            {filteredProducts.map((product) => (
-              <TableBodyRow key={product._id}>
-                <TableCell>{product.name}</TableCell>
-                <TableCell>{product.category}</TableCell>
-                <TableCell>{product.stock}</TableCell>
-                <TableCell>{product.suppliers}</TableCell>
-                <TableCell>{product.price}</TableCell>
-                <ActionCell>
-                  <EditButton onClick={() => handleEditProduct(product)}>
-                    <ActionIcon src={editIcon} alt="Edit" />
-                  </EditButton>
-                  <DeleteButton onClick={() => handleDeleteProduct(product)}>
-                    <ActionIcon src={trashIcon} alt="Delete" />
-                  </DeleteButton>
-                </ActionCell>
-              </TableBodyRow>
-            ))}
-          </TableBody>
+          <TableHeaderRow>
+            <TableHeaderCell>Product Info</TableHeaderCell>
+            <TableHeaderCell>Category</TableHeaderCell>
+            <TableHeaderCell>Stock</TableHeaderCell>
+            <TableHeaderCell>Suppliers</TableHeaderCell>
+            <TableHeaderCell>Price</TableHeaderCell>
+            <TableHeaderCell>Action</TableHeaderCell>
+          </TableHeaderRow>
+          {filteredProducts.map((product) => (
+            <TableBodyRow key={product._id}>
+              <TableCell>{product.name}</TableCell>
+              <TableCell>{product.category}</TableCell>
+              <TableCell>{product.stock}</TableCell>
+              <TableCell>{product.suppliers}</TableCell>
+              <TableCell>{product.price}</TableCell>
+              <ActionCell>
+                <EditButton onClick={() => handleEditProduct(product)}>
+                  <ActionIcon src={editIcon} alt="Edit" />
+                </EditButton>
+                <DeleteButton onClick={() => handleDeleteProduct(product)}>
+                  <ActionIcon src={trashIcon} alt="Delete" />
+                </DeleteButton>
+              </ActionCell>
+            </TableBodyRow>
+          ))}
         </TableWrapper>
       </TableContainer>
       {showEditProduct && (

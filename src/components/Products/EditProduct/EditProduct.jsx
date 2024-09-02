@@ -25,7 +25,7 @@ import chevronDownIcon from "../../../assets/svg/chevron-down.svg";
 import chevronUpIcon from "../../../assets/svg/chevron-up.svg";
 import { useDispatch } from "react-redux";
 import { updateProduct } from "../../../redux/actions/productsActions";
-import { productSchema } from "../../../schemas/productSchema"; // Импорт схемы
+import { productSchema } from "../../../schemas/productSchema";
 
 const EditProduct = ({ product, onClose }) => {
   const dispatch = useDispatch();

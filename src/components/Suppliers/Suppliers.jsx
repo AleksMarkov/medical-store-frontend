@@ -10,8 +10,6 @@ import {
   TableContainer,
   TableTitle,
   TableWrapper,
-  TableHeader,
-  TableBody,
   TableHeaderRow,
   TableBodyRow,
   TableHeaderCell,
@@ -97,39 +95,35 @@ const Suppliers = () => {
       <TableContainer>
         <TableTitle>All suppliers</TableTitle>
         <TableWrapper>
-          <TableHeader>
-            <TableHeaderRow>
-              <TableHeaderCell>Suppliers Info</TableHeaderCell>
-              <TableHeaderCell>Address</TableHeaderCell>
-              <TableHeaderCell>Company</TableHeaderCell>
-              <TableHeaderCell>Delivery date</TableHeaderCell>
-              <TableHeaderCell>Amount</TableHeaderCell>
-              <TableHeaderCell>Status</TableHeaderCell>
-              <TableHeaderCell>Action</TableHeaderCell>
-            </TableHeaderRow>
-          </TableHeader>
-          <TableBody>
-            {filteredSuppliers.map((supplier) => (
-              <TableBodyRow key={supplier._id}>
-                <TableCell>{supplier.name}</TableCell>
-                <TableCell>{supplier.address}</TableCell>
-                <TableCell>{supplier.suppliers}</TableCell>
-                <TableCell>{supplier.date}</TableCell>
-                <TableCell>{supplier.amount}</TableCell>
-                <TableCell>
-                  <StatusBadge status={supplier.status}>
-                    {supplier.status}
-                  </StatusBadge>
-                </TableCell>
-                <ActionCell>
-                  <EditButton onClick={() => handleEditSupplier(supplier)}>
-                    <ActionIcon src={editIcon} alt="Edit" />
-                    Edit
-                  </EditButton>
-                </ActionCell>
-              </TableBodyRow>
-            ))}
-          </TableBody>
+          <TableHeaderRow>
+            <TableHeaderCell>Suppliers Info</TableHeaderCell>
+            <TableHeaderCell>Address</TableHeaderCell>
+            <TableHeaderCell>Company</TableHeaderCell>
+            <TableHeaderCell>Delivery date</TableHeaderCell>
+            <TableHeaderCell>Amount</TableHeaderCell>
+            <TableHeaderCell>Status</TableHeaderCell>
+            <TableHeaderCell>Action</TableHeaderCell>
+          </TableHeaderRow>
+          {filteredSuppliers.map((supplier) => (
+            <TableBodyRow key={supplier._id}>
+              <TableCell>{supplier.name}</TableCell>
+              <TableCell>{supplier.address}</TableCell>
+              <TableCell>{supplier.suppliers}</TableCell>
+              <TableCell>{supplier.date}</TableCell>
+              <TableCell>{supplier.amount}</TableCell>
+              <TableCell>
+                <StatusBadge status={supplier.status}>
+                  {supplier.status}
+                </StatusBadge>
+              </TableCell>
+              <ActionCell>
+                <EditButton onClick={() => handleEditSupplier(supplier)}>
+                  <ActionIcon src={editIcon} alt="Edit" />
+                  Edit
+                </EditButton>
+              </ActionCell>
+            </TableBodyRow>
+          ))}
         </TableWrapper>
       </TableContainer>
       {showEditSupplier && (

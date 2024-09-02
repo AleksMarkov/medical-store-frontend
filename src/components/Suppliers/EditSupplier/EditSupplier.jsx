@@ -30,7 +30,7 @@ import chevronDownIcon from "../../../assets/svg/chevron-down.svg";
 import chevronUpIcon from "../../../assets/svg/chevron-up.svg";
 import calendarIcon from "../../../assets/svg/calendar.svg";
 import { updateSupplier } from "../../../redux/actions/suppliersActions";
-import { supplierSchema } from "../../../schemas/supplierSchema"; // Добавьте эту строку
+import { supplierSchema } from "../../../schemas/supplierSchema";
 import { useDispatch } from "react-redux";
 
 const EditSupplier = ({ supplier, onClose }) => {

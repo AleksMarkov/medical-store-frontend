@@ -336,6 +336,9 @@ export const DeleteButton = styled.div`
 export const TableHeaderRow = styled.div`
   display: flex;
   background: var(--background-white);
+  position: sticky;
+  top: 0;
+  z-index: 1;
 `;
 
 export const TableBodyRow = styled.div`

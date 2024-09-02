@@ -20,8 +20,6 @@ import {
   TableHeaderCell,
   SliderIcon,
   TableWrapper,
-  TableHeader,
-  TableBody,
   TableCellBox02,
 } from "./Orders.styled";
 import filterIcon from "../../assets/svg/filter.svg";
@@ -71,42 +69,36 @@ const Orders = () => {
       <TableContainer>
         <TableTitle>All orders</TableTitle>
         <TableWrapper>
-          <TableHeader>
-            <TableHeaderRow>
-              <TableHeaderCell>User Info</TableHeaderCell>
-              <TableHeaderCell>Address</TableHeaderCell>
-              <TableHeaderCell>Products</TableHeaderCell>
-              <TableHeaderCell>Order date</TableHeaderCell>
-              <TableHeaderCell>Price</TableHeaderCell>
-              <TableHeaderCell>Status</TableHeaderCell>
-            </TableHeaderRow>
-          </TableHeader>
-          <TableBody>
-            {filteredOrders.map((order) => (
-              <TableBodyRow key={order._id}>
-                <TableCell>
-                  <UserInfo>
-                    <UserAvatar
-                      src={order.photo ? order.photo : placeholderImage}
-                      alt={order.name}
-                    />
-                    {order.name}
-                  </UserInfo>
-                </TableCell>
-                <TableCell>
-                  <TableCellBox02>{order.address}</TableCellBox02>
-                </TableCell>
-                <TableCell>{order.products}</TableCell>
-                <TableCell>{order.order_date}</TableCell>
-                <TableCell>{order.price}</TableCell>
-                <TableCell>
-                  <StatusBadge status={order.status}>
-                    {order.status}
-                  </StatusBadge>
-                </TableCell>
-              </TableBodyRow>
-            ))}
-          </TableBody>
+          <TableHeaderRow>
+            <TableHeaderCell>User Info</TableHeaderCell>
+            <TableHeaderCell>Address</TableHeaderCell>
+            <TableHeaderCell>Products</TableHeaderCell>
+            <TableHeaderCell>Order date</TableHeaderCell>
+            <TableHeaderCell>Price</TableHeaderCell>
+            <TableHeaderCell>Status</TableHeaderCell>
+          </TableHeaderRow>
+          {filteredOrders.map((order) => (
+            <TableBodyRow key={order._id}>
+              <TableCell>
+                <UserInfo>
+                  <UserAvatar
+                    src={order.photo ? order.photo : placeholderImage}
+                    alt={order.name}
+                  />
+                  {order.name}
+                </UserInfo>
+              </TableCell>
+              <TableCell>
+                <TableCellBox02>{order.address}</TableCellBox02>
+              </TableCell>
+              <TableCell>{order.products}</TableCell>
+              <TableCell>{order.order_date}</TableCell>
+              <TableCell>{order.price}</TableCell>
+              <TableCell>
+                <StatusBadge status={order.status}>{order.status}</StatusBadge>
+              </TableCell>
+            </TableBodyRow>
+          ))}
         </TableWrapper>
       </TableContainer>
       {filteredOrders.length >= 6 && (
