@@ -164,8 +164,8 @@ export const AddBlock = styled.div`
 export const TableContainer = styled.div`
   width: 1280px;
   height: 502px;
-  display: flex;
-  flex-direction: column;
+  display: table;
+  table-layout: fixed;
   background: var(--background-white);
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -182,7 +182,7 @@ export const TableContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 671px;
+    width: 712px;
     height: 482px;
   }
 `;
@@ -215,9 +215,7 @@ export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: calc(100% - 64px);
-
-  @media (max-width: 1024px) {
-  }
+  overflow-y: auto;
 `;
 
 export const TableHeader = styled.div`
@@ -227,6 +225,7 @@ export const TableHeader = styled.div`
 export const TableBody = styled.div`
   overflow-y: auto;
   flex-grow: 1;
+  max-height: calc(100% - 64px);
 `;
 
 export const TableHeaderRow = styled.div`
@@ -242,6 +241,7 @@ export const TableBodyRow = styled.div`
 `;
 
 export const TableHeaderCell = styled.div`
+  width: 200px;
   flex: 1;
   height: 17px;
   padding: 20px 10px 20px 20px;
@@ -258,6 +258,7 @@ export const TableHeaderCell = styled.div`
   }
 
   @media (max-width: 768px) {
+    width: 200px;
     font-size: 12px;
     line-height: 14px;
     padding: 14px 10px 14px 14px;
@@ -265,6 +266,7 @@ export const TableHeaderCell = styled.div`
 `;
 
 export const TableCell = styled.div`
+  width: 200px;
   flex: 1;
   display: flex;
   height: 17px;
@@ -278,14 +280,11 @@ export const TableCell = styled.div`
   text-align: left;
 
   @media (max-width: 1440px) {
-  }
-
-  @media (max-width: 1024px) {
+    width: 200px;
   }
 
   @media (max-width: 768px) {
-    width: 106px;
-    padding: 29px 5px 29px 10px;
+    width: 200px;
     font-size: 12px;
     line-height: 14px;
   }

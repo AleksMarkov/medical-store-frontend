@@ -41,8 +41,8 @@ export const OrdersContainer = styled.div`
 export const TableContainer = styled.div`
   width: 1280px;
   height: 502px;
-  display: flex;
-  flex-direction: column;
+  display: table;
+  table-layout: fixed;
   background: var(--background-white);
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -59,7 +59,7 @@ export const TableContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 671px;
+    width: 768px;
     height: 482px;
   }
 `;
@@ -270,9 +270,7 @@ export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: calc(100% - 64px);
-
-  @media (max-width: 1024px) {
-  }
+  overflow-y: auto; /* Enable vertical scrolling */
 `;
 
 export const TableHeader = styled.div`
@@ -282,6 +280,7 @@ export const TableHeader = styled.div`
 export const TableBody = styled.div`
   overflow-y: auto;
   flex-grow: 1;
+  max-height: calc(100% - 64px); /* Adjusted to fit inside the TableContainer */
 `;
 
 export const TableHeaderRow = styled.div`
@@ -290,6 +289,7 @@ export const TableHeaderRow = styled.div`
 `;
 
 export const TableHeaderCell = styled.div`
+  width: 200px; /* Fixed width for consistency */
   flex: 1;
   padding: 20px 10px 20px 20px;
   border-bottom: 1px solid var(--border-color);
@@ -301,31 +301,15 @@ export const TableHeaderCell = styled.div`
   color: var(--label-color);
 
   @media (max-width: 1440px) {
-    width: 200px;
+    width: 106px;
+    padding: 14px 7px 14px 14px;
   }
 
   @media (max-width: 768px) {
+    width: 106px;
     font-size: 12px;
     line-height: 14px;
-    padding: 14px 10px 14px 14px;
-  }
-`;
-
-export const HeaderBox01 = styled.div`
-  @media (max-width: 768px) {
-    width: 103px;
-  }
-`;
-
-export const HeaderBox02 = styled.div`
-  @media (max-width: 768px) {
-    width: 85px;
-  }
-`;
-
-export const HeaderBox03 = styled.div`
-  @media (max-width: 768px) {
-    width: 97px;
+    padding: 14px 7px 14px 14px;
   }
 `;
 
@@ -337,6 +321,7 @@ export const TableBodyRow = styled.div`
 `;
 
 export const TableCell = styled.div`
+  width: 200px; /* Fixed width for consistency */
   flex: 1;
   display: flex;
   align-items: center;
@@ -346,6 +331,7 @@ export const TableCell = styled.div`
   font-size: 16px;
   font-weight: 500;
   line-height: 18px;
+  text-align: left;
 
   @media (max-width: 1440px) {
     width: 106px;
@@ -354,24 +340,17 @@ export const TableCell = styled.div`
     line-height: 14px;
   }
 
-  @media (max-width: 1024px) {
-    width: 106px;
-    padding: 14px 7px 14px 14px;
-    font-size: 12px;
-    line-height: 14px;
-  }
-
   @media (max-width: 768px) {
-    width: 106px;
-    padding: 14px 7px 14px 14px;
     font-size: 12px;
     line-height: 14px;
+    width: 106px;
+    padding: 14px 7px 14px 14px;
   }
 `;
 
 export const TableCellBox02 = styled.div`
   @media (max-width: 768px) {
-    width: 88px;
+    width: 106px;
     overflow: hidden;
     text-overflow: ellipsis;
   }
