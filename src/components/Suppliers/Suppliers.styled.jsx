@@ -183,7 +183,7 @@ export const TableContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 712px;
-    height: 482px;
+    height: 458px;
   }
 `;
 
@@ -199,11 +199,15 @@ export const TableTitle = styled.div`
   color: var(--background-dark);
 
   @media (max-width: 1440px) {
-    width: 100%;
+    width: 924px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 924px;
   }
 
   @media (max-width: 768px) {
-    width: 100%;
+    width: 684px;
     height: 20px;
     padding: 14px;
     font-size: 16px;
@@ -215,7 +219,12 @@ export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: calc(100% - 64px);
+  // height: 431px;
   overflow-y: auto;
+
+  @media (max-width: 768px) {
+    height: 414px;
+  }
 `;
 
 export const TableHeader = styled.div`
@@ -226,6 +235,10 @@ export const TableBody = styled.div`
   overflow-y: auto;
   flex-grow: 1;
   max-height: calc(100% - 64px);
+
+  @media (max-width: 768px) {
+    height: 380px;
+  }
 `;
 
 export const TableHeaderRow = styled.div`
@@ -262,9 +275,10 @@ export const TableHeaderCell = styled.div`
 
   @media (max-width: 768px) {
     width: 200px;
+    height: 14px;
     font-size: 12px;
     line-height: 14px;
-    padding: 14px 10px 14px 14px;
+    padding: 14px 7px 14px 14px;
   }
 `;
 
@@ -288,6 +302,7 @@ export const TableCell = styled.div`
 
   @media (max-width: 768px) {
     width: 200px;
+    height: 16px;
     font-size: 12px;
     line-height: 14px;
   }

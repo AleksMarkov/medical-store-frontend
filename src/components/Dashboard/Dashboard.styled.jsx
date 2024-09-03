@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const ScrollableTableContainer = styled.div`
   height: 428px;
-  overflow-y: auto;
+  overflow-y: hidden;
 `;
 
 export const DashContainer = styled.div`
@@ -18,20 +18,21 @@ export const DashContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  overflow-x: visible;
+  overflow-x: hidden;
 
   @media (max-width: 1440px) {
     width: 984px;
     height: 647px;
     padding: 20px;
     gap: 20px;
-    overflow-x: auto;
+    overflow-x: hidden;
   }
 
   @media (max-width: 1024px) {
     width: 704px;
     height: 1212px;
     padding: 20px 32px;
+    overflow-x: hidden;
   }
 
   @media (max-width: 768px) {
@@ -39,6 +40,7 @@ export const DashContainer = styled.div`
     height: 1335px;
     padding: 20px;
     gap: 20px;
+    overflow-x: hidden;
   }
 `;
 
@@ -130,6 +132,7 @@ export const TableBox = styled.div`
   gap: 20px;
   width: 1280px;
   height: 512px;
+  overflow-x: hidden;
 
   @media (max-width: 1440px) {
   }
@@ -158,7 +161,7 @@ export const TableContainer = styled.div`
   background: var(--background-white);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  overflow: hidden;
+  overflow-x: hidden;
 
   @media (max-width: 1440px) {
     width: 630px;
@@ -203,7 +206,7 @@ export const TableTitle = styled.div`
 export const TableHeaderCell01 = styled.div`
   display: table-cell;
   padding: 20px 10px 20px 20px;
-  width: 191px;
+  width: 192px;
   border-bottom: 1px solid var(--border-color);
   border-left: 1px solid var(--border-color);
   font-size: 14px;
@@ -222,7 +225,7 @@ export const TableHeaderCell01 = styled.div`
 
 export const TableHeaderCell02 = styled.div`
   display: table-cell;
-  width: 246px;
+  width: 237px;
   text-align: left;
   padding: 20px 10px 20px 20px;
   border-bottom: 1px solid var(--border-color);
@@ -247,7 +250,7 @@ export const TableHeaderCell02 = styled.div`
 
 export const TableHeaderCell03 = styled.div`
   display: table-cell;
-  width: 90px;
+  width: 105px;
   padding: 20px 10px 20px 20px;
   border-bottom: 1px solid var(--border-color);
   border-left: 1px solid var(--border-color);
@@ -286,7 +289,7 @@ export const TableCell01 = styled.div`
   display: table-cell;
   vertical-align: middle;
   text-align: left;
-  width: 191px;
+  width: 192px;
   padding: 20px 10px 20px 20px;
   border-bottom: 1px solid var(--border-color);
   border-left: 1px solid var(--border-color);
@@ -305,7 +308,7 @@ export const TableCell01 = styled.div`
 
 export const CellBox = styled.div`
   display: flex;
-  width: 191px;
+  width: 192px;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
@@ -324,7 +327,7 @@ export const CellBox = styled.div`
 export const TableCell02 = styled.div`
   display: table-cell;
   vertical-align: middle;
-  width: 261px;
+  width: 237px;
   text-align: left;
   padding: 20px 10px 20px 20px;
   border-bottom: 1px solid var(--border-color);
@@ -345,6 +348,11 @@ export const TableCell02 = styled.div`
 `;
 
 export const CellBox02 = styled.div`
+  width: 237px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
   @media (max-width: 768px) {
     width: 211px;
     font-size: 12px;
@@ -357,7 +365,7 @@ export const CellBox02 = styled.div`
 
 export const TableCell03 = styled.div`
   display: table-cell;
-  width: 90px;
+  width: 105px;
   vertical-align: middle;
   text-align: left;
   padding: 20px 10px 20px 20px;
@@ -449,7 +457,7 @@ export const TransactionAmount = styled.span`
 `;
 
 export const TableBodyWrapper = styled.div`
-  overflow-y: auto;
+  overflow-y hidden;
   flex-grow: 1;
 `;
 
@@ -459,6 +467,7 @@ export const StyledTable = styled.table`
 `;
 
 export const TableBodyRow = styled.tr`
+width: 630px;
   &:nth-child(even) {
     background-color: var(--background-light);
   }
@@ -475,7 +484,7 @@ export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: calc(100% - 64px);
-  overflow-y: auto;
+  overflow-y: hidden;
 `;
 
 export const TableHeaderRow = styled.div`

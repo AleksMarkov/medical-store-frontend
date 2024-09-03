@@ -22,6 +22,8 @@ import {
   HeaderBox01,
   HeaderBox02,
   TableCellBox02,
+  HeaderBox03,
+  TableCellBox03,
 } from "./Customers.styled";
 import filterIcon from "../../assets/svg/filter.svg";
 import sliderIcon from "../../assets/svg/Slider.svg";
@@ -77,7 +79,9 @@ const Customers = () => {
             <TableHeaderCell>
               <HeaderBox02>Email</HeaderBox02>
             </TableHeaderCell>
-            <TableHeaderCell>Address</TableHeaderCell>
+            <TableHeaderCell>
+              <HeaderBox03>Address</HeaderBox03>
+            </TableHeaderCell>
             <TableHeaderCell>Phone</TableHeaderCell>
             <TableHeaderCell>Register date</TableHeaderCell>
           </TableHeaderRow>
@@ -95,7 +99,9 @@ const Customers = () => {
               <TableCell>
                 <TableCellBox02>{customer.email}</TableCellBox02>
               </TableCell>
-              <TableCell>{customer.address}</TableCell>
+              <TableCell>
+                <TableCellBox03>{customer.address}</TableCellBox03>
+              </TableCell>
               <TableCell>{customer.phone}</TableCell>
               <TableCell>{customer.register_date}</TableCell>
             </TableBodyRow>

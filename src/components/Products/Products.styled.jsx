@@ -164,7 +164,7 @@ export const AddBlock = styled.div`
 
 export const TableContainer = styled.div`
   width: 1280px;
-  height: 502px;
+  height: 500px;
   display: table;
   table-layout: fixed;
   background: var(--background-white);
@@ -174,17 +174,17 @@ export const TableContainer = styled.div`
 
   @media (max-width: 1440px) {
     width: 960px;
-    height: 502px;
+    height: 500px;
   }
 
   @media (max-width: 1024px) {
     width: 960px;
-    height: 502px;
+    height: 500px;
   }
 
   @media (max-width: 768px) {
     width: 671px;
-    height: 482px;
+    height: 458px;
   }
 `;
 
@@ -200,11 +200,15 @@ export const TableTitle = styled.div`
   color: var(--background-dark);
 
   @media (max-width: 1440px) {
-    width: 100%;
+    width: 920px;
+  }
+
+  @media (max-width: 1440px) {
+    width: 920px;
   }
 
   @media (max-width: 768px) {
-    width: 100%;
+    width: 643px;
     height: 20px;
     padding: 14px;
     font-size: 16px;
@@ -215,8 +219,13 @@ export const TableTitle = styled.div`
 export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: calc(100% - 64px);
+  // height: calc(100% - 64px);
+  height: 431px;
   overflow-y: auto;
+
+  @media (max-width: 768px) {
+    height: 414px;
+  }
 `;
 
 export const TableHeader = styled.div`
@@ -227,6 +236,10 @@ export const TableBody = styled.div`
   overflow-y: auto;
   flex-grow: 1;
   max-height: calc(100% - 64px);
+
+  @media (max-width: 768px) {
+    height: 380px;
+  }
 `;
 
 export const TableHeaderCell = styled.div`
@@ -248,6 +261,7 @@ export const TableHeaderCell = styled.div`
 
   @media (max-width: 768px) {
     width: 200px;
+    height: 13px;
     font-size: 12px;
     line-height: 14px;
     padding: 14px 10px 14px 14px;
@@ -258,7 +272,7 @@ export const TableCell = styled.div`
   width: 200px;
   flex: 1;
   display: flex;
-  height: 17px;
+  height: 16px;
   align-items: center;
   padding: 29px 10px 29px 20px;
   border-bottom: 1px solid var(--border-color);
@@ -276,6 +290,25 @@ export const TableCell = styled.div`
     width: 200px;
     font-size: 12px;
     line-height: 14px;
+  }
+`;
+export const CellBox = styled.div`
+  width: 182px;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @media (max-width: 1440px) {
+    width: 129px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 129px;
+  }
+
+  @media (max-width: 768px) {
+    width: 80px;
   }
 `;
 

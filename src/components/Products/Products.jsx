@@ -23,6 +23,7 @@ import {
   SliderIcon,
   EditButton,
   DeleteButton,
+  CellBox,
 } from "./Products.styled";
 import Modal from "../Modal/Modal";
 import AddProduct from "./AddProduct/AddProduct";
@@ -128,7 +129,9 @@ const Products = () => {
           </TableHeaderRow>
           {filteredProducts.map((product) => (
             <TableBodyRow key={product._id}>
-              <TableCell>{product.name}</TableCell>
+              <TableCell>
+                <CellBox>{product.name}</CellBox>
+              </TableCell>
               <TableCell>{product.category}</TableCell>
               <TableCell>{product.stock}</TableCell>
               <TableCell>{product.suppliers}</TableCell>
