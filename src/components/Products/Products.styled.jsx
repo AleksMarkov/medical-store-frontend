@@ -220,7 +220,7 @@ export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
   // height: calc(100% - 64px);
-  height: 431px;
+  height: 438px;
   overflow-y: auto;
 
   @media (max-width: 768px) {
@@ -235,7 +235,8 @@ export const TableHeader = styled.div`
 export const TableBody = styled.div`
   overflow-y: auto;
   flex-grow: 1;
-  max-height: calc(100% - 64px);
+  // max-height: calc(100% - 64px);
+  max-height: 380px;
 
   @media (max-width: 768px) {
     height: 380px;
@@ -272,7 +273,7 @@ export const TableCell = styled.div`
   width: 200px;
   flex: 1;
   display: flex;
-  height: 16px;
+  height: 17px;
   align-items: center;
   padding: 29px 10px 29px 20px;
   border-bottom: 1px solid var(--border-color);
@@ -293,22 +294,22 @@ export const TableCell = styled.div`
   }
 `;
 export const CellBox = styled.div`
-  width: 182px;
+  width: 179px;
   align-items: center;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 
   @media (max-width: 1440px) {
-    width: 129px;
+    width: 126px;
   }
 
   @media (max-width: 1024px) {
-    width: 129px;
+    width: 126px;
   }
 
   @media (max-width: 768px) {
-    width: 80px;
+    width: 77px;
   }
 `;
 

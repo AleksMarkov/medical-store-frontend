@@ -60,7 +60,7 @@ export const TableContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 768px;
-    height: 482px;
+    height: 458px;
   }
 `;
 
@@ -152,11 +152,14 @@ export const TableTitle = styled.div`
   color: var(--background-dark);
 
   @media (max-width: 1440px) {
-    width: 100%;
+    width: 920px;
+  }
+  @media (max-width: 1024px) {
+    width: 920px;
   }
 
   @media (max-width: 768px) {
-    width: 100%;
+    width: 740px;
     height: 20px;
     padding: 14px;
     font-size: 16px;
@@ -172,8 +175,18 @@ export const UserInfo = styled.div`
   gap: 8px;
   width: 100%;
 
+  @media (max-width: 1440px) {
+    width: 194px;
+    height: 35px;
+  }
+  @media (max-width: 1024px) {
+    width: 194px;
+    height: 35px;
+  }
+
   @media (max-width: 768px) {
-    width: 107px;
+    width: 106px;
+    height: 45px;
     align-items: flex-start;
     flex-direction: column;
     overflow: hidden;
@@ -271,6 +284,10 @@ export const TableWrapper = styled.div`
   flex-direction: column;
   height: calc(100% - 64px);
   overflow-y: auto;
+
+  @media (max-width: 768px) {
+    height: 412px;
+  }
 `;
 
 export const TableHeader = styled.div`
@@ -304,15 +321,52 @@ export const TableHeaderCell = styled.div`
   color: var(--label-color);
 
   @media (max-width: 1440px) {
-    width: 106px;
-    padding: 14px 7px 14px 14px;
+    // width: 106px;
+    height: 17px;
+  }
+
+  @media (max-width: 1024px) {
+    // width: 106px;
+    height: 17px;
   }
 
   @media (max-width: 768px) {
     width: 106px;
+    height: 13px;
     font-size: 12px;
     line-height: 14px;
     padding: 14px 7px 14px 14px;
+  }
+`;
+export const HeaderBox01 = styled.div`
+  // width: 225px;
+
+  @media (max-width: 1440px) {
+    width: 194px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 194px;
+  }
+
+  @media (max-width: 768px) {
+    width: 107px;
+  }
+`;
+
+export const HeaderBox02 = styled.div`
+  // width: 225px;
+
+  @media (max-width: 1440px) {
+    width: 127px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 127px;
+  }
+
+  @media (max-width: 768px) {
+    width: 106px;
   }
 `;
 
@@ -337,21 +391,42 @@ export const TableCell = styled.div`
   text-align: left;
 
   @media (max-width: 1440px) {
-    width: 106px;
-    padding: 14px 7px 14px 14px;
-    font-size: 12px;
-    line-height: 14px;
+    width: 195px;
+    height: 35px;
+    padding: 20px 10px 20px 20px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 195px;
+    height: 35px;
+    padding: 20px 10px 20px 20px;
   }
 
   @media (max-width: 768px) {
     font-size: 12px;
     line-height: 14px;
     width: 106px;
+    height: 45px;
     padding: 14px 7px 14px 14px;
   }
 `;
 
 export const TableCellBox02 = styled.div`
+  @media (max-width: 1440px) {
+    width: 127px;
+    height: 35px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+   
+
+  @media (max-width: 1024px) {
+    width: 127px;
+    height: 35px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+  }
+
   @media (max-width: 768px) {
     width: 106px;
     overflow: hidden;

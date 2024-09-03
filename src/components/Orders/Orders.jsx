@@ -21,6 +21,8 @@ import {
   SliderIcon,
   TableWrapper,
   TableCellBox02,
+  HeaderBox01,
+  HeaderBox02,
 } from "./Orders.styled";
 import filterIcon from "../../assets/svg/filter.svg";
 import sliderIcon from "../../assets/svg/Slider.svg";
@@ -70,8 +72,12 @@ const Orders = () => {
         <TableTitle>All orders</TableTitle>
         <TableWrapper>
           <TableHeaderRow>
-            <TableHeaderCell>User Info</TableHeaderCell>
-            <TableHeaderCell>Address</TableHeaderCell>
+            <TableHeaderCell>
+              <HeaderBox01>User Info</HeaderBox01>
+            </TableHeaderCell>
+            <TableHeaderCell>
+              <HeaderBox02>Address</HeaderBox02>
+            </TableHeaderCell>
             <TableHeaderCell>Products</TableHeaderCell>
             <TableHeaderCell>Order date</TableHeaderCell>
             <TableHeaderCell>Price</TableHeaderCell>

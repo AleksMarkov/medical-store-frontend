@@ -24,6 +24,8 @@ import {
   TableCellBox02,
   HeaderBox03,
   TableCellBox03,
+  TableCellBox04,
+  HeaderBox04,
 } from "./Customers.styled";
 import filterIcon from "../../assets/svg/filter.svg";
 import sliderIcon from "../../assets/svg/Slider.svg";
@@ -82,7 +84,9 @@ const Customers = () => {
             <TableHeaderCell>
               <HeaderBox03>Address</HeaderBox03>
             </TableHeaderCell>
-            <TableHeaderCell>Phone</TableHeaderCell>
+            <TableHeaderCell>
+              <HeaderBox04>Phone</HeaderBox04>
+            </TableHeaderCell>
             <TableHeaderCell>Register date</TableHeaderCell>
           </TableHeaderRow>
           {filteredCustomers.map((customer) => (
@@ -102,7 +106,9 @@ const Customers = () => {
               <TableCell>
                 <TableCellBox03>{customer.address}</TableCellBox03>
               </TableCell>
-              <TableCell>{customer.phone}</TableCell>
+              <TableCell>
+                <TableCellBox04>{customer.phone}</TableCellBox04>
+              </TableCell>
               <TableCell>{customer.register_date}</TableCell>
             </TableBodyRow>
           ))}

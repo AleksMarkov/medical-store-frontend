@@ -172,7 +172,7 @@ export const UserInfo = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 8px;
-  width: 100%;
+  width: 225px;
 
   @media (max-width: 1440px) {
     width: 184px;
@@ -183,7 +183,7 @@ export const UserInfo = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 100px;
+    width: 102px;
     height: 46px;
     align-items: flex-start;
     flex-direction: column;
@@ -272,6 +272,8 @@ export const TableHeaderCell = styled.div`
 `;
 
 export const HeaderBox01 = styled.div`
+  width: 225px;
+
   @media (max-width: 1440px) {
     width: 184px;
   }
@@ -281,11 +283,13 @@ export const HeaderBox01 = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 84px;
+    width: 99px;
   }
 `;
 
 export const HeaderBox02 = styled.div`
+  width: 223px;
+
   @media (max-width: 1440px) {
     width: 203px;
   }
@@ -300,6 +304,8 @@ export const HeaderBox02 = styled.div`
 `;
 
 export const HeaderBox03 = styled.div`
+  width: 225px;
+
   @media (max-width: 1440px) {
     width: 150px;
   }
@@ -309,7 +315,23 @@ export const HeaderBox03 = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 85px;
+    width: 98px;
+  }
+`;
+
+export const HeaderBox04 = styled.div`
+  width: 225px;
+
+  @media (max-width: 1440px) {
+    width: 134px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 134px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100px;
   }
 `;
 
@@ -321,12 +343,12 @@ export const TableBodyRow = styled.div`
 `;
 
 export const TableCell = styled.div`
-  @media (max-width: 768px) {
-    height: 46px;
-    padding: 14px 7px 14px 14px;
-    font-size: 12px;
-    line-height: 14px;
-  }
+  // @media (max-width: 768px) {
+  //   height: 46px;
+  //   padding: 14px 7px 14px 14px;
+  //   font-size: 12px;
+  //   line-height: 14px;
+  // }
 
   flex: 1;
   display: flex;
@@ -349,7 +371,7 @@ export const TableCell = styled.div`
 `;
 
 export const TableCellBox02 = styled.div`
-  width: 226px;
+  width: 223px;
   overflow: hidden;
   text-overflow: ellipsis;
   // white-space: nowrap;
@@ -371,7 +393,7 @@ export const TableCellBox02 = styled.div`
 `;
 
 export const TableCellBox03 = styled.div`
-  // width: 226px;
+  width: 225px;
   overflow: hidden;
   text-overflow: ellipsis;
   // white-space: nowrap;
@@ -384,7 +406,29 @@ export const TableCellBox03 = styled.div`
     width: 150px;
   }
   @media (max-width: 768px) {
-    width: 105px;
+    width: 100px;
+    height: 46px
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // white-space: nowrap;
+  }
+`;
+
+export const TableCellBox04 = styled.div`
+  width: 225px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // white-space: nowrap;
+
+  @media (max-width: 1440px) {
+    width: 134px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 134px;
+  }
+  @media (max-width: 768px) {
+    width: 103px;
     height: 46px
     overflow: hidden;
     text-overflow: ellipsis;
