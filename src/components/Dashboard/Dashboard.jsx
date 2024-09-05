@@ -10,7 +10,8 @@ import {
   StatIcon,
   StatLabel,
   StatValue,
-  TableContainer,
+  TableContainer1,
+  TableContainer2,
   TableTitle,
   TableCell01,
   TableCell02,
@@ -25,11 +26,14 @@ import {
   TableHeaderCell03,
   TableHeaderCell2,
   TableCell2,
-  TableWrapper,
+  TableWrapper1,
+  TableWrapper2,
   TableHeaderRow,
   TableBodyRow,
   CellBox,
   CellBox02,
+  CellBox2,
+  TableCell3,
 } from "./Dashboard.styled";
 import coins from "../../assets/svg/coins.svg";
 import usersIcon from "../../assets/svg/users.svg";
@@ -79,9 +83,9 @@ const Dashboard = () => {
       </StatsContainer>
 
       <TableBox>
-        <TableContainer>
+        <TableContainer1>
           <TableTitle>Recent Customers</TableTitle>
-          <TableWrapper>
+          <TableWrapper1>
             <TableHeaderRow>
               <TableHeaderCell01>Name</TableHeaderCell01>
               <TableHeaderCell02>Email</TableHeaderCell02>
@@ -104,16 +108,14 @@ const Dashboard = () => {
                 <TableCell03>{customer.spent}</TableCell03>
               </TableBodyRow>
             ))}
-          </TableWrapper>
-        </TableContainer>
+          </TableWrapper1>
+        </TableContainer1>
 
-        <TableContainer>
+        <TableContainer2>
           <TableTitle>Income/Expenses</TableTitle>
-          <TableWrapper>
+          <TableWrapper2>
             <TableHeaderRow>
               <TableHeaderCell2>Type</TableHeaderCell2>
-              <TableHeaderCell2></TableHeaderCell2>
-              <TableHeaderCell2></TableHeaderCell2>
             </TableHeaderRow>
             {dashboardData.incomeExpenseList.map((transaction) => (
               <TableBodyRow key={transaction._id}>
@@ -122,16 +124,18 @@ const Dashboard = () => {
                     {transaction.type}
                   </TransactionType>
                 </TableCell2>
-                <TableCell2>{transaction.name}</TableCell2>
                 <TableCell2>
+                  <CellBox2>{transaction.name}</CellBox2>
+                </TableCell2>
+                <TableCell3>
                   <TransactionAmount type={transaction.type}>
                     {transaction.amount}
                   </TransactionAmount>
-                </TableCell2>
+                </TableCell3>
               </TableBodyRow>
             ))}
-          </TableWrapper>
-        </TableContainer>
+          </TableWrapper2>
+        </TableContainer2>
       </TableBox>
     </DashContainer>
   );

@@ -1,10 +1,7 @@
 //Dashboard.styled.jsx
 import styled from "styled-components";
-
-export const ScrollableTableContainer = styled.div`
-  height: 428px;
-  overflow-y: hidden;
-`;
+import SimpleBar from "simplebar-react";
+import "simplebar-react/dist/simplebar.min.css";
 
 export const DashContainer = styled.div`
   width: 1360px;
@@ -18,21 +15,21 @@ export const DashContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 
   @media (max-width: 1440px) {
     width: 984px;
     height: 647px;
     padding: 20px;
     gap: 20px;
-    overflow-x: hidden;
+    // overflow-x: hidden;
   }
 
   @media (max-width: 1024px) {
     width: 704px;
     height: 1212px;
     padding: 20px 32px;
-    overflow-x: hidden;
+    // overflow-x: hidden;
   }
 
   @media (max-width: 768px) {
@@ -40,7 +37,7 @@ export const DashContainer = styled.div`
     height: 1335px;
     padding: 20px;
     gap: 20px;
-    overflow-x: hidden;
+    // overflow-x: hidden;
   }
 `;
 
@@ -132,7 +129,7 @@ export const TableBox = styled.div`
   gap: 20px;
   width: 1280px;
   height: 512px;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 
   @media (max-width: 1440px) {
   }
@@ -148,12 +145,12 @@ export const TableBox = styled.div`
     flex-direction: column;
     align-items: flex-start;
     width: 335px;
-    height: 1065px;
+    height: 1011px;
     gap: 40px;
   }
 `;
 
-export const TableContainer = styled.div`
+export const TableContainer1 = styled.div`
   width: 630px;
   height: 512px;
   display: table;
@@ -161,7 +158,7 @@ export const TableContainer = styled.div`
   background: var(--background-white);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 
   @media (max-width: 1440px) {
     width: 630px;
@@ -174,8 +171,35 @@ export const TableContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 335px;
-    height: 511px;
+    width: 333px;
+    height: 458px;
+  }
+`;
+
+export const TableContainer2 = styled.div`
+  width: 630px;
+  height: 512px;
+  display: table;
+  table-layout: fixed;
+  background: var(--background-white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  // overflow-x: hidden;
+
+  @media (max-width: 1440px) {
+    width: 630px;
+    height: 512px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 704px;
+    height: 512px;
+  }
+
+  @media (max-width: 768px) {
+    width: 333px;
+    // height: 432px;
+    height: 512px;
   }
 `;
 
@@ -195,7 +219,7 @@ export const TableTitle = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 307px;
+    width: 306px;
     height: 20px;
     padding: 14px;
     font-size: 16px;
@@ -207,8 +231,7 @@ export const TableHeaderCell01 = styled.div`
   display: table-cell;
   padding: 20px 10px 20px 20px;
   width: 192px;
-  border-bottom: 1px solid var(--border-color);
-  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
@@ -216,10 +239,11 @@ export const TableHeaderCell01 = styled.div`
   color: var(--label-color);
 
   @media (max-width: 768px) {
-    width: 103px;
+    width: 84px;
+    height: 14px;
     font-size: 12px;
     line-height: 14px;
-    padding: 14px 10px 14px 14px;
+    padding: 14px 7px 14px 14px;
   }
 `;
 
@@ -228,9 +252,8 @@ export const TableHeaderCell02 = styled.div`
   width: 237px;
   text-align: left;
   padding: 20px 10px 20px 20px;
-  border-bottom: 1px solid var(--border-color);
-  border-left: 1px solid var(--border-color);
-  font-size: 14px;
+  border-right: 1px solid var(--border-color);
+  font-size: 13px;
   font-weight: 500;
   line-height: 18px;
   text-align: left;
@@ -241,10 +264,11 @@ export const TableHeaderCell02 = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 204px;
+    width: 128px;
+    height: 14px;
     font-size: 12px;
     line-height: 14px;
-    padding: 14px 10px 14px 14px;
+    padding: 14px 7px 14px 14px;
   }
 `;
 
@@ -252,8 +276,7 @@ export const TableHeaderCell03 = styled.div`
   display: table-cell;
   width: 105px;
   padding: 20px 10px 20px 20px;
-  border-bottom: 1px solid var(--border-color);
-  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
@@ -261,27 +284,11 @@ export const TableHeaderCell03 = styled.div`
   color: var(--label-color);
 
   @media (max-width: 768px) {
-    width: 61px;
+    width: 56px;
+    height: 14px;
     font-size: 12px;
     line-height: 14px;
-    padding: 14px 10px 14px 14px;
-  }
-`;
-
-export const TableHeaderCell2 = styled.div`
-  display: table-cell;
-  padding: 20px;
-  border-bottom: 1px solid var(--border-color);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 18px;
-  text-align: left;
-  color: var(--label-color);
-
-  @media (max-width: 768px) {
-    font-size: 12px;
-    line-height: 14px;
-    padding: 14px 10px 14px 14px;
+    padding: 14px 7px 14px 14px;
   }
 `;
 
@@ -292,14 +299,15 @@ export const TableCell01 = styled.div`
   width: 192px;
   padding: 20px 10px 20px 20px;
   border-bottom: 1px solid var(--border-color);
-  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 18px;
   text-align: left;
 
   @media (max-width: 768px) {
-    width: 106px;
+    width: 84px;
+    height: 45px;
     padding: 14px 7px 14px 14px;
     font-size: 12px;
     line-height: 14px;
@@ -315,7 +323,8 @@ export const CellBox = styled.div`
   gap: 8px;
 
   @media (max-width: 768px) {
-    width: 106px;
+    width: 84px;
+    height: 44px;
     align-items: flex-start;
     flex-direction: column;
     overflow: hidden;
@@ -331,7 +340,7 @@ export const TableCell02 = styled.div`
   text-align: left;
   padding: 20px 10px 20px 20px;
   border-bottom: 1px solid var(--border-color);
-  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 18px;
@@ -342,7 +351,8 @@ export const TableCell02 = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 211px;
+    width: 132px;
+    height: 45px;
     padding: 14px 7px 14px 10px;
   }
 `;
@@ -354,7 +364,8 @@ export const CellBox02 = styled.div`
   white-space: nowrap;
 
   @media (max-width: 768px) {
-    width: 211px;
+    width: 132px;
+    height: 13px;
     font-size: 12px;
     line-height: 14px;
     overflow: hidden;
@@ -367,23 +378,43 @@ export const TableCell03 = styled.div`
   display: table-cell;
   width: 105px;
   vertical-align: middle;
-  text-align: left;
+  text-align: start;
   padding: 20px 10px 20px 20px;
   border-bottom: 1px solid var(--border-color);
-  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 18px;
   text-align: left;
 
   @media (max-width: 768px) {
-    padding: 14px 10px 14px 14px;
+    width: 60px;
+    height: 45px;
+    padding: 14px 7px 14px 10px;
     font-size: 12px;
     line-height: 14px;
-    width: 61px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+`;
+
+export const TableHeaderCell2 = styled.div`
+  display: table-cell;
+  border-right: 1px solid var(--border-color);
+  padding: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  color: var(--label-color);
+
+  @media (max-width: 768px) {
+    width: 312px;
+    height: 14px;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 14px 7px 14px 14px;
   }
 `;
 
@@ -391,6 +422,7 @@ export const TableCell2 = styled.div`
   display: table-cell;
   padding: 20px;
   border-bottom: 1px solid var(--border-color);
+  // border-right: 1px solid var(--border-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 18px;
@@ -441,6 +473,41 @@ export const TransactionType = styled.span`
       : props.type === "Income"
       ? "var(--accent-green)"
       : "var(--background-dark)"};
+
+  @media (max-width: 1024px) {
+  }
+
+  @media (max-width: 768px) {
+    height: 23px;
+    font-size: 12px;
+    line-height: 14.52px;
+  }
+`;
+
+export const CellBox2 = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (max-width: 768px) {
+    width: 112px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+`;
+export const TableCell3 = styled.div`
+  display: table-cell;
+  vertical-align: middle;
+  text-align: start;
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    padding: 14px 14px 14px 0;
+  }
 `;
 
 export const TransactionAmount = styled.span`
@@ -454,11 +521,23 @@ export const TransactionAmount = styled.span`
     props.type === "Expense" || props.type === "Income"
       ? "none"
       : "line-through"};
+
+  @media (max-width: 1024px) {
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+    text-align: end;
+    width: 70px;
+    font-size: 12px;
+    line-height: 14.52px;
+  }
 `;
 
 export const TableBodyWrapper = styled.div`
-  overflow-y hidden;
-  flex-grow: 1;
+  // overflow-y hidden;
+  // flex-grow: 1;
+  // height: 412px;
 `;
 
 export const StyledTable = styled.table`
@@ -467,29 +546,56 @@ export const StyledTable = styled.table`
 `;
 
 export const TableBodyRow = styled.tr`
-width: 630px;
-  &:nth-child(even) {
-    background-color: var(--background-light);
-  }
+  width: 630px;
+  // &:nth-child(even) {
+  // background-color: var(--background-light);
+  // }
 
   @media (max-width: 1024px) {
     width: 704px;
   }
 
- @media (max-width: 768px) {
-   width: 444px;
+  @media (max-width: 768px) {
+    width: 333x;
+    // border: 1px solid var(--border-color);
+  }
 `;
 
-export const TableWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+export const TableWrapper1 = styled(SimpleBar)`
+  // display: flex;
+  // flex-direction: column;
   height: calc(100% - 64px);
-  overflow-y: hidden;
+  overflow-x: hidden;
+  // overflow-y: hidden;
+
+  @media (max-width: 1024px) {
+  }
+
+  @media (max-width: 768px) {
+    height: 412px;
+  }
+`;
+
+export const TableWrapper2 = styled(SimpleBar)`
+  // display: flex;
+  // flex-direction: column;
+  height: calc(100% - 64px);
+  overflow-x: hidden;
+  // overflow-y: hidden;
+
+  @media (max-width: 1024px) {
+  }
+
+  @media (max-width: 768px) {
+    // height: 384px;
+    height: 452px;
+  }
 `;
 
 export const TableHeaderRow = styled.div`
   display: flex;
   background: var(--background-white);
+  border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
   z-index: 1;
@@ -498,6 +604,8 @@ export const TableHeaderRow = styled.div`
   @media (max-width: 1024px) {
     width: 704px;
   }
-     @media (max-width: 768px) {
-    width: 444px;
+
+  @media (max-width: 768px) {
+    width: 335px;
+  }
 `;
