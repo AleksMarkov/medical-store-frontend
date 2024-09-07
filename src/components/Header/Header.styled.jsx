@@ -11,7 +11,13 @@ export const HeaderContainer = styled.div`
   justify-content: flex-start;
 
   @media (max-width: 1440px) {
-    width: 1024px;
+    width: ${(props) =>
+      props.activePage === "Dashboard" ? "1344px" : "1024px"};
+  }
+
+  @media (max-width: 1343px) {
+    width: ${(props) =>
+      props.activePage === "Dashboard" ? "768px" : "1024px"};
   }
 
   @media (max-width: 1024px) {
@@ -157,10 +163,10 @@ export const LogoutIcon = styled.img`
   height: 16px;
 
   @media (max-width: 1440px) {
-    display: none; 
+    display: none;
   }
 
   @media (max-width: 768px) {
-    display: none; 
+    display: none;
   }
 `;

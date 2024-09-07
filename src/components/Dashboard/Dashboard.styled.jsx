@@ -130,7 +130,7 @@ export const TableBox = styled.div`
     flex-direction: column;
     align-items: center;
     width: 704px;
-    height: 1024px;
+    height: 102 4px;
   }
 
   @media (max-width: 768px) {
@@ -255,7 +255,7 @@ export const TableHeaderCell02 = styled.div`
   text-align: left;
   color: var(--label-color);
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1343px) {
     width: 248px;
   }
 

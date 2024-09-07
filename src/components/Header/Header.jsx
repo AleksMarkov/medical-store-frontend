@@ -40,7 +40,7 @@ const Header = ({ activePage, setActivePage }) => {
   };
 
   return (
-    <HeaderContainer>
+    <HeaderContainer activePage={activePage}>
       <BurgerImage src={burger} alt="burger" onClick={toggleBurgerMenu} />
       <LogoWrapper onClick={handleLogoClick}>
         <LogoImage src={logo} alt="Logo" />
