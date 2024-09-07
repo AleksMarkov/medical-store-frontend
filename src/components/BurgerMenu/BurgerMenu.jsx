@@ -25,7 +25,7 @@ import suppliersIconOff from "../../assets/svg/suppliersOff.svg";
 import customersIconOn from "../../assets/svg/customersOn.svg";
 import customersIconOff from "../../assets/svg/customersOff.svg";
 
-const BurgerMenu = ({ setActivePage, onClose }) => {
+const BurgerMenu = ({ activePage, setActivePage, onClose }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { logout } = useLogout();
@@ -88,7 +88,7 @@ const BurgerMenu = ({ setActivePage, onClose }) => {
 
   return (
     <ModalOverlay>
-      <SidebarContainer ref={menuRef}>
+      <SidebarContainer activePage={activePage} ref={menuRef}>
         <CloseButton onClick={onClose}>
           <img src={closeIcon} width={32} height={32} alt="Close" />
         </CloseButton>

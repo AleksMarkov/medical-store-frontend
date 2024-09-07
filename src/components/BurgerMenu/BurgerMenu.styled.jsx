@@ -18,12 +18,19 @@ export const SidebarContainer = styled.div`
 
   @media (max-width: 1440px) {
     width: 84px;
-    height: 768px;
+    height: ${(props) =>
+      props.activePage === "Dashboard" ? "790px;" : "768px"};
+    // height: 768px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     background-color: var(--background-light);
+  }
+
+  @media (max-width: 1343px) {
+    height: ${(props) =>
+      props.activePage === "Dashboard" ? " 1024px;" : "768px"};
   }
 
   @media (max-width: 1024px) {

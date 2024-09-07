@@ -61,6 +61,7 @@ const Header = ({ activePage, setActivePage }) => {
           <BurgerMenu
             onClose={toggleBurgerMenu}
             setActivePage={setActivePage}
+            activePage={activePage}
           />
         </Modal>
       )}
