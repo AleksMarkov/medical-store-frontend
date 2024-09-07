@@ -5,31 +5,28 @@ import "simplebar-react/dist/simplebar.min.css";
 
 export const DashContainer = styled.div`
   width: 1360px;
-  height: 681px;
+  height: 661px;
   background-color: var(--background-light);
   color: var(--background-dark);
   border-width: 1px 0px 0px 0px;
   border-style: solid;
   border-color: var(--border-color);
-  padding: 20px 40px;
+  padding: 20px 40px 40px 40px;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  // overflow-x: hidden;
 
   @media (max-width: 1440px) {
-    width: 984px;
-    height: 647px;
-    padding: 20px;
-    gap: 20px;
-    // overflow-x: hidden;
+    width: 1344px;
+    height: 650px;
+    padding: 20px 32px 40px 32px;
+    gap: 40px;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1343px) {
     width: 704px;
-    height: 1212px;
-    padding: 20px 32px;
-    // overflow-x: hidden;
+    height: 1172px;
+    padding: 20px 32px 40px 32px;
   }
 
   @media (max-width: 768px) {
@@ -37,7 +34,6 @@ export const DashContainer = styled.div`
     height: 1335px;
     padding: 20px;
     gap: 20px;
-    // overflow-x: hidden;
   }
 `;
 
@@ -128,17 +124,13 @@ export const TableBox = styled.div`
   align-items: flex-start;
   gap: 20px;
   width: 1280px;
-  height: 512px;
-  // overflow-x: hidden;
+  height: 502px;
 
-  @media (max-width: 1440px) {
-  }
-
-  @media (max-width: 1024px) {
+  @media (max-width: 1343px) {
     flex-direction: column;
     align-items: center;
     width: 704px;
-    height: 1044px;
+    height: 1024px;
   }
 
   @media (max-width: 768px) {
@@ -151,8 +143,8 @@ export const TableBox = styled.div`
 `;
 
 export const TableContainer1 = styled.div`
-  width: 630px;
-  height: 512px;
+  width: 628px;
+  height: 500px;
   display: table;
   table-layout: fixed;
   background: var(--background-white);
@@ -161,13 +153,13 @@ export const TableContainer1 = styled.div`
   // overflow-x: hidden;
 
   @media (max-width: 1440px) {
-    width: 630px;
-    height: 512px;
+    // width: 630px;
+    // height: 512px;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1343px) {
     width: 704px;
-    height: 512px;
+    // height: 512px;
   }
 
   @media (max-width: 768px) {
@@ -177,8 +169,8 @@ export const TableContainer1 = styled.div`
 `;
 
 export const TableContainer2 = styled.div`
-  width: 630px;
-  height: 512px;
+  width: 628px;
+  height: 500px;
   display: table;
   table-layout: fixed;
   background: var(--background-white);
@@ -187,13 +179,13 @@ export const TableContainer2 = styled.div`
   // overflow-x: hidden;
 
   @media (max-width: 1440px) {
-    width: 630px;
-    height: 512px;
+    // width: 630px;
+    // height: 512px;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1343px) {
     width: 704px;
-    height: 512px;
+    // height: 512px;
   }
 
   @media (max-width: 768px) {
@@ -214,7 +206,7 @@ export const TableTitle = styled.div`
   background: var(--background-accent-light);
   color: var(--background-dark);
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1343px) {
     width: 664px;
   }
 
@@ -238,6 +230,10 @@ export const TableHeaderCell01 = styled.div`
   text-align: left;
   color: var(--label-color);
 
+  @media (max-width: 1343px) {
+    width: 224px;
+  }
+
   @media (max-width: 768px) {
     width: 84px;
     height: 14px;
@@ -249,18 +245,18 @@ export const TableHeaderCell01 = styled.div`
 
 export const TableHeaderCell02 = styled.div`
   display: table-cell;
-  width: 237px;
+  width: 238px;
   text-align: left;
   padding: 20px 10px 20px 20px;
   border-right: 1px solid var(--border-color);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 18px;
   text-align: left;
   color: var(--label-color);
 
   @media (max-width: 1024px) {
-    width: 292px;
+    width: 248px;
   }
 
   @media (max-width: 768px) {
@@ -274,14 +270,17 @@ export const TableHeaderCell02 = styled.div`
 
 export const TableHeaderCell03 = styled.div`
   display: table-cell;
-  width: 105px;
+  width: 108px;
   padding: 20px 10px 20px 20px;
-  border-right: 1px solid var(--border-color);
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
   text-align: left;
   color: var(--label-color);
+
+  @media (max-width: 1343px) {
+    width: 140px;
+  }
 
   @media (max-width: 768px) {
     width: 56px;
@@ -297,6 +296,7 @@ export const TableCell01 = styled.div`
   vertical-align: middle;
   text-align: left;
   width: 192px;
+  height: 35px;
   padding: 20px 10px 20px 20px;
   border-bottom: 1px solid var(--border-color);
   border-right: 1px solid var(--border-color);
@@ -304,6 +304,10 @@ export const TableCell01 = styled.div`
   font-weight: 500;
   line-height: 18px;
   text-align: left;
+
+  @media (max-width: 1343px) {
+    width: 224px;
+  }
 
   @media (max-width: 768px) {
     width: 84px;
@@ -317,10 +321,15 @@ export const TableCell01 = styled.div`
 export const CellBox = styled.div`
   display: flex;
   width: 192px;
+  height: 35px;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   gap: 8px;
+
+  @media (max-width: 1343px) {
+    width: 224px;
+  }
 
   @media (max-width: 768px) {
     width: 84px;
@@ -337,8 +346,9 @@ export const TableCell02 = styled.div`
   display: table-cell;
   vertical-align: middle;
   width: 237px;
+  height: 17px;
   text-align: left;
-  padding: 20px 10px 20px 20px;
+  padding: 29px 10px 29px 20px;
   border-bottom: 1px solid var(--border-color);
   border-right: 1px solid var(--border-color);
   font-size: 16px;
@@ -346,8 +356,8 @@ export const TableCell02 = styled.div`
   line-height: 18px;
   text-align: left;
 
-  @media (max-width: 1024px) {
-    width: 292px;
+  @media (max-width: 1343px) {
+    width: 248px;
   }
 
   @media (max-width: 768px) {
@@ -358,10 +368,20 @@ export const TableCell02 = styled.div`
 `;
 
 export const CellBox02 = styled.div`
-  width: 237px;
+  width: 238px;
+  height: 17px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  @media (max-width: 1343px) {
+    width: 248px;
+  }
 
   @media (max-width: 768px) {
     width: 132px;
@@ -376,16 +396,20 @@ export const CellBox02 = styled.div`
 
 export const TableCell03 = styled.div`
   display: table-cell;
-  width: 105px;
+  width: 107px;
+  height: 35px;
   vertical-align: middle;
   text-align: start;
   padding: 20px 10px 20px 20px;
   border-bottom: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 18px;
   text-align: left;
+
+  @media (max-width: 1343px) {
+    width: 140px;
+  }
 
   @media (max-width: 768px) {
     width: 60px;
@@ -401,7 +425,7 @@ export const TableCell03 = styled.div`
 
 export const TableHeaderCell2 = styled.div`
   display: table-cell;
-  border-right: 1px solid var(--border-color);
+  // border-right: 1px solid var(--border-color);
   padding: 20px;
   font-size: 14px;
   font-weight: 500;
@@ -420,9 +444,8 @@ export const TableHeaderCell2 = styled.div`
 
 export const TableCell2 = styled.div`
   display: table-cell;
-  padding: 20px;
+  padding: 25px 20px 25px 20px;
   border-bottom: 1px solid var(--border-color);
-  // border-right: 1px solid var(--border-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 18px;
@@ -474,9 +497,6 @@ export const TransactionType = styled.span`
       ? "var(--accent-green)"
       : "var(--background-dark)"};
 
-  @media (max-width: 1024px) {
-  }
-
   @media (max-width: 768px) {
     height: 23px;
     font-size: 12px;
@@ -485,8 +505,18 @@ export const TransactionType = styled.span`
 `;
 
 export const CellBox2 = styled.div`
+  width: 350px;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+
+  @media (max-width: 1343px) {
+    width: 424px;
+    height: 18px;
+  }
 
   @media (max-width: 768px) {
     width: 112px;
@@ -498,7 +528,7 @@ export const TableCell3 = styled.div`
   display: table-cell;
   vertical-align: middle;
   text-align: start;
-  padding: 20px;
+  padding: 25px 20px 25px 20px;
   border-bottom: 1px solid var(--border-color);
   font-size: 16px;
   font-weight: 500;
@@ -522,8 +552,12 @@ export const TransactionAmount = styled.span`
       ? "none"
       : "line-through"};
 
-  @media (max-width: 1024px) {
-  }
+  font-weight: 500;
+  display: block;
+  text-align: end;
+  width: 80px;
+  font-size: 16px;
+  line-height: 18px;
 
   @media (max-width: 768px) {
     display: block;
@@ -534,11 +568,7 @@ export const TransactionAmount = styled.span`
   }
 `;
 
-export const TableBodyWrapper = styled.div`
-  // overflow-y hidden;
-  // flex-grow: 1;
-  // height: 412px;
-`;
+export const TableBodyWrapper = styled.div``;
 
 export const StyledTable = styled.table`
   width: 100%;
@@ -547,29 +577,20 @@ export const StyledTable = styled.table`
 
 export const TableBodyRow = styled.tr`
   width: 630px;
-  // &:nth-child(even) {
-  // background-color: var(--background-light);
-  // }
+  height: 76px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1343px) {
     width: 704px;
   }
 
   @media (max-width: 768px) {
     width: 333x;
-    // border: 1px solid var(--border-color);
   }
 `;
 
 export const TableWrapper1 = styled(SimpleBar)`
-  // display: flex;
-  // flex-direction: column;
-  height: calc(100% - 64px);
+  height: 436px;
   overflow-x: hidden;
-  // overflow-y: hidden;
-
-  @media (max-width: 1024px) {
-  }
 
   @media (max-width: 768px) {
     height: 412px;
@@ -577,14 +598,8 @@ export const TableWrapper1 = styled(SimpleBar)`
 `;
 
 export const TableWrapper2 = styled(SimpleBar)`
-  // display: flex;
-  // flex-direction: column;
-  height: calc(100% - 64px);
+  height: 436px;
   overflow-x: hidden;
-  // overflow-y: hidden;
-
-  @media (max-width: 1024px) {
-  }
 
   @media (max-width: 768px) {
     // height: 384px;
@@ -600,8 +615,9 @@ export const TableHeaderRow = styled.div`
   top: 0;
   z-index: 1;
   width: 630px;
+  height: 57px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1343px) {
     width: 704px;
   }
 
