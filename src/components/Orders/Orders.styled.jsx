@@ -321,12 +321,10 @@ export const TableHeaderCell = styled.div`
   color: var(--label-color);
 
   @media (max-width: 1440px) {
-    // width: 106px;
     height: 17px;
   }
 
   @media (max-width: 1024px) {
-    // width: 106px;
     height: 17px;
   }
 
@@ -339,8 +337,6 @@ export const TableHeaderCell = styled.div`
   }
 `;
 export const HeaderBox01 = styled.div`
-  // width: 225px;
-
   @media (max-width: 1440px) {
     width: 194px;
   }
@@ -355,8 +351,6 @@ export const HeaderBox01 = styled.div`
 `;
 
 export const HeaderBox02 = styled.div`
-  // width: 225px;
-
   @media (max-width: 1440px) {
     width: 127px;
   }

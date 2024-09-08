@@ -14,13 +14,10 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <HashRouter>
-        {/* <BrowserRouter basename="/medical-store-frontend"> */}
-        {/* <BrowserRouter> */}
         <AuthProvider>
           <GlobalStyles />
           <App />
         </AuthProvider>
-        {/* </BrowserRouter> */}
       </HashRouter>
     </Provider>
   </React.StrictMode>

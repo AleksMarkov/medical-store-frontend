@@ -219,7 +219,6 @@ export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: calc(100% - 64px);
-  // height: 431px;
   overflow-y: auto;
 
   @media (max-width: 768px) {

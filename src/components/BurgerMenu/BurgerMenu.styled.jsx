@@ -20,7 +20,6 @@ export const SidebarContainer = styled.div`
     width: 84px;
     height: ${(props) =>
       props.activePage === "Dashboard" ? "790px;" : "768px"};
-    // height: 768px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,7 +47,6 @@ export const SidebarContainer = styled.div`
     width: 78px;
     height: ${(props) =>
       props.activePage === "Dashboard" ? "1455px" : "812px"};
-    // height: 812px;
     justify-content: space-between;
   }
 `;

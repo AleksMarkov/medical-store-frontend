@@ -150,16 +150,12 @@ export const TableContainer1 = styled.div`
   background: var(--background-white);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  // overflow-x: hidden;
 
   @media (max-width: 1440px) {
-    // width: 630px;
-    // height: 512px;
   }
 
   @media (max-width: 1343px) {
     width: 704px;
-    // height: 512px;
   }
 
   @media (max-width: 768px) {
@@ -176,21 +172,16 @@ export const TableContainer2 = styled.div`
   background: var(--background-white);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  // overflow-x: hidden;
 
   @media (max-width: 1440px) {
-    // width: 630px;
-    // height: 512px;
   }
 
   @media (max-width: 1343px) {
     width: 704px;
-    // height: 512px;
   }
 
   @media (max-width: 768px) {
     width: 333px;
-    // height: 432px;
     height: 512px;
   }
 `;
@@ -425,7 +416,6 @@ export const TableCell03 = styled.div`
 
 export const TableHeaderCell2 = styled.div`
   display: table-cell;
-  // border-right: 1px solid var(--border-color);
   padding: 20px;
   font-size: 14px;
   font-weight: 500;
@@ -602,7 +592,6 @@ export const TableWrapper2 = styled(SimpleBar)`
   overflow-x: hidden;
 
   @media (max-width: 768px) {
-    // height: 384px;
     height: 452px;
   }
 `;

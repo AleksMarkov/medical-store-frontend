@@ -229,7 +229,6 @@ export const SliderIcon = styled.img`
 export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  // height: calc(100% - 64px);
   height: 438px;
   overflow-y: auto;
 
@@ -260,7 +259,6 @@ export const TableHeaderCell = styled.div`
   color: var(--label-color);
 
   @media (max-width: 1440px) {
-    // width: 200px;
   }
 
   @media (max-width: 768px) {
@@ -343,13 +341,6 @@ export const TableBodyRow = styled.div`
 `;
 
 export const TableCell = styled.div`
-  // @media (max-width: 768px) {
-  //   height: 46px;
-  //   padding: 14px 7px 14px 14px;
-  //   font-size: 12px;
-  //   line-height: 14px;
-  // }
-
   flex: 1;
   display: flex;
   height: 37px;
@@ -362,7 +353,6 @@ export const TableCell = styled.div`
   line-height: 18px;
 
   @media (max-width: 768px) {
-    // width: 106px;
     height: 46px;
     padding: 14px 7px 13px 14px;
     font-size: 12px;
@@ -374,7 +364,6 @@ export const TableCellBox02 = styled.div`
   width: 223px;
   overflow: hidden;
   text-overflow: ellipsis;
-  // white-space: nowrap;
 
   @media (max-width: 1440px) {
     width: 203px;
@@ -388,7 +377,6 @@ export const TableCellBox02 = styled.div`
        height: 46px
     overflow: hidden;
     text-overflow: ellipsis;
-    // white-space: nowrap;
   }
 `;
 
@@ -396,7 +384,6 @@ export const TableCellBox03 = styled.div`
   width: 225px;
   overflow: hidden;
   text-overflow: ellipsis;
-  // white-space: nowrap;
 
   @media (max-width: 1440px) {
     width: 150px;
@@ -410,7 +397,6 @@ export const TableCellBox03 = styled.div`
     height: 46px
     overflow: hidden;
     text-overflow: ellipsis;
-    // white-space: nowrap;
   }
 `;
 
@@ -418,7 +404,6 @@ export const TableCellBox04 = styled.div`
   width: 225px;
   overflow: hidden;
   text-overflow: ellipsis;
-  // white-space: nowrap;
 
   @media (max-width: 1440px) {
     width: 134px;
@@ -432,7 +417,6 @@ export const TableCellBox04 = styled.div`
     height: 46px
     overflow: hidden;
     text-overflow: ellipsis;
-    // white-space: nowrap;
   }
 `;
 
