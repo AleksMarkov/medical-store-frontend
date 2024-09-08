@@ -19,16 +19,19 @@ import {
   FilterIcon,
   AddBlock,
   FilterBlock,
-  SliderIcon,
   EditButton,
   StatusBadge,
+  PaginationDotsContainer,
+  PaginationBox,
+  PaginationDot,
 } from "./Suppliers.styled";
 import Modal from "../Modal/Modal";
 import AddSupplier from "./AddSupplier/AddSupplier";
 import EditSupplier from "./EditSupplier/EditSupplier";
 import filterIcon from "../../assets/svg/filter.svg";
 import editIcon from "../../assets/svg/edit.svg";
-import sliderIcon from "../../assets/svg/Slider.svg";
+import slideOn from "../../assets/svg/slideOn.svg";
+import slideOff from "../../assets/svg/slideOff.svg";
 import { fetchSuppliers } from "../../redux/actions/suppliersActions";
 
 const Suppliers = () => {
@@ -39,6 +42,8 @@ const Suppliers = () => {
   const [showAddSupplier, setShowAddSupplier] = useState(false);
   const [showEditSupplier, setShowEditSupplier] = useState(false);
   const [supplierToEdit, setSupplierToEdit] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
   useEffect(() => {
     dispatch(fetchSuppliers());
@@ -57,11 +62,24 @@ const Suppliers = () => {
       );
       setFilteredSuppliers(filtered);
     }
+    setCurrentPage(1);
   };
 
   const handleEditSupplier = (supplier) => {
     setSupplierToEdit(supplier);
     setShowEditSupplier(true);
+  };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentSuppliers = filteredSuppliers.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+  const totalPages = Math.ceil(filteredSuppliers.length / itemsPerPage);
+
+  const handlePageClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
 
   if (error) return <div>Error: {error}</div>;
@@ -104,7 +122,7 @@ const Suppliers = () => {
             <TableHeaderCell>Status</TableHeaderCell>
             <TableHeaderCell>Action</TableHeaderCell>
           </TableHeaderRow>
-          {filteredSuppliers.map((supplier) => (
+          {currentSuppliers.map((supplier) => (
             <TableBodyRow key={supplier._id}>
               <TableCell>{supplier.name}</TableCell>
               <TableCell>{supplier.address}</TableCell>
@@ -126,6 +144,17 @@ const Suppliers = () => {
           ))}
         </TableWrapper>
       </TableContainer>
+      <PaginationDotsContainer>
+        {Array.from({ length: totalPages }, (_, index) => (
+          <PaginationBox key={index}>
+            <PaginationDot
+              src={currentPage === index + 1 ? slideOn : slideOff}
+              alt={`page ${index + 1}`}
+              onClick={() => handlePageClick(index + 1)}
+            />
+          </PaginationBox>
+        ))}
+      </PaginationDotsContainer>
       {showEditSupplier && (
         <Modal>
           <EditSupplier
@@ -133,9 +162,6 @@ const Suppliers = () => {
             onClose={() => setShowEditSupplier(false)}
           />
         </Modal>
-      )}
-      {filteredSuppliers.length >= 6 && (
-        <SliderIcon src={sliderIcon} alt="slider" />
       )}
     </ProductsContainer>
   );
