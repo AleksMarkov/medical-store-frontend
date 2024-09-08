@@ -15,7 +15,6 @@ export const ProductsContainer = styled.div`
   flex-direction: column;
   gap: 20px;
   margin: 0 auto;
-  // overflow-x: visible;
 
   @media (max-width: 1440px) {
     width: 960px;
@@ -171,7 +170,6 @@ export const TableContainer = styled.div`
   background: var(--background-white);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  // overflow: hidden;
 
   @media (max-width: 1440px) {
     width: 960px;
@@ -185,12 +183,12 @@ export const TableContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 671px;
-    height: 458px;
+    height: 460px;
   }
 `;
 
 export const TableTitle = styled.div`
-  width: 1242px;
+  width: 1240px;
   height: 24px;
   padding: 20px;
   font-size: 18px;
@@ -221,10 +219,9 @@ export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 438px;
-  // overflow-y: auto;
 
   @media (max-width: 768px) {
-    height: 414px;
+    height: 412px;
   }
 `;
 
@@ -233,12 +230,11 @@ export const TableHeader = styled.div`
 `;
 
 export const TableBody = styled.div`
-  // overflow-y: auto;
   flex-grow: 1;
   max-height: 380px;
 
   @media (max-width: 768px) {
-    height: 380px;
+    height: 370px;
   }
 `;
 
@@ -274,7 +270,7 @@ export const TableCell = styled.div`
   display: flex;
   height: 17px;
   align-items: center;
-  padding: 29px 10px 29px 20px;
+  padding: 29px 5px 29px 20px;
   border-bottom: 1px solid var(--border-color);
   border-right: 1px solid var(--border-color);
   font-size: 16px;
@@ -288,6 +284,8 @@ export const TableCell = styled.div`
 
   @media (max-width: 768px) {
     width: 200px;
+    height: 13px;
+    padding: 30px 5px 30px 14px;
     font-size: 12px;
     line-height: 14px;
   }
@@ -320,26 +318,6 @@ export const ActionCell = styled(TableCell)`
 export const ActionIcon = styled.img`
   width: 16px;
   height: 16px;
-`;
-
-export const SliderIcon = styled.img`
-  width: 127px;
-  height: 19px;
-  margin-left: 576px;
-
-  @media (max-width: 1440px) {
-    margin-left: 448px;
-  }
-
-  @media (max-width: 1024px) {
-    margin-left: 320px;
-  }
-
-  @media (max-width: 768px) {
-    width: 112px;
-    height: 16px;
-    margin-left: 111px;
-  }
 `;
 
 export const EditButton = styled.div`

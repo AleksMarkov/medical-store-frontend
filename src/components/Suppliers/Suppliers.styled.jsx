@@ -15,7 +15,6 @@ export const ProductsContainer = styled.div`
   flex-direction: column;
   gap: 20px;
   margin: 0 auto;
-  // overflow-x: visible;
 
   @media (max-width: 1440px) {
     width: 960px;
@@ -170,7 +169,6 @@ export const TableContainer = styled.div`
   background: var(--background-white);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  // overflow: hidden;
 
   @media (max-width: 1440px) {
     width: 960px;
@@ -219,9 +217,7 @@ export const TableTitle = styled.div`
 export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  // height: calc(100% - 64px);
   height: 438px;
-  // overflow-y: auto;
 
   @media (max-width: 768px) {
     height: 412px;
@@ -233,9 +229,7 @@ export const TableHeader = styled.div`
 `;
 
 export const TableBody = styled.div`
-  // overflow-y: auto;
   flex-grow: 1;
-  // max-height: calc(100% - 64px);
   height: 380px;
 
   @media (max-width: 768px) {
@@ -320,26 +314,6 @@ export const ActionIcon = styled.img`
   width: 14px;
   height: 14px;
 `;
-
-// export const SliderIcon = styled.img`
-//   width: 127px;
-//   height: 19px;
-//   margin-left: 576px;
-
-//   @media (max-width: 1440px) {
-//     margin-left: 448px;
-//   }
-
-//   @media (max-width: 1024px) {
-//     margin-left: 320px;
-//   }
-
-//   @media (max-width: 768px) {
-//     width: 112px;
-//     height: 16px;
-//     margin-left: 111px;
-//   }
-// `;
 
 export const EditButton = styled.div`
   width: 80px;
