@@ -29,7 +29,9 @@ import {
   TableWrapper1,
   TableWrapper2,
   TableHeaderRow,
+  TableHeaderRow2,
   TableBodyRow,
+  TableBodyRow2,
   CellBox,
   CellBox02,
   CellBox2,
@@ -114,11 +116,11 @@ const Dashboard = () => {
         <TableContainer2>
           <TableTitle>Income/Expenses</TableTitle>
           <TableWrapper2>
-            <TableHeaderRow>
+            <TableHeaderRow2>
               <TableHeaderCell2>Type</TableHeaderCell2>
-            </TableHeaderRow>
+            </TableHeaderRow2>
             {dashboardData.incomeExpenseList.map((transaction) => (
-              <TableBodyRow key={transaction._id}>
+              <TableBodyRow2 key={transaction._id}>
                 <TableCell2>
                   <TransactionType type={transaction.type}>
                     {transaction.type}
@@ -132,7 +134,7 @@ const Dashboard = () => {
                     {transaction.amount}
                   </TransactionAmount>
                 </TableCell3>
-              </TableBodyRow>
+              </TableBodyRow2>
             ))}
           </TableWrapper2>
         </TableContainer2>

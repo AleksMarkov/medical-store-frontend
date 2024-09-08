@@ -130,7 +130,7 @@ export const TableBox = styled.div`
     flex-direction: column;
     align-items: center;
     width: 704px;
-    height: 102 4px;
+    height: 1024px;
   }
 
   @media (max-width: 768px) {
@@ -202,7 +202,7 @@ export const TableTitle = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 306px;
+    width: 307px;
     height: 20px;
     padding: 14px;
     font-size: 16px;
@@ -324,7 +324,7 @@ export const CellBox = styled.div`
 
   @media (max-width: 768px) {
     width: 84px;
-    height: 44px;
+    height: 45px;
     align-items: flex-start;
     flex-direction: column;
     overflow: hidden;
@@ -425,7 +425,7 @@ export const TableHeaderCell2 = styled.div`
 
   @media (max-width: 768px) {
     width: 312px;
-    height: 14px;
+    height: 18px;
     font-size: 12px;
     line-height: 14px;
     padding: 14px 7px 14px 14px;
@@ -575,6 +575,21 @@ export const TableBodyRow = styled.tr`
 
   @media (max-width: 768px) {
     width: 333x;
+    height: 74px;
+  }
+`;
+
+export const TableBodyRow2 = styled.tr`
+  width: 630px;
+  // height: 76px;
+
+  @media (max-width: 1343px) {
+    width: 704px;
+  }
+
+  @media (max-width: 768px) {
+    width: 333x;
+    // height: 74px;
   }
 `;
 
@@ -612,5 +627,26 @@ export const TableHeaderRow = styled.div`
 
   @media (max-width: 768px) {
     width: 335px;
+    height: 41px;
+  }
+`;
+
+export const TableHeaderRow2 = styled.div`
+  display: flex;
+  background: var(--background-white);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 630px;
+  height: 57px;
+
+  @media (max-width: 1343px) {
+    width: 704px;
+  }
+
+  @media (max-width: 768px) {
+    width: 335px;
+    height: 45px;
   }
 `;
