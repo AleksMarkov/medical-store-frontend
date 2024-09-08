@@ -8,7 +8,11 @@
   justify-content: flex-start;
 
   @media (max-width: 1440px) {
-    width: 1024px;
+    width: ${e=>"Dashboard"===e.activePage?"1344px":"1024px"};
+  }
+
+  @media (max-width: 1343px) {
+    width: ${e=>"Dashboard"===e.activePage?"768px":"1024px"};
   }
 
   @media (max-width: 1024px) {
@@ -137,11 +141,11 @@
   height: 16px;
 
   @media (max-width: 1440px) {
-    display: none; 
+    display: none;
   }
 
   @media (max-width: 768px) {
-    display: none; 
+    display: none;
   }
 `;var f=i(5475);const u=n.Ay.div`
   position: fixed;
@@ -158,7 +162,7 @@
 
   @media (max-width: 1440px) {
     width: 84px;
-    height: 768px;
+    height: ${e=>"Dashboard"===e.activePage?"790px;":"768px"};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -166,9 +170,13 @@
     background-color: var(--background-light);
   }
 
+  @media (max-width: 1343px) {
+    height: ${e=>"Dashboard"===e.activePage?"1312px":"768px"};
+  }
+
   @media (max-width: 1024px) {
     width: 84px;
-    height: 1024px;
+    height: ${e=>"Dashboard"===e.activePage?"1312px":"1024px"};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -178,7 +186,7 @@
 
   @media (max-width: 768px) {
     width: 78px;
-    height: 812px;
+    height: ${e=>"Dashboard"===e.activePage?"1434px":"812px"};
     justify-content: space-between;
   }
 `,w=n.Ay.div`
@@ -283,7 +291,7 @@
     width: 16px;
     height: 16px;
   }
-`;var O=i(3003),C=i(4564),E=i(4505);const L=()=>{const e=(0,O.wA)();return{logout:async t=>{try{if(204!==(await E.A.get("/user/logout")).status)throw new Error("Unexpected response status");e((0,C.Z)()),t&&t("/login")}catch(i){console.error("Logout error:",i),i.response&&(console.error("Response data:",i.response.data),console.error("Response status:",i.response.status)),alert(`\u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0445\u043e\u0434\u0435: ${i.message}. \u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 \u0435\u0449\u0435 \u0440\u0430\u0437 \u0438\u043b\u0438 \u043e\u0431\u0440\u0430\u0442\u0438\u0442\u0435\u0441\u044c \u0432 \u0441\u043b\u0443\u0436\u0431\u0443 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0438.`)}}}};var P=i(2340);const z=i.p+"static/media/logout.8124413edcfe8b01cca3b9f2947b5639.svg";const S=i.p+"static/media/dashboardOn.9717401a265ce9b94eb3c7d0347ce489.svg";const _=i.p+"static/media/dashboardOff.738696c191c3e93beb197b7a2117a469.svg";const D=i.p+"static/media/shopping-cartOn.8cb762f92fabebb5d044e3bcc8411833.svg";const R=i.p+"static/media/shopping-cartOff.574725b42f72e3c5346d016956cd8a0a.svg";const Z=i.p+"static/media/productsOn.730f3f7c4513755061ef1555b7df8568.svg";const N=i.p+"static/media/productsOff.a0edd640ff91e292d29ef4cce2f1ad1e.svg";const W=i.p+"static/media/suppliersOn.0a2f1699893b1c4db7d33df081576caa.svg";const B=i.p+"static/media/suppliersOff.3241e2508d8171429e9d2ae36b504a7f.svg";const I=i.p+"static/media/customersOn.738ef3ed5c38373b1512743af98babf1.svg";const M=i.p+"static/media/customersOff.7f59807bffc1bb4cfb459bb75ac41c04.svg";var U=i(579);const $=e=>{let{setActivePage:t,onClose:i}=e;const n=(0,d.zy)(),o=(0,d.Zp)(),{logout:r}=L(),s=(0,a.useRef)(null);(0,a.useEffect)((()=>{const e=e=>{s.current&&!s.current.contains(e.target)&&i()},t=e=>{"Escape"===e.key&&i()};return document.addEventListener("mousedown",e),document.addEventListener("keydown",t),()=>{document.removeEventListener("mousedown",e),document.removeEventListener("keydown",t)}}),[i]);const p=[{path:"/dashboard",label:"Dashboard",iconOn:S,iconOff:_},{path:"/orders",label:"Orders",iconOn:D,iconOff:R},{path:"/products",label:"Products",iconOn:Z,iconOff:N},{path:"/suppliers",label:"Suppliers",iconOn:W,iconOff:B},{path:"/customers",label:"Customers",iconOn:I,iconOff:M}];return(0,U.jsx)(u,{children:(0,U.jsxs)(b,{ref:s,children:[(0,U.jsx)(j,{onClick:i,children:(0,U.jsx)("img",{src:P.A,width:32,height:32,alt:"Close"})}),(0,U.jsx)(w,{children:p.map((e=>(0,U.jsx)(v,{isActive:n.pathname===e.path,onClick:()=>{t(e.label),i()},children:(0,U.jsx)(f.N_,{to:e.path,children:(0,U.jsx)(y,{src:n.pathname===e.path?e.iconOn:e.iconOff,alt:e.label})})},e.label)))}),(0,U.jsx)(k,{onClick:()=>r(o),children:(0,U.jsx)(A,{src:z,alt:"Logout"})})]})})};var q=i(4006);const F=i.p+"static/media/burger.af3f158bc3ab79540cdad55a2c54dc4a.svg";var G=i(6405),H=i(8729);const J=e=>{let{activePage:t,setActivePage:i}=e;const[n,f]=(0,a.useState)(!1),u=(0,d.Zp)(),{user:b}=(0,a.useContext)(H.c),{logout:w}=L(),v=()=>{f(!n)};return(0,U.jsxs)(o,{children:[(0,U.jsx)(r,{src:F,alt:"burger",onClick:v}),(0,U.jsx)(s,{onClick:()=>{b||u("/login")},children:(0,U.jsx)(p,{src:G.A,alt:"Logo"})}),(0,U.jsxs)(c,{children:[(0,U.jsxs)(x,{children:[(0,U.jsx)(h,{children:"Medicine Store"}),(0,U.jsxs)(l,{children:[t," | ",b?b.email:"Loading..."]})]}),(0,U.jsx)(g,{onClick:()=>w(u),children:(0,U.jsx)(m,{src:z,alt:"Logout"})})]}),n&&(0,U.jsx)(q.A,{children:(0,U.jsx)($,{onClose:v,setActivePage:i})})]})},K=n.Ay.div`
+`;var O=i(3003),P=i(4564),C=i(4505);const E=()=>{const e=(0,O.wA)();return{logout:async t=>{try{if(204!==(await C.A.get("/user/logout")).status)throw new Error("Unexpected response status");e((0,P.Z)()),t&&t("/login")}catch(i){console.error("Logout error:",i),i.response&&(console.error("Response data:",i.response.data),console.error("Response status:",i.response.status)),alert(`\u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0445\u043e\u0434\u0435: ${i.message}. \u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 \u0435\u0449\u0435 \u0440\u0430\u0437 \u0438\u043b\u0438 \u043e\u0431\u0440\u0430\u0442\u0438\u0442\u0435\u0441\u044c \u0432 \u0441\u043b\u0443\u0436\u0431\u0443 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0438.`)}}}};var L=i(2340);const z=i.p+"static/media/logout.8124413edcfe8b01cca3b9f2947b5639.svg";const D=i.p+"static/media/dashboardOn.9717401a265ce9b94eb3c7d0347ce489.svg";const $=i.p+"static/media/dashboardOff.738696c191c3e93beb197b7a2117a469.svg";const S=i.p+"static/media/shopping-cartOn.8cb762f92fabebb5d044e3bcc8411833.svg";const _=i.p+"static/media/shopping-cartOff.574725b42f72e3c5346d016956cd8a0a.svg";const R=i.p+"static/media/productsOn.730f3f7c4513755061ef1555b7df8568.svg";const Z=i.p+"static/media/productsOff.a0edd640ff91e292d29ef4cce2f1ad1e.svg";const N=i.p+"static/media/suppliersOn.0a2f1699893b1c4db7d33df081576caa.svg";const W=i.p+"static/media/suppliersOff.3241e2508d8171429e9d2ae36b504a7f.svg";const B=i.p+"static/media/customersOn.738ef3ed5c38373b1512743af98babf1.svg";const I=i.p+"static/media/customersOff.7f59807bffc1bb4cfb459bb75ac41c04.svg";var M=i(579);const U=e=>{let{activePage:t,setActivePage:i,onClose:n}=e;const o=(0,d.zy)(),r=(0,d.Zp)(),{logout:s}=E(),p=(0,a.useRef)(null);(0,a.useEffect)((()=>{const e=e=>{p.current&&!p.current.contains(e.target)&&n()},t=e=>{"Escape"===e.key&&n()};return document.addEventListener("mousedown",e),document.addEventListener("keydown",t),()=>{document.removeEventListener("mousedown",e),document.removeEventListener("keydown",t)}}),[n]);const c=[{path:"/dashboard",label:"Dashboard",iconOn:D,iconOff:$},{path:"/orders",label:"Orders",iconOn:S,iconOff:_},{path:"/products",label:"Products",iconOn:R,iconOff:Z},{path:"/suppliers",label:"Suppliers",iconOn:N,iconOff:W},{path:"/customers",label:"Customers",iconOn:B,iconOff:I}];return(0,M.jsx)(u,{children:(0,M.jsxs)(b,{activePage:t,ref:p,children:[(0,M.jsx)(j,{onClick:n,children:(0,M.jsx)("img",{src:L.A,width:32,height:32,alt:"Close"})}),(0,M.jsx)(w,{children:c.map((e=>(0,M.jsx)(v,{isActive:o.pathname===e.path,onClick:()=>{i(e.label),n()},children:(0,M.jsx)(f.N_,{to:e.path,children:(0,M.jsx)(y,{src:o.pathname===e.path?e.iconOn:e.iconOff,alt:e.label})})},e.label)))}),(0,M.jsx)(k,{onClick:()=>s(r),children:(0,M.jsx)(A,{src:z,alt:"Logout"})})]})})};var q=i(4006);const F=i.p+"static/media/burger.af3f158bc3ab79540cdad55a2c54dc4a.svg";var G=i(6405),H=i(8729);const J=e=>{let{activePage:t,setActivePage:i}=e;const[n,f]=(0,a.useState)(!1),u=(0,d.Zp)(),{user:b}=(0,a.useContext)(H.c),{logout:w}=E(),v=()=>{f(!n)};return(0,M.jsxs)(o,{activePage:t,children:[(0,M.jsx)(r,{src:F,alt:"burger",onClick:v}),(0,M.jsx)(s,{onClick:()=>{b||u("/login")},children:(0,M.jsx)(p,{src:G.A,alt:"Logo"})}),(0,M.jsxs)(c,{children:[(0,M.jsxs)(x,{children:[(0,M.jsx)(h,{children:"Medicine Store"}),(0,M.jsxs)(l,{children:[t," | ",b?b.email:"Loading..."]})]}),(0,M.jsx)(g,{onClick:()=>w(u),children:(0,M.jsx)(m,{src:z,alt:"Logout"})})]}),n&&(0,M.jsx)(q.A,{children:(0,M.jsx)(U,{onClose:v,setActivePage:i,activePage:t})})]})},K=n.Ay.div`
   width: 80px;
   height: 681px;
   padding-top: 40px;
@@ -329,7 +337,7 @@
 `,V=n.Ay.img`
   width: 16px;
   height: 16px;
-`,X=e=>{let{setActivePage:t}=e;const i=(0,d.zy)(),a=[{path:"/dashboard",label:"Dashboard",iconOn:S,iconOff:_},{path:"/orders",label:"Orders",iconOn:D,iconOff:R},{path:"/products",label:"Products",iconOn:Z,iconOff:N},{path:"/suppliers",label:"Suppliers",iconOn:W,iconOff:B},{path:"/customers",label:"Customers",iconOn:I,iconOff:M}];return(0,U.jsx)(K,{children:(0,U.jsx)(Q,{children:a.map((e=>(0,U.jsx)(T,{isActive:i.pathname===e.path,onClick:()=>t(e.label),children:(0,U.jsx)(f.N_,{to:e.path,children:(0,U.jsx)(V,{src:i.pathname===e.path?e.iconOn:e.iconOff,alt:e.label})})},e.label)))})})},Y=n.Ay.div`
+`,X=e=>{let{setActivePage:t}=e;const i=(0,d.zy)(),a=[{path:"/dashboard",label:"Dashboard",iconOn:D,iconOff:$},{path:"/orders",label:"Orders",iconOn:S,iconOff:_},{path:"/products",label:"Products",iconOn:R,iconOff:Z},{path:"/suppliers",label:"Suppliers",iconOn:N,iconOff:W},{path:"/customers",label:"Customers",iconOn:B,iconOff:I}];return(0,M.jsx)(K,{children:(0,M.jsx)(Q,{children:a.map((e=>(0,M.jsx)(T,{isActive:i.pathname===e.path,onClick:()=>t(e.label),children:(0,M.jsx)(f.N_,{to:e.path,children:(0,M.jsx)(V,{src:i.pathname===e.path?e.iconOn:e.iconOff,alt:e.label})})},e.label)))})})},Y=n.Ay.div`
   width: 1440px;
   height: 800px;
   display: flex;
@@ -372,5 +380,5 @@
     width: 375px;
     height: 732px;
   }
-`,te=()=>{const e=(0,d.zy)(),[t,i]=(0,a.useState)(""),[n,o]=(0,a.useState)(!0);return(0,a.useEffect)((()=>{const e=()=>{window.innerWidth<=1440||window.innerWidth<=768?o(!1):o(!0)};return e(),window.addEventListener("resize",e),()=>window.removeEventListener("resize",e)}),[]),(0,a.useEffect)((()=>{switch(e.pathname){case"/dashboard":i("Dashboard");break;case"/orders":i("All orders");break;case"/products":i("All products");break;case"/suppliers":i("All suppliers");break;case"/customers":i("All customers");break;default:i("")}}),[e.pathname]),(0,U.jsxs)(Y,{children:[(0,U.jsx)(J,{activePage:t,setActivePage:i}),(0,U.jsxs)(ee,{children:[n&&(0,U.jsx)(X,{setActivePage:i}),(0,U.jsx)(d.sv,{})]})]})}}}]);
-//# sourceMappingURL=592.03b12290.chunk.js.map
+`,te=()=>{const e=(0,d.zy)(),[t,i]=(0,a.useState)(""),[n,o]=(0,a.useState)(!0);return(0,a.useEffect)((()=>{const e=()=>{window.innerWidth<=1440||window.innerWidth<=768?o(!1):o(!0)};return e(),window.addEventListener("resize",e),()=>window.removeEventListener("resize",e)}),[]),(0,a.useEffect)((()=>{switch(e.pathname){case"/dashboard":i("Dashboard");break;case"/orders":i("All orders");break;case"/products":i("All products");break;case"/suppliers":i("All suppliers");break;case"/customers":i("All customers");break;default:i("")}}),[e.pathname]),(0,M.jsxs)(Y,{children:[(0,M.jsx)(J,{activePage:t,setActivePage:i}),(0,M.jsxs)(ee,{children:[n&&(0,M.jsx)(X,{setActivePage:i}),(0,M.jsx)(d.sv,{})]})]})}}}]);
+//# sourceMappingURL=592.5d3642fc.chunk.js.map
