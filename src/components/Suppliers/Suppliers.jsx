@@ -144,17 +144,19 @@ const Suppliers = () => {
           ))}
         </TableWrapper>
       </TableContainer>
-      <PaginationDotsContainer>
-        {Array.from({ length: totalPages }, (_, index) => (
-          <PaginationBox key={index}>
-            <PaginationDot
-              src={currentPage === index + 1 ? slideOn : slideOff}
-              alt={`page ${index + 1}`}
-              onClick={() => handlePageClick(index + 1)}
-            />
-          </PaginationBox>
-        ))}
-      </PaginationDotsContainer>
+      {filteredSuppliers.length > 5 && (
+        <PaginationDotsContainer>
+          {Array.from({ length: totalPages }, (_, index) => (
+            <PaginationBox key={index}>
+              <PaginationDot
+                src={currentPage === index + 1 ? slideOn : slideOff}
+                alt={`page ${index + 1}`}
+                onClick={() => handlePageClick(index + 1)}
+              />
+            </PaginationBox>
+          ))}
+        </PaginationDotsContainer>
+      )}
       {showEditSupplier && (
         <Modal>
           <EditSupplier

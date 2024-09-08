@@ -164,7 +164,7 @@ export const AddBlock = styled.div`
 
 export const TableContainer = styled.div`
   width: 1280px;
-  height: 502px;
+  height: 500px;
   display: table;
   table-layout: fixed;
   background: var(--background-white);
@@ -174,22 +174,22 @@ export const TableContainer = styled.div`
 
   @media (max-width: 1440px) {
     width: 960px;
-    height: 502px;
+    height: 500px;
   }
 
   @media (max-width: 1024px) {
     width: 960px;
-    height: 502px;
+    height: 500px;
   }
 
   @media (max-width: 768px) {
     width: 712px;
-    height: 458px;
+    height: 460px;
   }
 `;
 
 export const TableTitle = styled.div`
-  width: 1242px;
+  width: 1240px;
   height: 24px;
   padding: 20px;
   font-size: 18px;
@@ -200,11 +200,11 @@ export const TableTitle = styled.div`
   color: var(--background-dark);
 
   @media (max-width: 1440px) {
-    width: 924px;
+    width: 920px;
   }
 
   @media (max-width: 1024px) {
-    width: 924px;
+    width: 920px;
   }
 
   @media (max-width: 768px) {
@@ -219,11 +219,12 @@ export const TableTitle = styled.div`
 export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: calc(100% - 64px);
+  // height: calc(100% - 64px);
+  height: 438px;
   // overflow-y: auto;
 
   @media (max-width: 768px) {
-    height: 414px;
+    height: 412px;
   }
 `;
 
@@ -234,10 +235,11 @@ export const TableHeader = styled.div`
 export const TableBody = styled.div`
   // overflow-y: auto;
   flex-grow: 1;
-  max-height: calc(100% - 64px);
+  // max-height: calc(100% - 64px);
+  height: 380px;
 
   @media (max-width: 768px) {
-    height: 380px;
+    height: 370px;
   }
 `;
 
@@ -275,7 +277,7 @@ export const TableHeaderCell = styled.div`
 
   @media (max-width: 768px) {
     width: 200px;
-    height: 14px;
+    height: 13px;
     font-size: 12px;
     line-height: 14px;
     padding: 14px 7px 14px 14px;
@@ -302,7 +304,8 @@ export const TableCell = styled.div`
 
   @media (max-width: 768px) {
     width: 200px;
-    height: 16px;
+    height: 13px;
+    padding: 30px 5px 30px 14px;
     font-size: 12px;
     line-height: 14px;
   }
@@ -318,25 +321,25 @@ export const ActionIcon = styled.img`
   height: 14px;
 `;
 
-export const SliderIcon = styled.img`
-  width: 127px;
-  height: 19px;
-  margin-left: 576px;
+// export const SliderIcon = styled.img`
+//   width: 127px;
+//   height: 19px;
+//   margin-left: 576px;
 
-  @media (max-width: 1440px) {
-    margin-left: 448px;
-  }
+//   @media (max-width: 1440px) {
+//     margin-left: 448px;
+//   }
 
-  @media (max-width: 1024px) {
-    margin-left: 320px;
-  }
+//   @media (max-width: 1024px) {
+//     margin-left: 320px;
+//   }
 
-  @media (max-width: 768px) {
-    width: 112px;
-    height: 16px;
-    margin-left: 111px;
-  }
-`;
+//   @media (max-width: 768px) {
+//     width: 112px;
+//     height: 16px;
+//     margin-left: 111px;
+//   }
+// `;
 
 export const EditButton = styled.div`
   width: 80px;
