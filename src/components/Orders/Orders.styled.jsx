@@ -260,17 +260,6 @@ export const StatusBadge = styled.span`
   }};
 `;
 
-// export const PaginationDotsContainer = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: 19px;
-
-//   @media (max-width: 768px) {
-//     height: 16px;
-//   }
-// `;
-
 export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -402,8 +391,7 @@ export const TableCellBox02 = styled.div`
     width: 127px;
     height: 35px;
     overflow: hidden;
-    text-overflow: ellipsis;
-   
+    text-overflow: ellipsis;  
 
   @media (max-width: 1024px) {
     width: 127px;

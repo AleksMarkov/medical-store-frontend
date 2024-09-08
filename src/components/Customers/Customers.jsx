@@ -17,7 +17,6 @@ import {
   UserAvatar,
   FilterIcon,
   TableHeaderCell,
-  SliderIcon,
   TableWrapper,
   HeaderBox01,
   HeaderBox02,
@@ -26,15 +25,21 @@ import {
   TableCellBox03,
   TableCellBox04,
   HeaderBox04,
+  PaginationDotsContainer,
+  PaginationBox,
+  PaginationDot,
 } from "./Customers.styled";
 import filterIcon from "../../assets/svg/filter.svg";
-import sliderIcon from "../../assets/svg/Slider.svg";
+import slideOn from "../../assets/svg/slideOn.svg";
+import slideOff from "../../assets/svg/slideOff.svg";
 
 const Customers = () => {
   const dispatch = useDispatch();
   const { customers, error } = useSelector((state) => state.customers);
   const [filterText, setFilterText] = useState("");
   const [filteredCustomers, setFilteredCustomers] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
   useEffect(() => {
     dispatch(fetchCustomers());
@@ -53,10 +58,23 @@ const Customers = () => {
       );
       setFilteredCustomers(filtered);
     }
+    setCurrentPage(1);
   };
 
   if (error) return <div>Error: {error}</div>;
   if (!customers) return <div>Loading...</div>;
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentCustomers = filteredCustomers.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+  const totalPages = Math.ceil(filteredCustomers.length / itemsPerPage);
+
+  const handlePageClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <OrdersContainer>
@@ -89,7 +107,7 @@ const Customers = () => {
             </TableHeaderCell>
             <TableHeaderCell>Register date</TableHeaderCell>
           </TableHeaderRow>
-          {filteredCustomers.map((customer) => (
+          {currentCustomers.map((customer) => (
             <TableBodyRow key={customer._id}>
               <TableCell>
                 <UserInfo>
@@ -114,9 +132,17 @@ const Customers = () => {
           ))}
         </TableWrapper>
       </TableContainer>
-      {filteredCustomers.length >= 6 && (
-        <SliderIcon src={sliderIcon} alt="slider" />
-      )}
+      <PaginationDotsContainer>
+        {Array.from({ length: totalPages }, (_, index) => (
+          <PaginationBox key={index}>
+            <PaginationDot
+              src={currentPage === index + 1 ? slideOn : slideOff}
+              alt={`page ${index + 1}`}
+              onClick={() => handlePageClick(index + 1)}
+            />
+          </PaginationBox>
+        ))}
+      </PaginationDotsContainer>
     </OrdersContainer>
   );
 };
