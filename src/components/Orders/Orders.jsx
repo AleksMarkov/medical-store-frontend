@@ -121,18 +121,20 @@ const Orders = () => {
           ))}
         </TableWrapper>
       </TableContainer>
-      <PaginationDotsContainer>
-        {Array.from({ length: totalPages }, (_, index) => (
-          <PaginationBox>
-            <PaginationDot
-              key={index}
-              src={currentPage === index + 1 ? slideOn : slideOff}
-              alt={`page ${index + 1}`}
-              onClick={() => handlePageClick(index + 1)}
-            />
-          </PaginationBox>
-        ))}
-      </PaginationDotsContainer>
+      {filteredOrders.length > 5 && (
+        <PaginationDotsContainer>
+          {Array.from({ length: totalPages }, (_, index) => (
+            <PaginationBox>
+              <PaginationDot
+                key={index}
+                src={currentPage === index + 1 ? slideOn : slideOff}
+                alt={`page ${index + 1}`}
+                onClick={() => handlePageClick(index + 1)}
+              />
+            </PaginationBox>
+          ))}
+        </PaginationDotsContainer>
+      )}
     </OrdersContainer>
   );
 };

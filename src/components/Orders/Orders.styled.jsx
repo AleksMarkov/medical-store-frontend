@@ -15,7 +15,6 @@ export const OrdersContainer = styled.div`
   flex-direction: column;
   gap: 20px;
   margin: 0 auto;
-  // overflow-x: visible;
 
   @media (max-width: 1440px) {
     width: 960px;
@@ -41,27 +40,26 @@ export const OrdersContainer = styled.div`
 
 export const TableContainer = styled.div`
   width: 1280px;
-  height: 502px;
+  height: 500px;
   display: table;
   table-layout: fixed;
   background: var(--background-white);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  // overflow: hidden;
 
   @media (max-width: 1440px) {
     width: 960px;
-    height: 502px;
+    height: 500px;
   }
 
   @media (max-width: 1024px) {
     width: 960px;
-    height: 502px;
+    height: 500px;
   }
 
   @media (max-width: 768px) {
     width: 768px;
-    height: 458px;
+    height: 460px;
   }
 `;
 
@@ -142,7 +140,7 @@ export const FilterIcon = styled.img`
 `;
 
 export const TableTitle = styled.div`
-  width: 1242px;
+  width: 1240px;
   height: 24px;
   padding: 20px;
   font-size: 18px;
@@ -263,8 +261,7 @@ export const StatusBadge = styled.span`
 export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: calc(100% - 64px);
-  // overflow-y: auto;
+  height: 438px;
 
   @media (max-width: 768px) {
     height: 412px;
@@ -276,9 +273,12 @@ export const TableHeader = styled.div`
 `;
 
 export const TableBody = styled.div`
-  // overflow-y: auto;
   flex-grow: 1;
-  max-height: calc(100% - 64px);
+  max-height: 380px;
+
+  @media (max-width: 768px) {
+    height: 370px;
+  }
 `;
 
 export const TableHeaderRow = styled.div`
