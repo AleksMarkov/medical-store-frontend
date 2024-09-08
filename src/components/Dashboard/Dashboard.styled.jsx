@@ -497,7 +497,6 @@ export const TransactionType = styled.span`
 
 export const CellBox2 = styled.div`
   width: 350px;
-  // overflow: hidden;
   text-overflow: ellipsis;
   font-size: 16px;
   font-weight: 500;
@@ -506,7 +505,6 @@ export const CellBox2 = styled.div`
 
   @media (max-width: 1343px) {
     width: 424px;
-    // height: 18px;
   }
 
   @media (max-width: 768px) {
@@ -582,7 +580,6 @@ export const TableBodyRow = styled.tr`
 
 export const TableBodyRow2 = styled.tr`
   width: 630px;
-  // height: 76px;
 
   @media (max-width: 1343px) {
     width: 704px;
@@ -590,7 +587,6 @@ export const TableBodyRow2 = styled.tr`
 
   @media (max-width: 768px) {
     width: 333x;
-    // height: 74px;
   }
 `;
 
