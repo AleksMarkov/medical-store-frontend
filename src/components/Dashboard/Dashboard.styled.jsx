@@ -31,7 +31,7 @@ export const DashContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 335px;
-    height: 1335px;
+    height: 1313px;
     padding: 20px;
     gap: 20px;
   }
@@ -178,11 +178,12 @@ export const TableContainer2 = styled.div`
 
   @media (max-width: 1343px) {
     width: 704px;
+    height: 510px;
   }
 
   @media (max-width: 768px) {
     width: 333px;
-    height: 512px;
+    height: 515px;
   }
 `;
 
@@ -434,7 +435,7 @@ export const TableHeaderCell2 = styled.div`
 
 export const TableCell2 = styled.div`
   display: table-cell;
-  padding: 25px 20px 25px 20px;
+  padding: 20px;
   border-bottom: 1px solid var(--border-color);
   font-size: 16px;
   font-weight: 500;
@@ -463,7 +464,7 @@ export const UserAvatar = styled.img`
 
 export const TransactionType = styled.span`
   width: 80px;
-  height: 25px;
+  height: 24px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -488,7 +489,7 @@ export const TransactionType = styled.span`
       : "var(--background-dark)"};
 
   @media (max-width: 768px) {
-    height: 23px;
+    height: 22px;
     font-size: 12px;
     line-height: 14.52px;
   }
@@ -496,7 +497,7 @@ export const TransactionType = styled.span`
 
 export const CellBox2 = styled.div`
   width: 350px;
-  overflow: hidden;
+  // overflow: hidden;
   text-overflow: ellipsis;
   font-size: 16px;
   font-weight: 500;
@@ -505,7 +506,7 @@ export const CellBox2 = styled.div`
 
   @media (max-width: 1343px) {
     width: 424px;
-    height: 18px;
+    // height: 18px;
   }
 
   @media (max-width: 768px) {
@@ -518,7 +519,7 @@ export const TableCell3 = styled.div`
   display: table-cell;
   vertical-align: middle;
   text-align: start;
-  padding: 25px 20px 25px 20px;
+  padding: 20px;
   border-bottom: 1px solid var(--border-color);
   font-size: 16px;
   font-weight: 500;
@@ -598,7 +599,7 @@ export const TableWrapper1 = styled(SimpleBar)`
   overflow-x: hidden;
 
   @media (max-width: 768px) {
-    height: 412px;
+    height: 410px;
   }
 `;
 
@@ -606,8 +607,12 @@ export const TableWrapper2 = styled(SimpleBar)`
   height: 436px;
   overflow-x: hidden;
 
+  @media (max-width: 1343px) {
+    height: 446px;
+  }
+
   @media (max-width: 768px) {
-    height: 452px;
+    height: 467px;
   }
 `;
 

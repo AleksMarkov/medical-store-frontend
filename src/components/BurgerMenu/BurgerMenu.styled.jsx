@@ -46,7 +46,7 @@ export const SidebarContainer = styled.div`
   @media (max-width: 768px) {
     width: 78px;
     height: ${(props) =>
-      props.activePage === "Dashboard" ? "1455px" : "812px"};
+      props.activePage === "Dashboard" ? "1434px" : "812px"};
     justify-content: space-between;
   }
 `;
