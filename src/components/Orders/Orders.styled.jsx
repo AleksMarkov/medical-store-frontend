@@ -1,5 +1,6 @@
 //Orders.styled.jsx
 import styled from "styled-components";
+import slideOn from "../../assets/svg/slideOn.svg";
 
 export const OrdersContainer = styled.div`
   width: 1360px;
@@ -14,7 +15,7 @@ export const OrdersContainer = styled.div`
   flex-direction: column;
   gap: 20px;
   margin: 0 auto;
-  overflow-x: visible;
+  // overflow-x: visible;
 
   @media (max-width: 1440px) {
     width: 960px;
@@ -46,7 +47,7 @@ export const TableContainer = styled.div`
   background: var(--background-white);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  overflow: hidden;
+  // overflow: hidden;
 
   @media (max-width: 1440px) {
     width: 960px;
@@ -259,31 +260,22 @@ export const StatusBadge = styled.span`
   }};
 `;
 
-export const SliderIcon = styled.img`
-  width: 127px;
-  height: 19px;
-  margin-left: 576px;
+// export const PaginationDotsContainer = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 19px;
 
-  @media (max-width: 1440px) {
-    margin-left: 448px;
-  }
-
-  @media (max-width: 1024px) {
-    margin-left: 320px;
-  }
-
-  @media (max-width: 768px) {
-    width: 112px;
-    height: 16px;
-    margin-left: 111px;
-  }
-`;
+//   @media (max-width: 768px) {
+//     height: 16px;
+//   }
+// `;
 
 export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: calc(100% - 64px);
-  overflow-y: auto;
+  // overflow-y: auto;
 
   @media (max-width: 768px) {
     height: 412px;
@@ -295,7 +287,7 @@ export const TableHeader = styled.div`
 `;
 
 export const TableBody = styled.div`
-  overflow-y: auto;
+  // overflow-y: auto;
   flex-grow: 1;
   max-height: calc(100% - 64px);
 `;
@@ -425,5 +417,42 @@ export const TableCellBox02 = styled.div`
     width: 106px;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+`;
+
+export const PaginationDotsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 19px;
+  gap: 8px;
+
+  @media (max-width: 768px) {
+    height: 16px;
+    gap: 8px;
+  }
+`;
+
+export const PaginationBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 19px;
+  height: 19px;
+
+  @media (max-width: 768px) {
+    width: 16px;
+    height: 16px;
+  }
+`;
+
+export const PaginationDot = styled.img`
+  width: ${({ src }) => (src === slideOn ? "12px" : "10px")};
+  height: ${({ src }) => (src === slideOn ? "12px" : "10px")};
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: ${({ src }) => (src === slideOn ? "12px" : "10px")};
+    height: ${({ src }) => (src === slideOn ? "12px" : "10px")};
   }
 `;

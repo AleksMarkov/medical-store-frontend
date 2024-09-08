@@ -18,20 +18,25 @@ import {
   StatusBadge,
   FilterIcon,
   TableHeaderCell,
-  SliderIcon,
+  PaginationDotsContainer,
   TableWrapper,
   TableCellBox02,
   HeaderBox01,
   HeaderBox02,
+  PaginationDot,
+  PaginationBox,
 } from "./Orders.styled";
 import filterIcon from "../../assets/svg/filter.svg";
-import sliderIcon from "../../assets/svg/Slider.svg";
+import slideOn from "../../assets/svg/slideOn.svg";
+import slideOff from "../../assets/svg/slideOff.svg";
 
 const Orders = () => {
   const dispatch = useDispatch();
   const { orders, error } = useSelector((state) => state.orders);
   const [filterText, setFilterText] = useState("");
   const [filteredOrders, setFilteredOrders] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
   useEffect(() => {
     dispatch(fetchOrders());
@@ -54,6 +59,15 @@ const Orders = () => {
 
   if (error) return <div>Error: {error}</div>;
   if (!orders) return <div>Loading...</div>;
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentOrders = filteredOrders.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filteredOrders.length / itemsPerPage);
+
+  const handlePageClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <OrdersContainer>
@@ -83,7 +97,7 @@ const Orders = () => {
             <TableHeaderCell>Price</TableHeaderCell>
             <TableHeaderCell>Status</TableHeaderCell>
           </TableHeaderRow>
-          {filteredOrders.map((order) => (
+          {currentOrders.map((order) => (
             <TableBodyRow key={order._id}>
               <TableCell>
                 <UserInfo>
@@ -107,9 +121,18 @@ const Orders = () => {
           ))}
         </TableWrapper>
       </TableContainer>
-      {filteredOrders.length >= 6 && (
-        <SliderIcon src={sliderIcon} alt="slider" />
-      )}
+      <PaginationDotsContainer>
+        {Array.from({ length: totalPages }, (_, index) => (
+          <PaginationBox>
+            <PaginationDot
+              key={index}
+              src={currentPage === index + 1 ? slideOn : slideOff}
+              alt={`page ${index + 1}`}
+              onClick={() => handlePageClick(index + 1)}
+            />
+          </PaginationBox>
+        ))}
+      </PaginationDotsContainer>
     </OrdersContainer>
   );
 };
