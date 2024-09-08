@@ -30,12 +30,13 @@ export const SidebarContainer = styled.div`
 
   @media (max-width: 1343px) {
     height: ${(props) =>
-      props.activePage === "Dashboard" ? " 1024px;" : "768px"};
+      props.activePage === "Dashboard" ? "1312px" : "768px"};
   }
 
   @media (max-width: 1024px) {
     width: 84px;
-    height: 1024px;
+    height: ${(props) =>
+      props.activePage === "Dashboard" ? "1312px" : "1024px"};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,7 +46,9 @@ export const SidebarContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 78px;
-    height: 812px;
+    height: ${(props) =>
+      props.activePage === "Dashboard" ? "1455px" : "812px"};
+    // height: 812px;
     justify-content: space-between;
   }
 `;
