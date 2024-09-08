@@ -20,10 +20,12 @@ import {
   AddIcon,
   AddBlock,
   FilterBlock,
-  SliderIcon,
   EditButton,
   DeleteButton,
   CellBox,
+  PaginationDotsContainer,
+  PaginationBox,
+  PaginationDot,
 } from "./Products.styled";
 import Modal from "../Modal/Modal";
 import AddProduct from "./AddProduct/AddProduct";
@@ -33,7 +35,8 @@ import addIcon from "../../assets/svg/add.svg";
 import filterIcon from "../../assets/svg/filter.svg";
 import editIcon from "../../assets/svg/edit.svg";
 import trashIcon from "../../assets/svg/trash.svg";
-import sliderIcon from "../../assets/svg/Slider.svg";
+import slideOn from "../../assets/svg/slideOn.svg";
+import slideOff from "../../assets/svg/slideOff.svg";
 import {
   fetchProducts,
   deleteProduct,
@@ -49,6 +52,8 @@ const Products = () => {
   const [showDeleteProduct, setShowDeleteProduct] = useState(false);
   const [productToEdit, setProductToEdit] = useState(null);
   const [productToDelete, setProductToDelete] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -67,6 +72,7 @@ const Products = () => {
       );
       setFilteredProducts(filtered);
     }
+    setCurrentPage(1);
   };
 
   const handleEditProduct = (product) => {
@@ -90,6 +96,18 @@ const Products = () => {
   if (error) return <div>Error: {error}</div>;
   if (!products) return <div>Loading...</div>;
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+
+  const handlePageClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <ProductsContainer>
       <FilterContainer>
@@ -105,11 +123,6 @@ const Products = () => {
           </FilterButton>
         </FilterBlock>
         <AddBlock>
-          {showAddProduct && (
-            <Modal>
-              <AddProduct onClose={() => setShowAddProduct(false)} />
-            </Modal>
-          )}
           <AddButton onClick={() => setShowAddProduct(true)}>
             <AddIcon src={addIcon} alt="add" />
           </AddButton>
@@ -127,7 +140,7 @@ const Products = () => {
             <TableHeaderCell>Price</TableHeaderCell>
             <TableHeaderCell>Action</TableHeaderCell>
           </TableHeaderRow>
-          {filteredProducts.map((product) => (
+          {currentProducts.map((product) => (
             <TableBodyRow key={product._id}>
               <TableCell>
                 <CellBox>{product.name}</CellBox>
@@ -148,6 +161,22 @@ const Products = () => {
           ))}
         </TableWrapper>
       </TableContainer>
+      <PaginationDotsContainer>
+        {Array.from({ length: totalPages }, (_, index) => (
+          <PaginationBox key={index}>
+            <PaginationDot
+              src={currentPage === index + 1 ? slideOn : slideOff}
+              alt={`page ${index + 1}`}
+              onClick={() => handlePageClick(index + 1)}
+            />
+          </PaginationBox>
+        ))}
+      </PaginationDotsContainer>
+      {showAddProduct && (
+        <Modal>
+          <AddProduct onClose={() => setShowAddProduct(false)} />
+        </Modal>
+      )}
       {showEditProduct && (
         <Modal>
           <EditProduct
@@ -164,9 +193,6 @@ const Products = () => {
             onConfirmDelete={confirmDeleteProduct}
           />
         </Modal>
-      )}
-      {filteredProducts.length >= 6 && (
-        <SliderIcon src={sliderIcon} alt="slider" />
       )}
     </ProductsContainer>
   );
