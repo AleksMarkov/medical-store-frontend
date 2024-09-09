@@ -124,7 +124,7 @@ export const TableBox = styled.div`
   align-items: flex-start;
   gap: 20px;
   width: 1280px;
-  height: 502px;
+  height: 512px;
 
   @media (max-width: 1343px) {
     flex-direction: column;
@@ -144,7 +144,7 @@ export const TableBox = styled.div`
 
 export const TableContainer1 = styled.div`
   width: 628px;
-  height: 500px;
+  height: 510px;
   display: table;
   table-layout: fixed;
   background: var(--background-white);
@@ -166,7 +166,7 @@ export const TableContainer1 = styled.div`
 
 export const TableContainer2 = styled.div`
   width: 628px;
-  height: 500px;
+  height: 510px;
   display: table;
   table-layout: fixed;
   background: var(--background-white);
