@@ -237,7 +237,7 @@ export const TableHeaderCell01 = styled.div`
 
 export const TableHeaderCell02 = styled.div`
   display: table-cell;
-  width: 238px;
+  width: 266px;
   text-align: left;
   padding: 20px 10px 20px 20px;
   border-right: 1px solid var(--border-color);
@@ -262,7 +262,7 @@ export const TableHeaderCell02 = styled.div`
 
 export const TableHeaderCell03 = styled.div`
   display: table-cell;
-  width: 108px;
+  width: 77px;
   padding: 20px 10px 20px 20px;
   font-size: 14px;
   font-weight: 500;
@@ -360,7 +360,7 @@ export const TableCell02 = styled.div`
 `;
 
 export const CellBox02 = styled.div`
-  width: 238px;
+  // width: 238px;
   height: 17px;
   font-size: 16px;
   font-weight: 500;
