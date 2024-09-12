@@ -5,6 +5,8 @@ import slideOn from "../../assets/svg/slideOn.svg";
 export const ProductsContainer = styled.div`
   width: 1360px;
   height: 606px;
+  width: 100%;
+  height: calc(100% - 116px); // 115padding + 1border
   background-color: var(--background-light);
   color: var(--background-dark);
   border-width: 1px 0px 0px 0px;
@@ -14,7 +16,6 @@ export const ProductsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin: 0 auto;
 
   @media (max-width: 1440px) {
     width: 960px;
@@ -39,10 +40,19 @@ export const ProductsContainer = styled.div`
 `;
 
 export const FilterContainer = styled.div`
+  width: 1280px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1440px) {
+    width: 960px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 960px;
+  }
 
   @media (max-width: 768px) {
     flex-direction: column;
