@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
-  width: 1440px;
+  width: 100%;
   height: 80px;
   background-color: var(--background-light);
   display: flex;
@@ -79,7 +79,7 @@ export const LogoImage = styled.img`
 `;
 
 export const HeaderBlock = styled.div`
-  width: 1280px;
+  width: 100%;
   height: 80px;
   display: flex;
   align-items: center;
