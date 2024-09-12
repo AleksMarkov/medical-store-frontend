@@ -4,8 +4,8 @@ import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 
 export const DashContainer = styled.div`
-  width: 1360px;
-  height: 661px;
+  width: 100%;
+  height: calc(100% - 61px); // 60padding + 1border
   background-color: var(--background-light);
   color: var(--background-dark);
   border-width: 1px 0px 0px 0px;
@@ -360,7 +360,6 @@ export const TableCell02 = styled.div`
 `;
 
 export const CellBox02 = styled.div`
-  // width: 238px;
   height: 17px;
   font-size: 16px;
   font-weight: 500;
